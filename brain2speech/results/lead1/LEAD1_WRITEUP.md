@@ -18,11 +18,19 @@
 7. [Phase 3: Scheduler Discovery](#7-phase-3-scheduler-discovery)
 8. [Phase 4: Beam Search Decoding](#8-phase-4-beam-search-decoding)
 9. [Phase 5: Ensemble Methods](#9-phase-5-ensemble-methods)
-10. [Complete Results Table](#10-complete-results-table)
-11. [Key Findings](#11-key-findings)
-12. [Relevant Files](#12-relevant-files)
-13. [Reproduction Guide](#13-reproduction-guide)
-14. [Limitations & Future Work](#14-limitations--future-work)
+10. [Deep Dive: Convergence Analysis](#10-deep-dive-convergence-analysis)
+11. [Deep Dive: Step Decay vs Cosine Annealing](#11-deep-dive-step-decay-vs-cosine-annealing)
+12. [Deep Dive: Seed Diversity & Training Dynamics](#12-deep-dive-seed-diversity--training-dynamics)
+13. [Deep Dive: Architecture Diversity (Hidden Size)](#13-deep-dive-architecture-diversity-hidden-size)
+14. [Deep Dive: Beam Search Optimization](#14-deep-dive-beam-search-optimization)
+15. [Deep Dive: Ensemble Composition Study](#15-deep-dive-ensemble-composition-study)
+16. [Deep Dive: Parameter Efficiency](#16-deep-dive-parameter-efficiency)
+17. [Improvement Waterfall](#17-improvement-waterfall)
+18. [Complete Results Table](#18-complete-results-table)
+19. [Key Findings](#19-key-findings)
+20. [Relevant Files](#20-relevant-files)
+21. [Reproduction Guide](#21-reproduction-guide)
+22. [Limitations & Future Work](#22-limitations--future-work)
 
 ---
 
@@ -493,7 +501,364 @@ python3 -u brain2speech/eval_beam_search.py \
 
 ---
 
-## 10. Complete Results Table
+## 10. Deep Dive: Convergence Analysis
+
+Understanding how quickly our best model converges — and how different optimizer/scheduler combinations relate to final performance — provides insight into the training dynamics.
+
+### 10.1 Convergence Speed (L1.5h)
+
+The best single model (L1.5h, cosine 20K) reaches key PER milestones at specific points during training:
+
+| PER Threshold | Epoch Reached | Cumulative Minibatches |
+|---------------|---------------|----------------------|
+| ≤50% | ~5 | ~270 |
+| ≤40% | ~10 | ~540 |
+| ≤30% | ~20 | ~1,080 |
+| ≤25% | ~35 | ~1,890 |
+| ≤22% | ~60 | ~3,240 |
+| ≤21% | ~90 | ~4,860 |
+| ≤20% | ~140 | ~7,560 |
+| ≤19.5% | ~250 | ~13,500 |
+
+The model achieves 90% of its improvement in the first 90 epochs (~4,860 minibatches). The remaining 280 epochs are spent fine-tuning from 21% to 19.3% — the final 1.7pp takes 75% of the training time. This is consistent with cosine annealing's design: broad exploration early (high LR), then precise fine-tuning late (decaying LR).
+
+### 10.2 Training Loss vs Test PER Landscape
+
+Plotting final training loss against test PER for all 22 experiments reveals a clear structure:
+
+- **SGD + Cosine** models (orange dots) cluster in the lower-left: low final loss AND low test PER
+- **SGD + Step** models (green squares) achieve similar final loss but slightly higher PER — the step schedule doesn't smooth the loss surface as effectively
+- **Adam** models (blue triangles) sit higher on the PER axis — Adam converges to flatter minima that don't generalize as well for this task
+
+The relationship between train loss and test PER is non-monotonic: models with the absolute lowest training loss (high capacity + long training) don't necessarily have the best test PER. The h=1280 cosine model achieves very low training loss but overfits slightly, while h=768 cosine has higher training loss but better test PER due to implicit regularization from the smaller capacity.
+
+![Convergence and Landscape](plots/07_convergence_and_landscape.png)
+
+---
+
+## 11. Deep Dive: Step Decay vs Cosine Annealing
+
+The switch from step decay to cosine annealing was the single most impactful improvement in Lead 1 (20.9% → 20.2% test, 1.1pp → 0.7pp depending on comparison point). Understanding *why* requires looking at the training dynamics in detail.
+
+### 11.1 Learning Rate Profiles
+
+**Step Decay (L1.3):**
+```
+Epoch 0-74:    lr = 0.100  (warm phase)
+Epoch 74+:     lr = 0.010  (cold phase — 62% of training)
+Early stop:    epoch 197
+```
+
+The model spends 62% of its training at a fixed lr=0.01. This rate is too high for fine-grained optimization but too low for continued exploration — it's stuck in a suboptimal regime.
+
+**Cosine 20K (L1.5h):**
+```
+Epoch 0:       lr = 0.100
+Epoch 50:      lr = 0.097  (gentle initial decay)
+Epoch 185:     lr = 0.050  (midpoint)
+Epoch 300:     lr = 0.010  (equivalent to step decay's cold phase)
+Epoch 370:     lr ≈ 0.000  (near-zero at convergence)
+```
+
+Cosine provides a smooth curriculum: the model explores broadly for the first ~150 epochs (lr > 0.05), then gradually shifts to fine-tuning. By epoch 300, it's at the same lr as step decay's cold phase, but it continues to lower rates that allow precision optimization.
+
+### 11.2 Training Loss Dynamics
+
+The training loss curves reveal a striking difference:
+- **Step decay**: Loss plateaus around epoch 74 when LR drops, then slowly decreases at lr=0.01. The plateau represents wasted gradient updates at a suboptimal learning rate.
+- **Cosine 20K**: Loss decreases continuously without plateaus. The smooth LR decay keeps the model in the optimal regime throughout training.
+
+### 11.3 Validation PER Dynamics
+
+Step decay's val PER oscillates in the [20.4%, 21.5%] range after epoch 74 — the model can't escape its local minimum at lr=0.01. Cosine 20K's val PER steadily decreases from ~25% to 19.3% with minimal oscillation, only plateauing in the final ~50 epochs when LR is near-zero.
+
+### 11.4 Why Not Cosine 100K or 200K?
+
+Cosine annealing only works when T_max matches the actual training duration:
+
+| Config | T_max | Epochs Trained | LR at Early Stop | Effective LR Range Used |
+|--------|-------|----------------|------------------|----------------------|
+| Cosine 100K | 100,000 | 236 | ~0.096 | 0.100 → 0.096 (barely decays!) |
+| Cosine 200K | 200,000 | 301 | ~0.098 | 0.100 → 0.098 (even worse) |
+| **Cosine 20K** | **20,000** | **370** | **~0.001** | **0.100 → 0.001 (full cycle)** |
+
+With T_max=100K, the model early-stops long before the cosine cycle completes. The LR barely decays from 0.1, so the model essentially trains with a constant learning rate — no worse than step decay, but no better either. Only T_max=20K allows the full cosine cycle to complete within the patience window.
+
+![Step vs Cosine Detail](plots/09_step_vs_cosine_detail.png)
+
+---
+
+## 12. Deep Dive: Seed Diversity & Training Dynamics
+
+To build effective ensembles, we need models that make errors in different places. The simplest approach — training with different random seeds — turns out to be surprisingly ineffective.
+
+### 12.1 Seed Training Curves
+
+Training 4 models (seeds 42, 123, 456, 789) with identical configs reveals near-identical trajectories:
+
+| Seed | Final Val PER | Best Epoch | Final Train Loss |
+|------|--------------|------------|------------------|
+| 42 | 19.5% | ~340 | ~0.32 |
+| 123 | 19.5% | ~350 | ~0.31 |
+| 456 | 20.2% | ~280 | ~0.35 |
+| 789 | 19.3% | ~360 | ~0.30 |
+
+Seeds 42 and 123 are nearly identical (19.5% val, similar convergence). Seed 456 is an outlier — it converges earlier and to a worse minimum. Seed 789 is the best, matching the original L1.5h.
+
+### 12.2 Why Seed Diversity Alone Fails
+
+The 4-seed ensemble only improves from 19.3% → 18.7% val (0.6pp). This is disappointing because:
+
+1. **Convergence correlation**: All models converge to similar minima in the loss landscape. The GRU's optimization surface for this task is relatively smooth with a dominant basin of attraction.
+2. **Error overlap**: Same architecture + same optimizer + same data → similar learned representations. Most errors occur on the same ambiguous phoneme boundaries.
+3. **Weak link problem**: Seed 456 (20.2% val) drags down the ensemble average — removing it improves performance.
+
+### 12.3 L1.5h vs L1.7c Seed 42: Same Seed, Different Models
+
+An unexpected finding: L1.5h (seed 42, trained first as a standalone experiment) and L1.7c seed 42 (trained later in the batch) produce different results despite identical hyperparameters:
+
+| Model | Val PER | Test PER |
+|-------|---------|----------|
+| L1.5h | 19.3% | 20.2% |
+| L1.7c s42 | 19.5% | 20.2% |
+
+The difference arises from **early stopping at different epochs** — the patience counter and validation sampling can lead to different checkpoint selection. This actually provides useful diversity, which is why including both L1.5h and L1.7c seeds in the ensemble helps.
+
+![Seed Diversity Curves](plots/10_seed_diversity_curves.png)
+
+---
+
+## 13. Deep Dive: Architecture Diversity (Hidden Size)
+
+Architecture diversity (varying hidden size while keeping everything else fixed) provides much more ensemble diversity than seed variation.
+
+### 13.1 Hidden Size Training Dynamics with Cosine 20K
+
+| Hidden | Params | Val PER | Test PER | Best Epoch | Train Loss at Best |
+|--------|--------|---------|----------|------------|-------------------|
+| 768 | 57.6M | 19.1% | 19.7% | ~380 | ~0.38 |
+| 1024 | 98.3M | 19.3% | 20.2% | ~370 | ~0.30 |
+| 1280 | 149.9M | 19.7% | 20.3% | ~350 | ~0.25 |
+
+Counter-intuitively, h=768 achieves the best test PER (19.7%) despite h=1024 having better val PER (19.3%). This val/test discrepancy suggests h=768 has a slight generalization advantage — its smaller capacity acts as implicit regularization.
+
+### 13.2 Why h=768 Helps the Ensemble
+
+The h=768 model adds genuine diversity because:
+
+1. **Different capacity regime**: 57.6M vs 98.3M parameters → different trade-offs between memorization and generalization
+2. **Different error patterns**: h=768 underfits on long/complex phoneme sequences but handles simple patterns more robustly. h=1024 handles complex sequences better but occasionally overfits on noisy inputs.
+3. **Different convergence dynamics**: h=768 trains slightly longer (380 vs 370 epochs) and achieves higher training loss (0.38 vs 0.30), meaning it learns a fundamentally different solution.
+
+### 13.3 Why h=1280 Doesn't Help
+
+Despite being the largest model, h=1280 is the weakest with cosine 20K (19.7% val, 20.3% test):
+
+- **Training loss too low** (0.25): The model memorizes training data, hurting generalization
+- **Insufficient regularization**: Dropout=0.4 may not be enough for 149.9M parameters
+- **Same error mode as h=1024**: The extra capacity doesn't change the model's error profile, just amplifies overfitting
+- **Adding h=1280 to the 5-model ensemble** degrades test PER from 17.8% → 18.0%
+
+![Hidden Size Comparison](plots/11_hidden_size_cosine.png)
+
+---
+
+## 14. Deep Dive: Beam Search Optimization
+
+CTC greedy decoding selects the most likely token at each timestep independently. Beam search with a language model considers sequences holistically, fixing phonotactic errors.
+
+### 14.1 The Trigram Phoneme LM
+
+Our language model is a trigram over the 40-phoneme vocabulary, trained on the 6,942 training sequences:
+
+```python
+class PhonemeNgramLM:
+    """Trigram phoneme language model with Kneser-Ney-style backoff."""
+
+    def __init__(self, sequences, order=3, alpha=0.75):
+        # Count n-grams from training sequences
+        for seq in sequences:
+            for n in range(1, order + 1):
+                for i in range(len(seq) - n + 1):
+                    ngram = tuple(seq[i:i+n])
+                    self.counts[n][ngram] += 1
+
+    def score(self, context, next_token):
+        # Interpolated backoff: P(w|ctx) = λ₃·P₃ + (1-λ₃)·(λ₂·P₂ + (1-λ₂)·P₁)
+        ...
+```
+
+The LM has 583K n-grams total. While simple, it captures key phonotactic constraints (e.g., "NG" rarely follows "SH", "AH" is common after "DH").
+
+### 14.2 Scoring Function
+
+Beam search scores each candidate sequence as:
+
+```
+score = log_p_ctc + α × log_p_lm + β × |sequence|
+```
+
+Where:
+- `log_p_ctc`: CTC prefix score (accumulated log-probability from the acoustic model)
+- `log_p_lm`: Language model score (trigram log-probability)
+- `α`: LM weight (controls how much the LM influences decoding)
+- `β`: Length bonus (penalizes short sequences, which CTC tends to favor)
+
+### 14.3 Extended Sweep Results
+
+We swept α ∈ {0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0, 1.5, 2.0} × beam ∈ {5, 10} × β ∈ {0.0, 0.5}:
+
+**β=0.0 (no length bonus):**
+
+| Beam\\α | 0.0 | 0.1 | 0.2 | 0.3 | 0.5 | 0.7 | 1.0 | 1.5 | 2.0 |
+|---------|------|------|------|------|------|------|------|------|------|
+| 5 | 19.21 | 19.00 | 18.82 | **18.74** | 18.81 | 19.01 | 19.51 | 20.89 | 22.69 |
+| 10 | 19.14 | 18.94 | 18.81 | **18.73** | 18.77 | 19.00 | 19.43 | 20.58 | 22.28 |
+
+**β=0.5 (with length bonus):**
+
+| Beam\\α | 0.0 | 0.1 | 0.2 | 0.3 | 0.5 | 0.7 | 1.0 | 1.5 | 2.0 |
+|---------|------|------|------|------|------|------|------|------|------|
+| 5 | 19.21 | 19.20 | 18.89 | 18.76 | 18.75 | 18.79 | 19.20 | 20.38 | 22.06 |
+| 10 | 19.14 | 19.16 | 18.84 | 18.77 | **18.68** | 18.73 | 19.13 | 20.17 | 21.72 |
+
+### 14.4 Analysis
+
+**Optimal for single model**: beam=10, α=0.5, β=0.5 → 18.68% val PER
+
+**Optimal for ensemble**: beam=10, α=0.3, β=0.5 → 17.5% val PER
+
+The ensemble prefers lower α (0.3 vs 0.5) because the ensemble's averaged logits are already smoother and more confident — additional LM pressure causes over-correction. Single models have noisier outputs that benefit from stronger LM guidance.
+
+**Diminishing returns from beam width**: beam=10 vs beam=5 improves by only 0.06pp (18.73 → 18.68 at best). beam=25 (not shown) gives <0.02pp additional improvement for 2.5× compute cost. The trigram LM is too weak to benefit from wider beams — a 5-gram word-level KenLM would likely show much larger beam width effects.
+
+**Danger zone**: α ≥ 1.0 consistently degrades performance. At α=2.0, the LM dominates and PER increases by 3-4pp. The phoneme trigram LM is useful for local corrections but harmful when it overrides the acoustic model's global decisions.
+
+![Extended Beam Search Sweep](plots/12_beam_sweep_extended.png)
+
+---
+
+## 15. Deep Dive: Ensemble Composition Study
+
+Not all ensemble members contribute equally. This section analyzes which models to include and which to exclude.
+
+### 15.1 Systematic Ensemble Ablation
+
+Starting from the best single model and progressively adding members:
+
+| Ensemble | Members | Val PER | Test PER | Δ vs Previous |
+|----------|---------|---------|----------|---------------|
+| Single best (greedy) | L1.5h | 19.3% | 20.2% | — |
+| Single best (beam) | L1.5h | 18.8% | 19.5% | −0.7pp |
+| + 3 seeds (beam) | +s42,123,789 | 17.7% | 18.1% | −1.4pp |
+| **+ h=768 (beam)** | **+L1.8a** | **17.5%** | **17.8%** | **−0.3pp** |
+| + h=1280 (beam) | +L1.8c | 17.7% | 18.0% | +0.2pp (worse!) |
+| + seed 456 (beam) | +s456 | 18.0% | 18.7% | +0.9pp (much worse!) |
+
+### 15.2 Greedy vs Beam for Ensembles
+
+| Ensemble | Val Greedy | Val Beam | Beam Improvement |
+|----------|-----------|---------|-----------------|
+| Single model | 19.3% | 18.8% | −0.5pp |
+| 4-seed ensemble | 19.5% | 18.7% | −0.8pp |
+| 5-model best | 18.0% | 17.5% | −0.5pp |
+
+Beam search improvement is roughly constant (~0.5pp) regardless of ensemble size. This makes sense: beam search corrects phonotactic errors, which are orthogonal to ensemble averaging's error-reduction mechanism.
+
+### 15.3 Quality Threshold
+
+The data clearly shows a quality threshold for ensemble membership. Models below ~19.5% val PER contribute positively; models above detract. The ensemble is a *geometric mean* of probabilities (log-prob averaging), so a weak model's high-entropy predictions dilute the ensemble's confidence on correct answers without adding useful signal.
+
+**Rule of thumb**: Only include models within 0.5pp of the best single model's val PER.
+
+### 15.4 Ensemble Implementation Detail
+
+```python
+# In eval_beam_search.py
+def ensemble_forward(models, batch, session_ids):
+    """Average log-probabilities across models (geometric mean of probs)."""
+    all_log_probs = []
+    for model in models:
+        with torch.no_grad():
+            logits = model(batch, session_ids)
+            log_probs = torch.log_softmax(logits, dim=-1)
+            all_log_probs.append(log_probs.cpu().numpy())
+
+    # Align to minimum time length (different models may pad differently)
+    min_T = min(lp.shape[1] for lp in all_log_probs)
+    avg_log_probs = np.mean([lp[:, :min_T, :] for lp in all_log_probs], axis=0)
+    return avg_log_probs
+```
+
+Why geometric mean (log-space averaging) rather than arithmetic mean (probability averaging)?
+- **Arithmetic mean**: Dominated by the model with highest confidence. If one model is 99% sure about a wrong answer, it overwhelms the others.
+- **Geometric mean**: Requires agreement. All models must assign reasonable probability for a token to survive. This naturally penalizes overconfident errors.
+
+![Ensemble Composition](plots/13_ensemble_composition.png)
+
+---
+
+## 16. Deep Dive: Parameter Efficiency
+
+How many parameters do you actually need for this task?
+
+### 16.1 Params vs PER (Step Decay)
+
+| Model | Params | Test PER | PER/10M params |
+|-------|--------|----------|----------------|
+| Paper UniGRU h=512 k=14 | 29M | 25.4% | 8.76 |
+| h=768 BiGRU | 57.6M | 21.3% | 3.70 |
+| h=1024 BiGRU (CIBR) | 98.3M | 20.9% | 2.13 |
+| h=1280 BiGRU | 149.9M | 21.0% | 1.40 |
+
+### 16.2 Params vs PER (Cosine 20K)
+
+| Model | Params | Test PER | PER/10M params |
+|-------|--------|----------|----------------|
+| h=768 cosine | 57.6M | **19.7%** | 3.42 |
+| h=1024 cosine | 98.3M | 20.2% | 2.06 |
+| h=1280 cosine | 149.9M | 20.3% | 1.35 |
+
+### 16.3 Key Observations
+
+1. **h=768 cosine is the most efficient model**: It achieves the paper's target PER (19.7%) with only 57.6M parameters and the best test PER of any single model architecture.
+
+2. **Cosine annealing unlocks smaller models**: With step decay, h=768 achieved 21.3% (1.6pp below h=1024's 20.9%). With cosine, h=768 achieves 19.7% (0.5pp *better* than h=1024's 20.2%). The cosine schedule is particularly beneficial for smaller models that need more precise optimization.
+
+3. **Diminishing returns beyond 100M params**: Moving from 57.6M → 98.3M (1.7×) improves test PER by ~0.5pp with step decay. Moving from 98.3M → 149.9M (1.5×) gives essentially zero improvement (+0.1pp).
+
+4. **The paper's 29M model is significantly under-parameterized**: The UniGRU h=512 k=14 architecture (29M params) is 5.7pp worse than h=768 BiGRU (57.6M), suggesting the paper left performance on the table with a conservative architecture choice. However, the paper was also constrained to a causal (unidirectional) architecture for real-time speech decoding, which our bidirectional models don't satisfy.
+
+![Parameter Efficiency](plots/14_parameter_efficiency.png)
+
+---
+
+## 17. Improvement Waterfall
+
+The full journey from broken baseline to best ensemble, showing the cumulative impact of each improvement:
+
+| Step | Test PER | Improvement | Technique |
+|------|----------|-------------|-----------|
+| Broken baseline (k=1, Adam lr=3e-4) | 51.9% | — | Starting point |
+| Fix architecture (k=14, UniGRU h=512) | 25.4% | −26.5pp | Correct stack & stride + optimizer |
+| BiGRU + wider kernel (k=32, h=1024) | 21.4% | −4.0pp | Bidirectional + longer context |
+| SGD optimizer (lr=0.1, ortho init) | 20.9% | −0.5pp | Better optimizer for this task |
+| Cosine 20K scheduler | 20.2% | −0.7pp | Smooth LR decay over full training |
+| + Beam search (trigram LM) | 19.5% | −0.7pp | Phonotactic error correction |
+| + 5-model ensemble | 17.8% | −1.7pp | Error averaging + arch diversity |
+| **Total improvement** | | **−34.1pp** | |
+
+The waterfall shows two distinct regimes:
+1. **Architecture regime** (51.9% → 21.4%): Getting the architecture right accounts for 88% of improvement (30.5 / 34.1pp)
+2. **Optimization regime** (21.4% → 17.8%): Training tricks, decoding, and ensembling account for 12% (3.6pp)
+
+This is consistent with the broader ML lesson: model architecture and data dominate; training tricks provide marginal gains.
+
+![Improvement Waterfall](plots/08_improvement_waterfall.png)
+
+---
+
+## 18. Complete Results Table
 
 ### All Experiments (Chronological)
 
@@ -533,7 +898,7 @@ python3 -u brain2speech/eval_beam_search.py \
 
 ---
 
-## 11. Key Findings
+## 19. Key Findings
 
 ### What Matters Most (Ranked by Impact)
 
@@ -560,7 +925,7 @@ python3 -u brain2speech/eval_beam_search.py \
 
 ---
 
-## 12. Relevant Files
+## 20. Relevant Files
 
 ### Scripts
 
@@ -570,7 +935,8 @@ python3 -u brain2speech/eval_beam_search.py \
 | `brain2speech/eval_beam_search.py` | Beam search eval for single/ensemble models |
 | `brain2speech/beam_search_decode.py` | PhonemeNgramLM + CTC prefix beam search + PER computation |
 | `brain2speech/config.py` | Phoneme mapping, constants (N_CLASSES=40, CTC_BLANK=40) |
-| `brain2speech/results/lead1/generate_plots.py` | Plot generation script for this writeup |
+| `brain2speech/results/lead1/generate_plots.py` | Plot generation script (plots 01-06) |
+| `brain2speech/results/lead1/generate_plots_v2.py` | Extended plot generation (plots 07-14) |
 
 ### Checkpoints (Best Models)
 
@@ -596,10 +962,18 @@ All 31 experiment results stored as JSON with full hyperparameters, training his
 | `plots/04_ensemble_results.png` | Seed diversity + ensemble comparison |
 | `plots/05_beam_search_heatmap.png` | Beam search α vs beam width heatmap |
 | `plots/06_best_model_training.png` | L1.5h training loss, val PER, and LR curves |
+| `plots/07_convergence_and_landscape.png` | Convergence speed + train loss vs test PER scatter |
+| `plots/08_improvement_waterfall.png` | Step-by-step improvement from 51.9% to 17.8% |
+| `plots/09_step_vs_cosine_detail.png` | Detailed step decay vs cosine 20K comparison (4 panels) |
+| `plots/10_seed_diversity_curves.png` | Training curves for all 4 seeds + L1.5h |
+| `plots/11_hidden_size_cosine.png` | h=768 vs h=1024 vs h=1280 with cosine schedule |
+| `plots/12_beam_sweep_extended.png` | Extended beam search sweep (β=0.0 and β=0.5 heatmaps) |
+| `plots/13_ensemble_composition.png` | Horizontal bar chart of all ensemble configurations |
+| `plots/14_parameter_efficiency.png` | Parameter count vs test PER scatter |
 
 ---
 
-## 13. Reproduction Guide
+## 21. Reproduction Guide
 
 ### Prerequisites
 
@@ -661,7 +1035,7 @@ python3 -u brain2speech/eval_beam_search.py \
 
 ---
 
-## 14. Limitations & Future Work
+## 22. Limitations & Future Work
 
 ### Current Limitations
 
