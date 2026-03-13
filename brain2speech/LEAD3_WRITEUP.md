@@ -1139,3 +1139,221 @@ Conservative estimates with beam search LM decoding (based on published greedy�
 3. **Cross-session augmentation** — Mix features from different recording days
 4. **Label smoothing** on CTC targets (0.1-0.2)
 5. **Gradient accumulation** for effective batch size 256+ (currently 64)
+
+---
+
+## Appendix H: Lead 3 Plan Status — What's Done, What Remains
+
+### H.1 Plan Phase Completion Status
+
+| Phase | Status | Description | Result |
+|---|---|---|---|
+| **L3.0.1** Install deps | DONE | mamba-ssm, causal-conv1d | Installed via `--no-deps` workaround |
+| **L3.0.2** Bootstrap baseline | DONE | BiGRU 5-layer baseline | 53.3% test PER |
+| **L3.0.3** `lead3_models.py` | DONE | All model classes | 959 lines, 10 classes |
+| **L3.1.1** BiMamba training script | DONE | `lead3_train_bimamba.py` | 548 lines |
+| **L3.1.2** BiMamba hyperparam sweeps | DONE | Layer count, d_state, expand, schedule, weight-tie | Best: 3L = 43.4% |
+| **L3.1.3** BiMamba validation | DONE | Compare vs GRU baseline | BiMamba beats GRU by 8.7% |
+| **L3.2.1** S4 implementation | DONE | S4D from scratch in PyTorch | `lead3_train_s4.py` |
+| **L3.2.2** S4 experiments | DONE | lr sweep, 2 configs | Best: 56.8% (underperforms) |
+| **L3.3.1** MAE pretraining | DONE | 50 epochs SSL pretraining | Val MSE 0.096 |
+| **L3.3.1** MAE fine-tuning | DONE | CTC fine-tune with pretrained encoder | 72.7% (underperforms) |
+| **L3.3.2** MAE ablations | **NOT DONE** | Mask ratio, patch size, depth sweeps | Deprioritized — MAE failed |
+| **L3.4.1** ResBlock+GRU | DONE | `lead3_train_resblock_gru.py` | Best: 43.2% |
+| **L3.5.1** supTCon loss | DONE | Tested on 3L and 5L BiMamba | +0.7% to +3.2% improvement |
+| **L3.5.2** Speckled + FastEmit | DONE | Included in all enhanced configs | ~3% improvement |
+| **L3.5.3** SpecAugment | **NOT DONE** | `--specaugment` flag exists but untested | Low priority |
+| **L3.6** Seed diversity | DONE | 3 seeds × 3L BiMamba, 3 seeds × 5L | 7 diverse checkpoints |
+
+### H.2 What Remains for Lead 3
+
+**Low priority (diminishing returns):**
+1. MAE ablations (mask ratio, patch size) — MAE failed fundamentally due to insufficient data
+2. SpecAugment on best model — speckled masking already provides similar regularization
+3. S4 with no frame stacking (direct on raw 315-step sequences) — S4 underperformed across all configs
+4. ResBlock+BiMamba hybrid — could combine best encoder (ResBlock) with best sequence model (BiMamba)
+
+**Medium priority (could improve results):**
+5. ResBlock+GRU seed diversity — only 1 seed tested for the best architecture
+6. Longer training (300+ epochs) — models still improving at epoch 154
+7. Higher d_model (768/1024) for 3-layer BiMamba
+
+**None of these are blocking for Lead 4 ensemble integration.**
+
+### H.3 What Lead 3 Needs FROM Other Leads
+
+| From | What | Why | Status |
+|---|---|---|---|
+| **Lead 4** | Integrate L3 model classes into `lead4_ensemble_ctc.py` | L4 ensemble script doesn't support `BiMambaDecoder` or `ResBlockGRUDecoder` yet | **BLOCKING** — config provided at `configs/lead3_ensemble.json` |
+| **Lead 4** | Beam search / KenLM decoding on L3 checkpoints | Our 43.2% PER is greedy — LM decoding would yield ~28-32% | Lead 4 has `lead4_decode_kenlm.py` ready |
+| **Lead 1** | Nothing | Independent | — |
+| **Lead 2** | Nothing | Independent | — |
+
+### H.4 What Lead 3 Provides TO Other Leads
+
+| To | What | Files | Notes |
+|---|---|---|---|
+| **Lead 4** | 7 ensemble-ready checkpoints | `configs/lead3_ensemble.json` | Architecturally diverse: ResBlock+GRU, BiMamba 3L/5L, ±supTCon, 3 seeds |
+| **Lead 4** | Model class definitions | `lead3_models.py` | `BiMambaDecoder`, `ResBlockGRUDecoder` — need to add import to L4 ensemble |
+| **Lead 4** | Output length functions | In model classes | `BiMambaDecoder`: `(T-14)//4+1`, `ResBlockGRUDecoder`: `.get_output_lengths()` |
+| **All** | Auxiliary loss implementations | `lead3_models.py` | `supervised_contrastive_loss()`, `fastemit_regularization()`, `speckled_mask()` |
+
+---
+
+## Appendix I: Model Weights — File Paths, Sizes, and Storage Instructions
+
+### I.1 Complete Checkpoint Inventory
+
+All checkpoints stored at `/mnt/home/vincent.wilmet/brain2speech/results/`:
+
+**Top-7 ensemble checkpoints (recommended for Lead 4):**
+
+| File | Size | Test PER | Architecture |
+|---|---|---|---|
+| `L3_resblock_gru_L3_resblock_gru_v3_best.pt` | 64 MB | 43.2% | ResBlock+GRU |
+| `L3_bimamba_L3_mamba_L3_s456_best.pt` | 34 MB | 43.4% | BiMamba 3L |
+| `L3_bimamba_L3_mamba_L3_supcon_best.pt` | 34 MB | 43.9% | BiMamba 3L+supTCon |
+| `L3_bimamba_L3_mamba_L3_s123_best.pt` | 34 MB | 44.4% | BiMamba 3L |
+| `L3_bimamba_L3_mamba_L3_best.pt` | 34 MB | 44.6% | BiMamba 3L |
+| `L3_bimamba_L3_mamba_supcon_v2_best.pt` | 47 MB | 44.7% | BiMamba 5L+supTCon |
+| `L3_bimamba_L3_mamba_L3_cosine_best.pt` | 34 MB | 45.7% | BiMamba 3L |
+
+**Total top-7 size: ~281 MB**
+
+**All L3 checkpoints (including ablations):**
+
+| File | Size | Test PER |
+|---|---|---|
+| `L3_bimamba_L3_mamba_L4_best.pt` | 41 MB | 46.8% |
+| `L3_bimamba_L3_mamba_best_s123_best.pt` | 47 MB | 47.2% |
+| `L3_bimamba_L3_mamba_enhanced_v2_best.pt` | 47 MB | 47.9% |
+| `L3_bimamba_L3_mamba_best_s456_best.pt` | 47 MB | 48.3% |
+| `L3_bimamba_L3_mamba_cosine_best.pt` | 47 MB | 49.8% |
+| `L3_bimamba_L3_mamba_tied_v2_best.pt` | 47 MB | 50.9% |
+| `L3_bimamba_L3_mamba_sep_v2_best.pt` | 80 MB | 51.4% |
+| `L3_bimamba_L3_mamba_expand4_best.pt` | 80 MB | 55.8% |
+| `L3_bimamba_L3_mamba_S32_best.pt` | 48 MB | 56.7% |
+| `L3_resblock_gru_L3_resblock_gru_v2_best.pt` | 64 MB | 55.3% |
+| `L3_s4_L3_s4_lr02_best.pt` | 30 MB | 56.8% |
+| `L3_s4_L3_s4_v3_best.pt` | 30 MB | 65.7% |
+| `L3_resblock_mamba_L3_resblock_mamba_v2_best.pt` | 41 MB | 70.7% |
+| `L3_mae_L3_mae_ft_v3_best.pt` | 21 MB | 72.7% |
+
+**Total all L3 checkpoints: ~1.1 GB**
+
+### I.2 Uploading Weights to Shared Storage
+
+To copy the top-7 ensemble checkpoints to `/mnt/home/vincent.wilmet/data/` for shared access:
+
+```bash
+# Create Lead 3 checkpoint directory
+mkdir -p /mnt/home/vincent.wilmet/data/lead3_checkpoints
+
+# Copy top-7 ensemble checkpoints
+RESULTS=/mnt/home/vincent.wilmet/brain2speech/results
+DEST=/mnt/home/vincent.wilmet/data/lead3_checkpoints
+
+cp $RESULTS/L3_resblock_gru_L3_resblock_gru_v3_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_L3_s456_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_L3_supcon_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_L3_s123_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_L3_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_supcon_v2_best.pt $DEST/
+cp $RESULTS/L3_bimamba_L3_mamba_L3_cosine_best.pt $DEST/
+
+# Copy the ensemble config
+cp brain2speech/configs/lead3_ensemble.json $DEST/
+
+# Copy the model definitions (needed to load checkpoints)
+cp brain2speech/lead3_models.py $DEST/
+
+# Verify
+ls -lh $DEST/
+echo "Total: $(du -sh $DEST/ | cut -f1)"
+```
+
+To copy ALL checkpoints (including ablation/suboptimal runs):
+
+```bash
+cp $RESULTS/L3_*.pt $DEST/
+cp $RESULTS/mae_pretrained.pt $DEST/  # MAE pretraining weights
+```
+
+### I.3 Loading Checkpoints from Shared Storage
+
+```python
+import sys
+import torch
+
+# Add the model definitions to path
+sys.path.insert(0, '/mnt/home/vincent.wilmet/data/lead3_checkpoints')
+# OR: sys.path.insert(0, '/path/to/bci/brain2speech')
+
+from lead3_models import BiMambaDecoder, ResBlockGRUDecoder
+
+# Load BiMamba 3-layer (best: 43.4% PER)
+ckpt = torch.load('/mnt/home/vincent.wilmet/data/lead3_checkpoints/L3_bimamba_L3_mamba_L3_s456_best.pt',
+                   map_location='cpu')
+model = BiMambaDecoder(
+    n_features_per_frame=256, n_classes=41,
+    d_model=512, n_layers=3, d_state=16, expand=2,
+    weight_tie=True, post_backbone_norm=True,
+)
+model.load_state_dict(ckpt['model_state_dict'])
+model.eval()
+
+# Load ResBlock+GRU (best overall: 43.2% PER)
+ckpt = torch.load('/mnt/home/vincent.wilmet/data/lead3_checkpoints/L3_resblock_gru_L3_resblock_gru_v3_best.pt',
+                   map_location='cpu')
+model = ResBlockGRUDecoder(
+    n_features_per_frame=256, n_classes=41,
+    d_model=512, n_gru_layers=3, dropout=0.4,
+    n_sessions=24, day_hidden=256, post_backbone_norm=True,
+)
+model.load_state_dict(ckpt['model_state_dict'])
+model.eval()
+```
+
+### I.4 Data File Locations
+
+The training data and supporting files:
+
+| File | Location | Size | Purpose |
+|---|---|---|---|
+| `sentences_paper_256d.h5` | `/mnt/home/vincent.wilmet/brain2speech/data/` | ~15 GB | Main training data (8780 trials) |
+| `sentences.tar.gz` | `/mnt/home/vincent.wilmet/data/` | 14 GB | Raw sentences data archive |
+| `competitionData.tar.gz` | `/mnt/home/vincent.wilmet/data/` | 3.5 GB | Competition data |
+| `derived.tar.gz` | `/mnt/home/vincent.wilmet/data/` | 7.6 GB | Derived features |
+| `languageModel.tar.gz` | `/mnt/home/vincent.wilmet/data/` | 14 GB | LM data (for Lead 4 decoding) |
+| `phoneme_5gram.arpa` | `brain2speech/data/` | ~140K lines | 5-gram phoneme LM (Lead 4) |
+| `cmudict-0.7b` | `brain2speech/data/` | 3.6 MB | CMU pronunciation dictionary |
+
+### I.5 Lead 4 Integration: Adding L3 Model Support
+
+To add Lead 3 model support to Lead 4's `lead4_ensemble_ctc.py`, add these imports in the `_load_model` method:
+
+```python
+# In lead4_ensemble_ctc.py, add to _load_model():
+elif model_class_name == 'BiMambaDecoder':
+    from lead3_models import BiMambaDecoder
+    model = BiMambaDecoder(**model_kwargs)
+elif model_class_name == 'ResBlockGRUDecoder':
+    from lead3_models import ResBlockGRUDecoder
+    model = ResBlockGRUDecoder(**model_kwargs)
+```
+
+Then update the cross-lead ensemble config to include Lead 3 models:
+```bash
+# Merge Lead 3 models into cross_lead_ensemble.json
+python -c "
+import json
+with open('brain2speech/configs/cross_lead_ensemble.json') as f:
+    config = json.load(f)
+with open('brain2speech/configs/lead3_ensemble.json') as f:
+    l3 = json.load(f)
+config['models'].extend(l3['models'])
+del config['_lead3_placeholder']
+with open('brain2speech/configs/cross_lead_ensemble.json', 'w') as f:
+    json.dump(config, f, indent=4)
+"
+```
