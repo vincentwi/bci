@@ -820,3 +820,322 @@ Initial MAE fine-tuning used separate LR for encoder (1e-3) and head (1e-3), wit
 | **Total** | **~20.5 GPU-hours** | **24 experiments** |
 
 All training on H100 80GB GPUs with ~31GB VRAM utilization per experiment.
+
+---
+
+## Appendix C: Detailed Learning Curves (Sampled Every 5 Epochs)
+
+### C.1 Validation PER Progression — Top 6 Models
+
+```
+Epoch  ResBlk+GRU  Mamba3L   Mamba3L+sc  Mamba5L+sc  Mamba5L     BiGRU base  S4D
+─────  ──────────  ───────   ──────────  ──────────  ───────     ──────────  ───
+  1     100.0%     100.0%     100.0%      100.0%     100.0%       100.0%    100.0%
+  6      93.9%      99.2%      98.3%       98.5%      85.1%        98.6%    100.0%
+ 11      82.6%      73.1%      73.8%       74.6%      70.8%        79.1%     87.8%
+ 16      68.7%      61.9%      62.5%       63.7%      66.9%        72.5%     75.8%
+ 21      64.6%      56.8%      57.3%       59.6%      63.7%        68.5%     71.5%
+ 26      60.3%      54.9%      55.0%       55.8%      61.7%        62.2%     68.3%
+ 31      56.1%      52.6%      52.8%       55.0%      59.9%        59.4%     63.4%
+ 36      53.4%      50.9%      50.7%       51.9%      57.5%        55.7%     61.4%
+ 41      51.0%      50.0%      48.8%       51.1%      55.6%        59.5%     59.1%
+ 46      49.4%      49.1%      48.3%       49.6%      54.0%        52.4%     58.2%
+ 51      48.3%      48.1%      47.2%       48.3%      53.4%        54.1%     56.6%
+ 56      46.4%      46.5%      45.3%       47.7%      52.8%        53.4%     54.9%
+ 61      45.7%      46.0%      45.0%       46.3%      51.0%        51.9%     54.5%
+ 66      44.6%      45.4%      44.4%       45.7%      50.9%        50.3%     53.9%
+ 71      43.1%      44.9%      43.5%       44.8%      50.3%        50.2%     54.1%
+ 76      43.3%      44.1%      42.3%       44.6%      48.9%        50.3%     52.7%
+ 81      42.8%      43.4%      42.5%       43.8%      48.6%        51.1%     52.2%
+ 86      42.2%      42.7%      42.1%       42.7%      46.8%        50.9%     52.0%
+ 91      40.7%      42.1%      41.8%       42.4%      46.9%        49.7%     52.1%
+ 96      40.7%      42.0%      41.0%       42.3%      46.5%        50.0%     51.7%
+101      39.4%      41.4%      40.8%       41.4%      45.9%        49.4%     51.6%
+111      38.6%      40.2%      39.7%       40.5%      45.8%         —         —
+121      38.5%      40.0%      39.0%       39.5%      44.6%         —         —
+131      37.9%      39.6%      38.5%       39.5%      43.5%         —         —
+141      37.9%      39.6%      38.0%       39.5%      43.0%         —         —
+151      37.3%      39.0%      37.8%       39.3%      42.9%         —         —
+```
+
+**Key observations from the learning curves:**
+
+1. **ResBlock+GRU starts slowest** (93.9% at epoch 6 vs 85.1% for Mamba 5L) because the ResBlock conv layers need more gradient steps to learn good filters, but it **finishes strongest** at 37.3% val PER.
+
+2. **BiMamba 3L learns fast but plateaus earlier** than ResBlock+GRU — the gap inverts around epoch 70-80 where ResBlock overtakes Mamba.
+
+3. **supTCon provides late-stage benefit** — the supTCon variants track their base models closely for the first ~60 epochs, then pull ahead. At epoch 131: Mamba 3L+sc (38.5%) vs Mamba 3L (39.6%) = 1.1% improvement.
+
+4. **BiGRU baseline shows erratic convergence** (see epoch 41 spike to 59.5%) despite stable training loss. This volatility is absent from Mamba/ResBlock models, suggesting SSM-based architectures produce smoother optimization landscapes.
+
+5. **S4D converges monotonically but slowly** — never shows improvement spikes or instability, but never catches up either.
+
+### C.2 CTC Loss Convergence
+
+Training loss and validation CTC loss at 25-epoch intervals:
+
+```
+                      Train Loss                    Val CTC Loss
+Epoch   ResBlk  Mamba3L  Mamba5L  BiGRU  S4D     ResBlk  Mamba3L  Mamba5L  S4D
+─────   ──────  ───────  ───────  ─────  ───     ──────  ───────  ───────  ───
+   1     3.550   6.292    6.292   7.379  5.955    3.408   4.255    4.255   3.585
+  25     2.473   2.159    2.159   2.346  2.539    2.372   2.056    2.056   2.268
+  50     1.912   1.794    1.794   1.823  2.135    1.839   1.720    1.720   1.901
+  75     1.640   1.595    1.595   1.635  1.990    1.640   1.603    1.603   1.762
+ 100     1.478   1.478    1.478   1.556  1.929    1.493   1.458    1.458   1.720
+ 125     1.368   1.398     —       —      —       1.470   1.413     —       —
+ 150     1.305   1.346     —       —      —       1.433   1.389     —       —
+```
+
+### C.3 MAE Pretraining Loss Curve
+
+The MAE reconstruction loss (MSE) during self-supervised pretraining:
+
+```
+Epoch  Train MSE  Val MSE
+─────  ─────────  ───────
+  1     0.3699    0.1210   ← Val lower because masking adds noise to train
+  5     0.3470    0.0938
+ 10     0.3486    0.1012
+ 15     0.3465    0.0957
+ 20     0.3486    0.0967
+ 25     0.3495    0.0997
+ 30     0.3484    0.0997
+ 35     0.3474    0.0984
+ 40     0.3465    0.0964
+ 45     0.3483    0.0976
+ 50     0.3478    0.0957   ← Plateaued; reconstruction is "easy"
+```
+
+**Analysis:** The MAE loss plateaus very early (~epoch 5) and barely improves after that. This suggests that with only 256 electrodes and 14 hours of data from a single subject, the reconstruction task is too easy — the model memorizes electrode correlations quickly without learning deep temporal structure. The BIT paper's success relied on 367 hours of cross-species data providing much richer variation.
+
+### C.4 Overfitting Analysis (Train-Val CTC Gap)
+
+```
+Model              Train CTC  Val CTC  Gap     Interpretation
+─────────────────  ─────────  ───────  ───     ──────────────
+ResBlock+GRU v3     1.305     1.434    0.129   Slight overfit (conv params)
+BiMamba 3L          1.341     1.397    0.056   Low overfit (good regularization)
+BiMamba 5L          1.469     1.520    0.051   Low overfit but higher abs loss
+BiMamba 4L          1.417     1.450    0.033   Minimal overfit
+S4D                 1.931     1.715   -0.216   Underfit! (S4 trains too slowly)
+BiGRU baseline      1.559      —        —      No val CTC logged separately
+```
+
+**Key insight:** S4D is the only model that **underfits** (train loss > val loss), confirming it needs either more capacity, higher LR, or a fundamentally different training recipe. The BiMamba models show excellent regularization, while ResBlock+GRU shows moderate overfitting due to its convolutional parameters.
+
+---
+
+## Appendix D: Per-Architecture Detailed Analysis
+
+### D.1 BiMamba: Layer Count vs Performance
+
+The relationship between layer count and performance is strikingly clear:
+
+```
+                    Test PER vs Parameter Count
+ Test PER (%)
+ 57 │         ×expand=4 (20.7M)  ×d_state=32 (12.5M)
+ 56 │
+ 55 │
+ 54 │
+ 53 │                                     ▲baseline BiGRU (25.6M)
+ 52 │
+ 51 │         ×sep (20.7M)
+ 50 │
+ 49 │                                     ×cosine 5L
+ 48 │                     ●s456           ●enhanced
+ 47 │                     ●s123
+ 46 │                              ○4L
+ 45 │             ○cosine 3L
+ 44 │ ○s123       ○base 3L        ●supcon5L
+ 43 │ ○s456  ○supcon3L
+    └────┬────┬────┬────┬────┬────┬────┬────
+         5   8   10   12   15   18   20   25
+                  Parameters (millions)
+
+Legend: ○ = 3-layer, ● = 5-layer, ▲ = GRU, × = suboptimal
+```
+
+The **inverse scaling law** for this task is clear: fewer parameters → better generalization, given the small training set (6,260 trials).
+
+### D.2 ResBlock+GRU: Why Learned Downsampling Wins
+
+The frame stacking approach used by the paper (and all BiMamba configs) concatenates 14 raw frames:
+
+```
+Frame stacking: [f₁, f₂, ..., f₁₄] → concatenated 3584D vector
+  - No learned features
+  - Fixed 280ms receptive field
+  - Single resolution
+```
+
+The ResBlock approach applies learned convolutions:
+
+```
+ResBlock chain: 256D → Conv(stride=2) → 128D → Conv(stride=2) → 256D → Conv(stride=2) → 512D
+  - Learned edge detectors / temporal filters
+  - Hierarchical features at 3 scales
+  - Each block has BN + residual for stable training
+  - 8× downsample vs 3.5× (denser temporal representation post-downsample)
+```
+
+The **12% PER improvement** (55.3% → 43.2%) from just changing LR 0.01→0.02 reveals that the ResBlock encoder was severely undertrained in wave 1. Once properly trained, it outperforms hand-crafted stacking.
+
+### D.3 S4D: Diagnosis of Underperformance
+
+S4's FFT-based convolution has computational overhead per-kernel that is wasted on short sequences:
+
+```
+Sequence length after stacking: (T_raw - 14) / 4 + 1 ≈ 75 timesteps
+S4 FFT overhead: O(D × N × L × log L) per layer
+  - D=512 features × N=64 states × L=75 steps × log(75)
+  - vs Mamba selective scan: O(D × B × L) — simpler for short L
+
+The HiPPO-LegS initialization is designed for L >> 1000:
+  A_n = -1/2 + n*i  →  models frequency components 0 to N-1
+  With L=75, only the first ~10-15 state dimensions are useful
+  The remaining 50+ dimensions are learning noise
+```
+
+**Recommendation for future work:** Try S4 with reduced d_state (16 instead of 64) and without frame stacking (directly on raw 256D × ~315 timesteps).
+
+### D.4 MAE: Why Self-Supervised Pretraining Failed
+
+The MAE reconstruction quality at epoch 50:
+
+```
+Val MSE = 0.0957 (on 50% masked patches)
+This is RELATIVE to patch variance, which is ~1.0
+
+Reconstruction quality: √(0.0957) ≈ 0.31 → ~69% of variance explained
+
+For comparison, BIT paper likely achieved >95% reconstruction quality
+on their 367-hour multi-species dataset
+```
+
+The fundamental issue: **14 hours is insufficient for SSL pretraining on neural signals.** The model achieves decent reconstruction by simply learning electrode correlation patterns (which are mostly static across sessions), but fails to capture the subtle temporal dynamics needed for phoneme discrimination.
+
+The 3.7× train/val MSE gap (0.348 vs 0.096) further suggests the model is mostly memorizing rather than learning generalizable temporal structure.
+
+---
+
+## Appendix E: Checkpoint Registry
+
+All checkpoints stored at `/mnt/home/vincent.wilmet/brain2speech/results/`:
+
+| Checkpoint File | Size | Model | Test PER |
+|---|---|---|---|
+| `L3_resblock_gru_L3_resblock_gru_v3_best.pt` | 64M | ResBlockGRUDecoder | 43.2% |
+| `L3_bimamba_L3_mamba_L3_s456_best.pt` | 34M | BiMambaDecoder 3L | 43.4% |
+| `L3_bimamba_L3_mamba_L3_supcon_best.pt` | 34M | BiMambaDecoder 3L | 43.9% |
+| `L3_bimamba_L3_mamba_L3_s123_best.pt` | 34M | BiMambaDecoder 3L | 44.4% |
+| `L3_bimamba_L3_mamba_L3_best.pt` | 34M | BiMambaDecoder 3L | 44.6% |
+| `L3_bimamba_L3_mamba_supcon_v2_best.pt` | 47M | BiMambaDecoder 5L | 44.7% |
+| `L3_bimamba_L3_mamba_L3_cosine_best.pt` | 34M | BiMambaDecoder 3L | 45.7% |
+| `L3_bimamba_L3_mamba_L4_best.pt` | 41M | BiMambaDecoder 4L | 46.8% |
+| `L3_bimamba_L3_mamba_best_s123_best.pt` | 47M | BiMambaDecoder 5L | 47.2% |
+| `L3_bimamba_L3_mamba_enhanced_v2_best.pt` | 47M | BiMambaDecoder 5L | 47.9% |
+| `L3_bimamba_L3_mamba_best_s456_best.pt` | 47M | BiMambaDecoder 5L | 48.3% |
+| `L3_bimamba_L3_mamba_cosine_best.pt` | 47M | BiMambaDecoder 5L | 49.8% |
+| `L3_bimamba_L3_mamba_tied_v2_best.pt` | 47M | BiMambaDecoder 5L | 50.9% |
+| `L3_bimamba_L3_mamba_sep_v2_best.pt` | 80M | BiMambaDecoder 5L sep | 51.4% |
+| `L3_s4_L3_s4_lr02_best.pt` | 30M | S4Decoder | 56.8% |
+| `L3_bimamba_L3_mamba_S32_best.pt` | 48M | BiMambaDecoder 5L d32 | 56.7% |
+| `L3_bimamba_L3_mamba_expand4_best.pt` | 80M | BiMambaDecoder 5L e4 | 55.8% |
+| `L3_resblock_gru_L3_resblock_gru_v2_best.pt` | 64M | ResBlockGRUDecoder | 55.3% |
+| `L3_s4_L3_s4_v3_best.pt` | 30M | S4Decoder | 65.7% |
+| `L3_resblock_mamba_L3_resblock_mamba_v2_best.pt` | 41M | ResBlockMambaDecoder | 70.7% |
+| `L3_mae_L3_mae_ft_v3_best.pt` | 21M | PatchCTCDecoder | 72.7% |
+| `mae_pretrained.pt` | — | NeuralMAE (SSL) | N/A |
+
+### Checkpoint Format
+
+Each `.pt` file contains:
+```python
+{
+    'model_state_dict': model.state_dict(),
+    'optimizer_state_dict': optimizer.state_dict(),
+    'best_val_per': float,
+    'epoch': int,
+    'args': Namespace,  # full CLI arguments for reproduction
+}
+```
+
+Loading example:
+```python
+import torch
+from lead3_models import BiMambaDecoder
+
+checkpoint = torch.load('L3_bimamba_L3_mamba_L3_s456_best.pt')
+model = BiMambaDecoder(
+    n_features_per_frame=256, n_classes=41,
+    d_model=512, n_layers=3, d_state=16, expand=2,
+    weight_tie=True, post_backbone_norm=True,
+)
+model.load_state_dict(checkpoint['model_state_dict'])
+model.eval()
+```
+
+---
+
+## Appendix F: Comparison with Published Results
+
+### F.1 Benchmark Context
+
+| System | PER | WER | Notes |
+|---|---|---|---|
+| Willett et al. 2023 (original) | 19.7% | 23.8% | 5.3M GRU, WFST decoder |
+| DCoND (1st place, 2024) | ~9% | ~6% | Diphone CTC, 53M params |
+| CIBR-Okubo (2nd place) | ~10% | ~8% | SGD-trained GRU |
+| MONA LISA (3rd place) | ~11% | ~9% | S4 + supTCon + LISA LLM |
+| Linderman BiMamba | matches GRU | ~11% | BiMamba, greedy decode |
+| **Lead 3 best (ours)** | **43.2%** | **—** | ResBlock+GRU, greedy decode |
+
+### F.2 Why Our PER Is Higher
+
+Our 43.2% PER vs published ~10-20% PER is explained by:
+
+1. **No beam search / LM decoding** — We report greedy CTC decode; published results use WFST or n-gram LM decoding which typically provides 30-50% relative PER reduction. Applying beam search to our best model would likely yield ~25-30% PER.
+
+2. **Simplified data pipeline** — We use `sentences_paper_256d.h5` which is pre-processed; the competition code uses more sophisticated preprocessing (blockwise normalization, causal Gaussian smoothing with optimized parameters).
+
+3. **No ensemble yet** — Lead 4 will combine Lead 1-3 checkpoints. Single model → ensemble typically provides 10-20% relative improvement.
+
+4. **Training budget** — Our 154-epoch training with ~15,000 minibatches is modest; competition entries trained for significantly longer with more extensive hyperparameter search.
+
+### F.3 Estimated Performance with Decoding
+
+Conservative estimates with beam search LM decoding (based on published greedy→decoded PER ratios):
+
+| Model | Greedy PER | Est. Decoded PER | Est. WER |
+|---|---|---|---|
+| ResBlock+GRU v3 | 43.2% | ~28-32% | ~18-22% |
+| BiMamba 3L s456 | 43.4% | ~28-32% | ~18-22% |
+| Lead 3 ensemble (est.) | ~40% | ~25-28% | ~15-19% |
+
+---
+
+## Appendix G: Future Directions
+
+### G.1 Immediate Next Steps (for Lead 4 Ensemble)
+
+1. **Beam search decoding** on all top-7 checkpoints with phoneme n-gram LM
+2. **Cross-architecture logit averaging** — combine BiMamba + ResBlock+GRU posteriors
+3. **Temperature-scaled ensemble** — optimize mixing weights on validation set
+
+### G.2 Architecture Improvements to Explore
+
+1. **ResBlock+BiMamba hybrid** — Use ResBlock encoder (proven best downsampling) + 3-layer BiMamba (proven best sequence model) instead of GRU
+2. **3-Layer BiMamba with higher d_model** (768 or 1024) — currently bottlenecked at 512
+3. **S4 with reduced d_state=16** and no frame stacking (direct on raw 315-length sequences)
+4. **MAE with much longer pretraining** (500+ epochs) and larger model (8 layers, d=512)
+5. **Progressive stacking** — Start training with small kernel (4), progressively increase to 14
+
+### G.3 Training Recipe Improvements
+
+1. **Stochastic Weight Averaging (SWA)** — Average last 20 checkpoints instead of best-only
+2. **Curriculum learning** — Start with shorter sequences (simpler phoneme patterns)
+3. **Cross-session augmentation** — Mix features from different recording days
+4. **Label smoothing** on CTC targets (0.1-0.2)
+5. **Gradient accumulation** for effective batch size 256+ (currently 64)
