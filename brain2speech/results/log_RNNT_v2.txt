@@ -1,0 +1,81 @@
+======================================================================
+SEQ2SEQ PHONEME DECODING — RNN-T
+  Device: cuda:0 (GPUs: [4, 5])
+  Type: RNN-T
+  Epochs: 80, BS: 16, LR: 0.0003
+  Patience: 10 (fast iteration)
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Sessions: 24
+Train: 6260, Val: 720, Test: 1800
+Model: RNN-T, 34.6M params
+Epoch   1/80 | loss=102.5696 | val_PER=0.979 | lr=3.0e-04 | 106.6s
+Epoch   2/80 | loss=46.0906 | val_PER=0.898 | lr=3.0e-04 | 101.2s
+Epoch   3/80 | loss=34.5530 | val_PER=0.825 | lr=3.0e-04 | 100.9s
+Epoch   4/80 | loss=26.5984 | val_PER=0.784 | lr=3.0e-04 | 101.2s
+Epoch   5/80 | loss=20.7464 | val_PER=0.680 | lr=3.0e-04 | 100.7s
+Epoch   6/80 | loss=16.2423 | val_PER=0.611 | lr=3.0e-04 | 101.1s
+Epoch   7/80 | loss=12.7277 | val_PER=0.593 | lr=3.0e-04 | 101.2s
+Epoch   8/80 | loss=10.1100 | val_PER=0.551 | lr=3.0e-04 | 101.5s
+Epoch   9/80 | loss=8.1682 | val_PER=0.555 | lr=3.0e-04 | 101.5s
+Epoch  10/80 | loss=6.7236 | val_PER=0.528 | lr=3.0e-04 | 101.4s
+Epoch  11/80 | loss=5.6554 | val_PER=0.528 | lr=3.0e-04 | 100.5s
+Epoch  12/80 | loss=4.7993 | val_PER=0.528 | lr=3.0e-04 | 100.5s
+Epoch  13/80 | loss=4.2377 | val_PER=0.514 | lr=3.0e-04 | 100.9s
+Epoch  14/80 | loss=3.7042 | val_PER=0.488 | lr=3.0e-04 | 101.4s
+Epoch  15/80 | loss=3.3826 | val_PER=0.516 | lr=3.0e-04 | 101.8s
+Epoch  16/80 | loss=3.1198 | val_PER=0.499 | lr=3.0e-04 | 100.9s
+Epoch  17/80 | loss=2.7876 | val_PER=0.498 | lr=3.0e-04 | 101.4s
+Epoch  18/80 | loss=2.5892 | val_PER=0.485 | lr=3.0e-04 | 101.3s
+Epoch  19/80 | loss=2.4703 | val_PER=0.489 | lr=3.0e-04 | 101.2s
+Epoch  20/80 | loss=2.3665 | val_PER=0.482 | lr=3.0e-04 | 101.1s
+Epoch  21/80 | loss=2.1466 | val_PER=0.490 | lr=3.0e-04 | 100.7s
+Epoch  22/80 | loss=2.0308 | val_PER=0.471 | lr=3.0e-04 | 100.2s
+Epoch  23/80 | loss=2.0192 | val_PER=0.480 | lr=3.0e-04 | 101.2s
+Epoch  24/80 | loss=1.8657 | val_PER=0.475 | lr=3.0e-04 | 100.7s
+Epoch  25/80 | loss=1.8219 | val_PER=0.496 | lr=3.0e-04 | 101.0s
+Epoch  26/80 | loss=1.7392 | val_PER=0.484 | lr=3.0e-04 | 100.7s
+Epoch  27/80 | loss=1.6741 | val_PER=0.480 | lr=3.0e-04 | 101.2s
+Epoch  28/80 | loss=0.9042 | val_PER=0.466 | lr=1.5e-04 | 100.2s
+Epoch  29/80 | loss=0.4748 | val_PER=0.456 | lr=1.5e-04 | 100.4s
+Epoch  30/80 | loss=0.3680 | val_PER=0.459 | lr=1.5e-04 | 100.8s
+Epoch  31/80 | loss=0.3434 | val_PER=0.451 | lr=1.5e-04 | 101.1s
+Epoch  32/80 | loss=0.3461 | val_PER=0.456 | lr=1.5e-04 | 101.0s
+Epoch  33/80 | loss=0.2944 | val_PER=0.449 | lr=1.5e-04 | 101.0s
+Epoch  34/80 | loss=0.3181 | val_PER=0.460 | lr=1.5e-04 | 101.1s
+Epoch  35/80 | loss=0.3037 | val_PER=0.455 | lr=1.5e-04 | 101.4s
+Epoch  36/80 | loss=0.3057 | val_PER=0.456 | lr=1.5e-04 | 101.6s
+Epoch  37/80 | loss=0.3040 | val_PER=0.459 | lr=1.5e-04 | 101.1s
+Epoch  38/80 | loss=0.2927 | val_PER=0.462 | lr=1.5e-04 | 101.2s
+Epoch  39/80 | loss=0.1845 | val_PER=0.451 | lr=7.5e-05 | 100.7s
+Epoch  40/80 | loss=0.0862 | val_PER=0.454 | lr=7.5e-05 | 100.6s
+Epoch  41/80 | loss=0.0649 | val_PER=0.450 | lr=7.5e-05 | 100.8s
+Epoch  42/80 | loss=0.0603 | val_PER=0.452 | lr=7.5e-05 | 101.3s
+Epoch  43/80 | loss=0.0571 | val_PER=0.445 | lr=7.5e-05 | 101.5s
+Epoch  44/80 | loss=0.0675 | val_PER=0.445 | lr=7.5e-05 | 101.1s
+Epoch  45/80 | loss=0.0596 | val_PER=0.447 | lr=7.5e-05 | 100.8s
+Epoch  46/80 | loss=0.0654 | val_PER=0.448 | lr=7.5e-05 | 101.1s
+Epoch  47/80 | loss=0.0725 | val_PER=0.442 | lr=7.5e-05 | 101.0s
+Epoch  48/80 | loss=0.0762 | val_PER=0.449 | lr=7.5e-05 | 100.5s
+Epoch  49/80 | loss=0.0678 | val_PER=0.444 | lr=7.5e-05 | 101.1s
+Epoch  50/80 | loss=0.0719 | val_PER=0.441 | lr=7.5e-05 | 100.5s
+Epoch  51/80 | loss=0.0768 | val_PER=0.443 | lr=7.5e-05 | 101.0s
+Epoch  52/80 | loss=0.0706 | val_PER=0.447 | lr=7.5e-05 | 102.0s
+Epoch  53/80 | loss=0.0618 | val_PER=0.444 | lr=7.5e-05 | 101.2s
+Epoch  54/80 | loss=0.0555 | val_PER=0.444 | lr=7.5e-05 | 100.9s
+Epoch  55/80 | loss=0.0603 | val_PER=0.451 | lr=7.5e-05 | 100.9s
+Epoch  56/80 | loss=0.0538 | val_PER=0.445 | lr=3.7e-05 | 101.0s
+Epoch  57/80 | loss=0.0342 | val_PER=0.444 | lr=3.7e-05 | 101.0s
+Epoch  58/80 | loss=0.0307 | val_PER=0.446 | lr=3.7e-05 | 101.9s
+Epoch  59/80 | loss=0.0291 | val_PER=0.441 | lr=3.7e-05 | 101.5s
+Epoch  60/80 | loss=0.0307 | val_PER=0.443 | lr=3.7e-05 | 101.1s
+Early stop at epoch 60
+
+============================================================
+TEST RESULTS — RNN-T
+  PER: 55.2%
+  Paper baseline PER: 19.7%
+============================================================
+Results saved to /mnt/home/vincent.wilmet/brain2speech/results/seq2seq_RNN-T_20260312_185821.json
+Model saved to /mnt/home/vincent.wilmet/brain2speech/results/seq2seq_RNN-T_best.pt

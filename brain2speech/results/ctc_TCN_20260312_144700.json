@@ -1,0 +1,27 @@
+{
+  "model": "TCN",
+  "test_per": 0.708505068619303,
+  "test_accuracy": 0.10457201202563957,
+  "best_val_per": 0.6530121449866695,
+  "n_train": 6260,
+  "n_val": 720,
+  "n_test": 1800,
+  "epochs_trained": 48,
+  "hyperparams": {
+    "model": "TCN",
+    "gpus": [
+      6
+    ],
+    "epochs": 100,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "patience": 20,
+    "hidden": 256,
+    "n_layers": 8,
+    "scheduler": "plateau",
+    "downsample": 1,
+    "noise": 0.05,
+    "max_trials": null,
+    "eval_mode": "holdout"
+  }
+}

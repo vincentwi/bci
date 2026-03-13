@@ -1,0 +1,15 @@
+{
+  "per_before": 0.11304482768708654,
+  "per_after": 0.07883535585792802,
+  "per_reduction": 0.302618638367533,
+  "per_reduction_absolute": 0.034209471829158525,
+  "correction_precision": 0.685290763968073,
+  "correction_recall": 0.3716759431045145,
+  "damage_rate": 0.008409904999221306,
+  "total_errors": 1617,
+  "total_correct": 12842,
+  "total_changes": 877,
+  "total_fixed": 601,
+  "total_broken": 108,
+  "n_samples": 500
+}

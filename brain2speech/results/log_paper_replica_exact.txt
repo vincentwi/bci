@@ -1,0 +1,46 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.02 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 0.1 (paper: 0.1)
+  Noise: white=1.0, offset=0.2
+  Stack: kernel=14 (280ms), stride=4 (80ms)
+  Dropout: 0.4, L2: 1e-05
+  Direction: UNIDIRECTIONAL (paper)
+======================================================================
+  Loading trial 2000/8780 (32.5s)...
+  Loading trial 4000/8780 (55.6s)...
+  Loading trial 6000/8780 (78.2s)...
+  Loading trial 8000/8780 (100.9s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (109.4s)
+  Stacked: kernel=14, stride=4
+  Stacked features: 17920D per 80ms step
+  Avg stacked length: 76 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (unidirectional), 237.3M params
+  Input: 17920D stacked features
+  Hidden: 512 × 5 layers
+
+Training schedule:
+  Batches/epoch: 97
+  Target minibatches: 10000 → ~103 epochs
+  LR: 0.02 → ~0 linear decay
+Epoch   1/103 | loss=3.9716 | val_PER=1.000 | lr=1.98e-02 | 32.4s
+Epoch   2/103 | loss=3.5286 | val_PER=1.000 | lr=1.96e-02 | 25.1s
+Epoch   3/103 | loss=3.5251 | val_PER=1.000 | lr=1.94e-02 | 24.9s
+Epoch   4/103 | loss=3.5220 | val_PER=1.000 | lr=1.92e-02 | 23.8s
+Epoch   5/103 | loss=3.5192 | val_PER=1.000 | lr=1.90e-02 | 24.4s
+Epoch   6/103 | loss=3.5165 | val_PER=1.000 | lr=1.88e-02 | 24.3s
+Epoch   7/103 | loss=3.5129 | val_PER=1.000 | lr=1.86e-02 | 23.5s
+Epoch   8/103 | loss=3.5107 | val_PER=1.000 | lr=1.84e-02 | 24.5s
+Epoch   9/103 | loss=3.5072 | val_PER=1.000 | lr=1.83e-02 | 25.7s
+Epoch  10/103 | loss=3.5050 | val_PER=1.000 | lr=1.81e-02 | 25.3s
+Epoch  11/103 | loss=3.5014 | val_PER=1.000 | lr=1.79e-02 | 25.1s
+Epoch  12/103 | loss=3.4959 | val_PER=1.000 | lr=1.77e-02 | 25.9s
+Epoch  13/103 | loss=3.4863 | val_PER=1.000 | lr=1.75e-02 | 25.4s
+Epoch  14/103 | loss=3.4705 | val_PER=1.000 | lr=1.73e-02 | 25.0s
+Epoch  15/103 | loss=3.4491 | val_PER=1.000 | lr=1.71e-02 | 25.7s

@@ -1,0 +1,94 @@
+{
+  "dataset": {
+    "train_sessions": [
+      "2022_09_22",
+      "2022_09_23",
+      "2022_09_30",
+      "2022_10_05",
+      "2022_10_06",
+      "2022_10_10",
+      "2022_10_27"
+    ],
+    "test_session": "2022_11_03",
+    "val_session": "2022_11_04",
+    "n_train_trials": 1080,
+    "n_test_trials": 60,
+    "n_val_trials": 60
+  },
+  "classifiers": {
+    "BiLSTM_no_aug": {
+      "best_acc": 0.23333333333333334,
+      "best_f1": 0.1797738169689389,
+      "best_epoch": 1
+    },
+    "BiLSTM_aug": {
+      "best_acc": 0.31666666666666665,
+      "best_f1": 0.29828469022017406,
+      "best_epoch": 27
+    },
+    "TCN_no_aug": {
+      "best_acc": 0.7666666666666667,
+      "best_f1": 0.7550345588389066,
+      "best_epoch": 36
+    },
+    "TCN_aug": {
+      "best_acc": 0.8166666666666667,
+      "best_f1": 0.8095130875316633,
+      "best_epoch": 30
+    },
+    "Transformer_no_aug": {
+      "best_acc": 0.9666666666666667,
+      "best_f1": 0.9656084656084656,
+      "best_epoch": 28
+    },
+    "Transformer_aug": {
+      "best_acc": 0.95,
+      "best_f1": 0.9499582289055972,
+      "best_epoch": 19
+    }
+  },
+  "decoders": {
+    "BiLSTM_no_aug": {
+      "best_mse": 51.667955017089845,
+      "overall_r": 0.9029693299316919,
+      "mean_bin_r": 0.865543236427183,
+      "best_epoch": 49
+    },
+    "BiLSTM_aug": {
+      "best_mse": 42.91733932495117,
+      "overall_r": 0.9217876621092429,
+      "mean_bin_r": 0.8879814529045842,
+      "best_epoch": 45
+    },
+    "TCN_no_aug": {
+      "best_mse": 111.01065521240234,
+      "overall_r": 0.7782057019320188,
+      "mean_bin_r": 0.6865499210564103,
+      "best_epoch": 13
+    },
+    "TCN_aug": {
+      "best_mse": 97.3215098063151,
+      "overall_r": 0.8075141896166569,
+      "mean_bin_r": 0.7329214967658975,
+      "best_epoch": 32
+    },
+    "Transformer_no_aug": {
+      "best_mse": 51.691192626953125,
+      "overall_r": 0.91493234414453,
+      "mean_bin_r": 0.8790942310223885,
+      "best_epoch": 14
+    },
+    "Transformer_aug": {
+      "best_mse": 36.491519927978516,
+      "overall_r": 0.9410625623245736,
+      "mean_bin_r": 0.91590098242898,
+      "best_epoch": 105
+    }
+  },
+  "paper_reference": {
+    "intelligibility": 0.8,
+    "spectrogram_r": 0.67,
+    "model": "BiLSTM (2 layers, 150 units)",
+    "note": "Paper reports human listener accuracy on synthesized speech, not direct classification accuracy"
+  }
+}

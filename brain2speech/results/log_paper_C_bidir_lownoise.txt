@@ -1,0 +1,41 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.02 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 0.1 (paper: 0.1)
+  Noise: white=0.1, offset=0.02
+  Stack: kernel=1 (20ms), stride=1 (20ms)
+  Dropout: 0.4, L2: 1e-05
+  Direction: BIDIRECTIONAL
+======================================================================
+  Loading trial 2000/8780 (28.8s)...
+  Loading trial 4000/8780 (49.6s)...
+  Loading trial 6000/8780 (69.9s)...
+  Loading trial 8000/8780 (90.3s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (97.8s)
+  Stacked: kernel=1, stride=1
+  Stacked features: 1280D per 20ms step
+  Avg stacked length: 315 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (bidirectional), 38.5M params
+  Input: 1280D stacked features
+  Hidden: 512 × 5 layers
+
+Training schedule:
+  Batches/epoch: 97
+  Target minibatches: 10000 → ~103 epochs
+  LR: 0.02 → ~0 linear decay
+Epoch   1/103 | loss=5.8816 | val_PER=1.000 | lr=1.98e-02 | 30.0s
+Epoch   2/103 | loss=3.5259 | val_PER=1.000 | lr=1.96e-02 | 24.9s
+Epoch   3/103 | loss=3.5136 | val_PER=1.000 | lr=1.94e-02 | 31.9s
+Epoch   4/103 | loss=3.5039 | val_PER=1.000 | lr=1.92e-02 | 44.6s
+Epoch   5/103 | loss=3.4862 | val_PER=1.000 | lr=1.90e-02 | 39.2s
+Epoch   6/103 | loss=3.4468 | val_PER=1.000 | lr=1.88e-02 | 34.3s
+Epoch   7/103 | loss=3.3861 | val_PER=1.000 | lr=1.86e-02 | 37.4s
+Epoch   8/103 | loss=3.3284 | val_PER=1.000 | lr=1.84e-02 | 36.2s
+Epoch   9/103 | loss=3.2637 | val_PER=1.000 | lr=1.83e-02 | 36.1s
+Epoch  10/103 | loss=3.1852 | val_PER=0.998 | lr=1.81e-02 | 35.5s

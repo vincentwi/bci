@@ -1,0 +1,1955 @@
+[
+  {
+    "step": 100,
+    "n_valid": 7,
+    "avg_changed": 0.7142857142857143,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "K AA D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IH SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH EY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH T SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 1,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 200,
+    "n_valid": 7,
+    "avg_changed": 1.0,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO K",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "K AA D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH L IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 2,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH EY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 300,
+    "n_valid": 7,
+    "avg_changed": 0.8571428571428571,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO K",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "K AA D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 400,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "K AA D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 500,
+    "n_valid": 7,
+    "avg_changed": 1.1428571428571428,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO K",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "K AA K SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 3,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH L IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 2,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 600,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 700,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH L IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 2,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 800,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "D AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 900,
+    "n_valid": 7,
+    "avg_changed": 0.2857142857142857,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1000,
+    "n_valid": 7,
+    "avg_changed": 0.2857142857142857,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1100,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO K",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1200,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1300,
+    "n_valid": 7,
+    "avg_changed": 0.7142857142857143,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO K",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 2,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1400,
+    "n_valid": 7,
+    "avg_changed": 0.2857142857142857,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1500,
+    "n_valid": 7,
+    "avg_changed": 1.0,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH L IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 2,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "D EY SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 3,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1600,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1700,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH L IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 2,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 0,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1800,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "D EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 1900,
+    "n_valid": 7,
+    "avg_changed": 0.2857142857142857,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K AE SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 0,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2000,
+    "n_valid": 7,
+    "avg_changed": 0.7142857142857143,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "D EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2100,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2200,
+    "n_valid": 7,
+    "avg_changed": 0.7142857142857143,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH EH R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 2,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2300,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2400,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 0,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2500,
+    "n_valid": 7,
+    "avg_changed": 0.2857142857142857,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 0,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2600,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2700,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T AE SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2800,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 2900,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 3000,
+    "n_valid": 7,
+    "avg_changed": 0.42857142857142855,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 0,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  },
+  {
+    "step": 3100,
+    "n_valid": 7,
+    "avg_changed": 0.5714285714285714,
+    "results": [
+      {
+        "input": "P AH T AH SIL W ER D",
+        "output": "P AH T AH SIL W ER D",
+        "hint": "butter word",
+        "valid": true,
+        "changed": 0,
+        "out_len": 8
+      },
+      {
+        "input": "K AE SIL D AO G",
+        "output": "K EY SIL D AO G",
+        "hint": "cat dog",
+        "valid": true,
+        "changed": 1,
+        "out_len": 6
+      },
+      {
+        "input": "G UH D SIL M AO R N IH NG",
+        "output": "G UH D SIL M AO R N IH NG",
+        "hint": "good morning",
+        "valid": true,
+        "changed": 0,
+        "out_len": 10
+      },
+      {
+        "input": "F AH N IH SIL S AH N",
+        "output": "F AH N IY SIL S AH N",
+        "hint": "funny son",
+        "valid": true,
+        "changed": 1,
+        "out_len": 8
+      },
+      {
+        "input": "S IY SIL DH AH SIL R EH D SIL B AO L",
+        "output": "S IY SIL F AH SIL R EH D SIL B AO L",
+        "hint": "see the red ball",
+        "valid": true,
+        "changed": 1,
+        "out_len": 13
+      },
+      {
+        "input": "T AE SIL K AH M SIL HH IY R",
+        "output": "T EY SIL K AH M SIL HH IY R",
+        "hint": "take come here",
+        "valid": true,
+        "changed": 1,
+        "out_len": 10
+      },
+      {
+        "input": "B IH G SIL R EH D SIL K AA R",
+        "output": "B IH G SIL R EH D SIL K AA R",
+        "hint": "big red car",
+        "valid": true,
+        "changed": 0,
+        "out_len": 11
+      }
+    ]
+  }
+]

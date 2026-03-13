@@ -1,0 +1,153 @@
+{
+  "split": "train",
+  "n_sessions": 24,
+  "n_trials": 8780,
+  "total_frames": 2761941,
+  "total_phonemes": 191109,
+  "session_stats": [
+    {
+      "session": "t12.2022.04.28",
+      "n_trials": 280,
+      "avg_frames": 565.8821428571429,
+      "avg_phonemes": 35.714285714285715
+    },
+    {
+      "session": "t12.2022.05.05",
+      "n_trials": 360,
+      "avg_frames": 507.2916666666667,
+      "avg_phonemes": 35.65833333333333
+    },
+    {
+      "session": "t12.2022.05.17",
+      "n_trials": 420,
+      "avg_frames": 364.8642857142857,
+      "avg_phonemes": 24.071428571428573
+    },
+    {
+      "session": "t12.2022.05.19",
+      "n_trials": 160,
+      "avg_frames": 355.325,
+      "avg_phonemes": 24.775
+    },
+    {
+      "session": "t12.2022.05.24",
+      "n_trials": 360,
+      "avg_frames": 322.4,
+      "avg_phonemes": 19.9
+    },
+    {
+      "session": "t12.2022.05.26",
+      "n_trials": 360,
+      "avg_frames": 344.725,
+      "avg_phonemes": 20.877777777777776
+    },
+    {
+      "session": "t12.2022.06.02",
+      "n_trials": 400,
+      "avg_frames": 294.545,
+      "avg_phonemes": 20.4775
+    },
+    {
+      "session": "t12.2022.06.07",
+      "n_trials": 360,
+      "avg_frames": 291.65833333333336,
+      "avg_phonemes": 20.761111111111113
+    },
+    {
+      "session": "t12.2022.06.14",
+      "n_trials": 320,
+      "avg_frames": 322.728125,
+      "avg_phonemes": 23.0625
+    },
+    {
+      "session": "t12.2022.06.16",
+      "n_trials": 320,
+      "avg_frames": 312.171875,
+      "avg_phonemes": 22.915625
+    },
+    {
+      "session": "t12.2022.06.21",
+      "n_trials": 280,
+      "avg_frames": 274.83214285714286,
+      "avg_phonemes": 20.142857142857142
+    },
+    {
+      "session": "t12.2022.06.23",
+      "n_trials": 480,
+      "avg_frames": 271.01875,
+      "avg_phonemes": 20.83125
+    },
+    {
+      "session": "t12.2022.06.28",
+      "n_trials": 400,
+      "avg_frames": 288.56,
+      "avg_phonemes": 21.0675
+    },
+    {
+      "session": "t12.2022.07.05",
+      "n_trials": 360,
+      "avg_frames": 285.5,
+      "avg_phonemes": 19.683333333333334
+    },
+    {
+      "session": "t12.2022.07.14",
+      "n_trials": 400,
+      "avg_frames": 293.935,
+      "avg_phonemes": 19.9875
+    },
+    {
+      "session": "t12.2022.07.21",
+      "n_trials": 400,
+      "avg_frames": 289.745,
+      "avg_phonemes": 20.07
+    },
+    {
+      "session": "t12.2022.07.27",
+      "n_trials": 400,
+      "avg_frames": 289.2175,
+      "avg_phonemes": 19.5975
+    },
+    {
+      "session": "t12.2022.07.29",
+      "n_trials": 200,
+      "avg_frames": 292.235,
+      "avg_phonemes": 20.62
+    },
+    {
+      "session": "t12.2022.08.02",
+      "n_trials": 400,
+      "avg_frames": 302.6325,
+      "avg_phonemes": 20.575
+    },
+    {
+      "session": "t12.2022.08.11",
+      "n_trials": 320,
+      "avg_frames": 298.225,
+      "avg_phonemes": 20.35625
+    },
+    {
+      "session": "t12.2022.08.13",
+      "n_trials": 320,
+      "avg_frames": 288.015625,
+      "avg_phonemes": 19.759375
+    },
+    {
+      "session": "t12.2022.08.18",
+      "n_trials": 440,
+      "avg_frames": 293.8068181818182,
+      "avg_phonemes": 19.513636363636362
+    },
+    {
+      "session": "t12.2022.08.23",
+      "n_trials": 520,
+      "avg_frames": 248.55769230769232,
+      "avg_phonemes": 19.246153846153845
+    },
+    {
+      "session": "t12.2022.08.25",
+      "n_trials": 520,
+      "avg_frames": 278.075,
+      "avg_phonemes": 19.88653846153846
+    }
+  ]
+}

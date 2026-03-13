@@ -1,0 +1,124 @@
+{
+  "model": "PaperReplica",
+  "test_per": 1.0,
+  "best_val_per": 1.0,
+  "n_train": 6260,
+  "n_val": 720,
+  "n_test": 1800,
+  "epochs_trained": 11,
+  "n_params": 38489641,
+  "hyperparams": {
+    "gpus": [
+      0,
+      1
+    ],
+    "max_minibatches": 10000,
+    "batch_size": 64,
+    "lr": 0.02,
+    "hidden": 512,
+    "n_layers": 5,
+    "dropout": 0.4,
+    "kernel_size": 1,
+    "stride": 1,
+    "proj_dim": 0,
+    "bidirectional": true,
+    "activation": "none",
+    "white_noise": 1.0,
+    "offset_noise": 0.2,
+    "smooth": 2,
+    "l2_reg": 1e-05,
+    "adam_eps": 0.1,
+    "patience": 10,
+    "max_trials": null,
+    "causal_smooth": true
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 6.027675879370306,
+      "val_per": 1.0,
+      "lr": 0.01980601941747573,
+      "elapsed": 52.89591646194458
+    },
+    {
+      "epoch": 2,
+      "train_loss": 3.5339651107788086,
+      "val_per": 1.0,
+      "lr": 0.019612038834951457,
+      "elapsed": 47.62150597572327
+    },
+    {
+      "epoch": 3,
+      "train_loss": 3.5280705874728175,
+      "val_per": 1.0,
+      "lr": 0.019418058252427185,
+      "elapsed": 47.55371427536011
+    },
+    {
+      "epoch": 4,
+      "train_loss": 3.5187954337326524,
+      "val_per": 1.0,
+      "lr": 0.019224077669902914,
+      "elapsed": 46.19967341423035
+    },
+    {
+      "epoch": 5,
+      "train_loss": 3.507791676472143,
+      "val_per": 1.0,
+      "lr": 0.019030097087378642,
+      "elapsed": 46.61315989494324
+    },
+    {
+      "epoch": 6,
+      "train_loss": 3.5001293310185067,
+      "val_per": 1.0,
+      "lr": 0.01883611650485437,
+      "elapsed": 47.55587029457092
+    },
+    {
+      "epoch": 7,
+      "train_loss": 3.4892883128726604,
+      "val_per": 1.0,
+      "lr": 0.0186421359223301,
+      "elapsed": 47.56664681434631
+    },
+    {
+      "epoch": 8,
+      "train_loss": 3.4718307318146695,
+      "val_per": 1.0,
+      "lr": 0.018448155339805827,
+      "elapsed": 46.36388111114502
+    },
+    {
+      "epoch": 9,
+      "train_loss": 3.449939590139487,
+      "val_per": 1.0,
+      "lr": 0.018254174757281555,
+      "elapsed": 46.8905143737793
+    },
+    {
+      "epoch": 10,
+      "train_loss": 3.4231469704932773,
+      "val_per": 1.0,
+      "lr": 0.018060194174757283,
+      "elapsed": 44.90938138961792
+    },
+    {
+      "epoch": 11,
+      "train_loss": 3.397447645049734,
+      "val_per": 1.0,
+      "lr": 0.01786621359223301,
+      "elapsed": 46.4598650932312
+    }
+  ],
+  "paper_differences": [
+    "UNIDIRECTIONAL GRU (paper is forward-only)",
+    "Input stacking: kernel=1 (20ms), stride=1 (20ms)",
+    "Day-specific input layers with softsign",
+    "LR=0.02 linear decay (paper: 0.02)",
+    "Adam epsilon=0.1 (paper: 0.1)",
+    "White noise SD=1.0 (paper: 1.0)",
+    "Offset noise SD=0.2 (paper: 0.2)",
+    "Dropout=0.4 (paper: 0.4)"
+  ]
+}

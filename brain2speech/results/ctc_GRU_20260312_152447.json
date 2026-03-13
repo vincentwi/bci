@@ -1,0 +1,28 @@
+{
+  "model": "GRU",
+  "test_per": 0.5913552206197448,
+  "test_accuracy": 0.16413296273186226,
+  "best_val_per": 0.49754503875014905,
+  "n_train": 6260,
+  "n_val": 720,
+  "n_test": 1800,
+  "epochs_trained": 100,
+  "hyperparams": {
+    "model": "GRU",
+    "gpus": [
+      4,
+      5
+    ],
+    "epochs": 100,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "patience": 20,
+    "hidden": 512,
+    "n_layers": 5,
+    "scheduler": "plateau",
+    "downsample": 1,
+    "noise": 0.05,
+    "max_trials": null,
+    "eval_mode": "holdout"
+  }
+}

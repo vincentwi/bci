@@ -1,0 +1,17 @@
+======================================================================
+SEQ2SEQ PHONEME DECODING — Seq2Seq
+  Device: cuda:0 (GPUs: [2, 3])
+  Type: Seq2Seq
+  Epochs: 80, BS: 16, LR: 0.0003
+  Patience: 10 (fast iteration)
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Sessions: 24
+Train: 6260, Val: 720, Test: 1800
+Model: Seq2Seq, 35.5M params
+Epoch   1/80 | loss=2.7713 | val_PER=2.070 | lr=3.0e-04 | 98.9s
+Epoch   2/80 | loss=2.3753 | val_PER=2.248 | lr=3.0e-04 | 94.4s
+Epoch   3/80 | loss=2.2079 | val_PER=1.069 | lr=3.0e-04 | 90.5s
+Epoch   4/80 | loss=2.0879 | val_PER=1.025 | lr=3.0e-04 | 92.1s
+Epoch   5/80 | loss=1.9868 | val_PER=1.069 | lr=3.0e-04 | 91.2s

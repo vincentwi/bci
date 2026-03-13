@@ -1,0 +1,21 @@
+======================================================================
+SEQ2SEQ PHONEME DECODING — RNN-T
+  Device: cuda:0 (GPUs: [0, 1])
+  Type: RNN-T
+  Epochs: 80, BS: 16, LR: 0.0003
+  Patience: 10 (fast iteration)
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Sessions: 24
+Train: 6260, Val: 720, Test: 1800
+Model: RNN-T, 34.6M params
+Epoch   1/80 | loss=102.5696 | val_PER=0.979 | lr=3.0e-04 | 99.5s
+Epoch   2/80 | loss=46.0906 | val_PER=0.898 | lr=3.0e-04 | 94.6s
+Epoch   3/80 | loss=34.5530 | val_PER=0.825 | lr=3.0e-04 | 93.2s
+Epoch   4/80 | loss=26.5984 | val_PER=0.784 | lr=3.0e-04 | 93.9s
+Epoch   5/80 | loss=20.7464 | val_PER=0.680 | lr=3.0e-04 | 95.2s
+Epoch   6/80 | loss=16.2423 | val_PER=0.611 | lr=3.0e-04 | 94.2s
+Epoch   7/80 | loss=12.7277 | val_PER=0.593 | lr=3.0e-04 | 94.7s
+Epoch   8/80 | loss=10.1100 | val_PER=0.551 | lr=3.0e-04 | 94.6s
+Epoch   9/80 | loss=8.1682 | val_PER=0.555 | lr=3.0e-04 | 95.2s

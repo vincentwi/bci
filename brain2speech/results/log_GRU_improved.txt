@@ -1,0 +1,87 @@
+======================================================================
+IMPROVED CTC DECODER — GRU
+  Improvements: day_specific, rolling_zscore, specaugment
+  Device: cuda:0 (GPUs: [0, 1])
+  Epochs: 80, BS: 32, LR: 0.0003
+  Smooth: sigma=2.0
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Applying rolling z-score normalization...
+  Session t12.2022.04.28: rolling z-score on 280 trials (158447 frames)
+  Session t12.2022.05.05: rolling z-score on 360 trials (182625 frames)
+  Session t12.2022.05.17: rolling z-score on 420 trials (153243 frames)
+  Session t12.2022.05.19: rolling z-score on 160 trials (56852 frames)
+  Session t12.2022.05.24: rolling z-score on 360 trials (116064 frames)
+  Session t12.2022.05.26: rolling z-score on 360 trials (124101 frames)
+  Session t12.2022.06.02: rolling z-score on 400 trials (117818 frames)
+  Session t12.2022.06.07: rolling z-score on 360 trials (104997 frames)
+  Session t12.2022.06.14: rolling z-score on 320 trials (103273 frames)
+  Session t12.2022.06.16: rolling z-score on 320 trials (99895 frames)
+  Session t12.2022.06.21: rolling z-score on 280 trials (76953 frames)
+  Session t12.2022.06.23: rolling z-score on 480 trials (130089 frames)
+  Session t12.2022.06.28: rolling z-score on 400 trials (115424 frames)
+  Session t12.2022.07.05: rolling z-score on 360 trials (102780 frames)
+  Session t12.2022.07.14: rolling z-score on 400 trials (117574 frames)
+  Session t12.2022.07.21: rolling z-score on 400 trials (115898 frames)
+  Session t12.2022.07.27: rolling z-score on 400 trials (115687 frames)
+  Session t12.2022.07.29: rolling z-score on 200 trials (58447 frames)
+  Session t12.2022.08.02: rolling z-score on 400 trials (121053 frames)
+  Session t12.2022.08.11: rolling z-score on 320 trials (95432 frames)
+  Session t12.2022.08.13: rolling z-score on 320 trials (92165 frames)
+  Session t12.2022.08.18: rolling z-score on 440 trials (129275 frames)
+  Session t12.2022.08.23: rolling z-score on 520 trials (129250 frames)
+  Session t12.2022.08.25: rolling z-score on 520 trials (144599 frames)
+
+Sessions: 24
+Train: 6260 trials (18 sessions)
+Val:   720 trials (2 sessions)
+Test:  1800 trials (4 sessions)
+
+Model: GRU+day_specific+rolling_zscore+specaugment, 22.8M params
+  Day-specific params: 64,000 (0.3%)
+
+Training GRU+day_specific+rolling_zscore+specaugment...
+
+Epoch   1/80 | loss=5.8631 | val_PER=1.000 | lr=6.0e-05 | 31.9s
+Epoch   2/80 | loss=2.9484 | val_PER=0.997 | lr=1.2e-04 | 27.8s
+Epoch   3/80 | loss=2.6876 | val_PER=0.988 | lr=1.8e-04 | 27.2s
+Epoch   4/80 | loss=2.4315 | val_PER=0.849 | lr=2.4e-04 | 27.8s
+Epoch   5/80 | loss=2.1731 | val_PER=0.671 | lr=3.0e-04 | 26.8s
+Epoch   6/80 | loss=2.0494 | val_PER=0.643 | lr=3.0e-04 | 27.1s
+Epoch   7/80 | loss=1.8580 | val_PER=0.582 | lr=3.0e-04 | 27.5s
+Epoch   8/80 | loss=1.6779 | val_PER=0.567 | lr=3.0e-04 | 27.7s
+Epoch   9/80 | loss=1.5390 | val_PER=0.541 | lr=3.0e-04 | 27.0s
+Epoch  10/80 | loss=1.4682 | val_PER=0.552 | lr=3.0e-04 | 26.7s
+Epoch  11/80 | loss=1.3613 | val_PER=0.532 | lr=3.0e-04 | 27.1s
+Epoch  12/80 | loss=1.2967 | val_PER=0.508 | lr=3.0e-04 | 27.2s
+Epoch  13/80 | loss=1.1959 | val_PER=0.512 | lr=2.9e-04 | 27.4s
+Epoch  14/80 | loss=1.1198 | val_PER=0.506 | lr=2.9e-04 | 27.2s
+Epoch  15/80 | loss=1.1032 | val_PER=0.504 | lr=2.9e-04 | 27.3s
+Epoch  16/80 | loss=1.0588 | val_PER=0.504 | lr=2.9e-04 | 27.1s
+Epoch  17/80 | loss=0.9697 | val_PER=0.489 | lr=2.8e-04 | 27.8s
+Epoch  18/80 | loss=0.9256 | val_PER=0.493 | lr=2.8e-04 | 27.5s
+Epoch  19/80 | loss=0.8746 | val_PER=0.484 | lr=2.8e-04 | 26.9s
+Epoch  20/80 | loss=0.8265 | val_PER=0.482 | lr=2.7e-04 | 27.5s
+Epoch  21/80 | loss=0.7729 | val_PER=0.465 | lr=2.7e-04 | 27.2s
+Epoch  22/80 | loss=0.7022 | val_PER=0.466 | lr=2.7e-04 | 27.2s
+Epoch  23/80 | loss=0.6621 | val_PER=0.466 | lr=2.6e-04 | 27.0s
+Epoch  24/80 | loss=0.6225 | val_PER=0.472 | lr=2.6e-04 | 28.5s
+Epoch  25/80 | loss=0.5997 | val_PER=0.469 | lr=2.5e-04 | 26.7s
+Epoch  26/80 | loss=0.5694 | val_PER=0.469 | lr=2.5e-04 | 26.9s
+Epoch  27/80 | loss=0.5678 | val_PER=0.466 | lr=2.5e-04 | 27.0s
+Epoch  28/80 | loss=0.5404 | val_PER=0.470 | lr=2.4e-04 | 26.8s
+Epoch  29/80 | loss=0.5517 | val_PER=0.480 | lr=2.4e-04 | 27.3s
+Epoch  30/80 | loss=0.4982 | val_PER=0.467 | lr=2.3e-04 | 26.9s
+Epoch  31/80 | loss=0.4430 | val_PER=0.465 | lr=2.2e-04 | 27.6s
+Early stop at epoch 31
+
+======================================================================
+TEST RESULTS — GRU+day_specific+rolling_zscore+specaugment
+  Val PER:  46.5%
+  Test PER: 57.5%
+  Paper:    19.7% PER (Willett et al. 2023)
+  Previous: 45.1% val PER (GRU v3 baseline)
+======================================================================
+Results: /mnt/home/vincent.wilmet/brain2speech/results/ctc_improved_GRU+day_specific+rolling_zscore+specaugment_20260312_173007.json
+Model: /mnt/home/vincent.wilmet/brain2speech/results/ctc_improved_GRU+day_specific+rolling_zscore+specaugment_best.pt

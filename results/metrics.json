@@ -1,0 +1,78 @@
+{
+  "classifiers": {
+    "BiLSTM_no_aug": {
+      "best_acc": 0.23333333333333334,
+      "best_f1": 0.17845117845117842,
+      "best_epoch": 6,
+      "final_loss": 0.0005432689154986292
+    },
+    "BiLSTM_aug": {
+      "best_acc": 0.2,
+      "best_f1": 0.1661375661375661,
+      "best_epoch": 5,
+      "final_loss": 0.0041013722204499775
+    },
+    "TCN_no_aug": {
+      "best_acc": 0.7166666666666667,
+      "best_f1": 0.7108902306270727,
+      "best_epoch": 13,
+      "final_loss": 0.04338943436741829
+    },
+    "TCN_aug": {
+      "best_acc": 0.7666666666666667,
+      "best_f1": 0.7659608989794747,
+      "best_epoch": 22,
+      "final_loss": 0.07135768503778511
+    },
+    "Transformer_no_aug": {
+      "best_acc": 0.7,
+      "best_f1": 0.7070344944486822,
+      "best_epoch": 23,
+      "final_loss": 0.02082003229815099
+    },
+    "Transformer_aug": {
+      "best_acc": 0.7,
+      "best_f1": 0.6856001659923229,
+      "best_epoch": 17,
+      "final_loss": 0.25840596357981366
+    }
+  },
+  "decoders": {
+    "BiLSTM_no_aug": {
+      "best_mse": 43.73443552652995,
+      "overall_r": 0.9358386765786137,
+      "mean_bin_r": 0.9111949510505883,
+      "best_epoch": 74
+    },
+    "BiLSTM_aug": {
+      "best_mse": 41.382964324951175,
+      "overall_r": 0.940206281724033,
+      "mean_bin_r": 0.9183667096133714,
+      "best_epoch": 79
+    },
+    "TCN_no_aug": {
+      "best_mse": 57.687031809488936,
+      "overall_r": 0.9134858241042528,
+      "mean_bin_r": 0.8829116230180265,
+      "best_epoch": 75
+    },
+    "TCN_aug": {
+      "best_mse": 55.1902353922526,
+      "overall_r": 0.9176586565536731,
+      "mean_bin_r": 0.8889902897386385,
+      "best_epoch": 76
+    },
+    "Transformer_no_aug": {
+      "best_mse": 41.893059794108076,
+      "overall_r": 0.943828981786896,
+      "mean_bin_r": 0.9233347955443161,
+      "best_epoch": 50
+    },
+    "Transformer_aug": {
+      "best_mse": 38.114505513509116,
+      "overall_r": 0.9510423106124885,
+      "mean_bin_r": 0.9340431762123357,
+      "best_epoch": 66
+    }
+  }
+}

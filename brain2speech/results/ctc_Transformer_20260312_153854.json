@@ -1,0 +1,31 @@
+{
+  "model": "Transformer",
+  "test_per": 1.0,
+  "test_accuracy": 0.0,
+  "best_val_per": 1.0,
+  "n_train": 6260,
+  "n_val": 720,
+  "n_test": 1800,
+  "epochs_trained": 26,
+  "hyperparams": {
+    "model": "Transformer",
+    "gpus": [
+      4,
+      5
+    ],
+    "epochs": 120,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "patience": 25,
+    "hidden": 256,
+    "n_layers": 6,
+    "scheduler": "plateau",
+    "downsample": 1,
+    "noise": 0.05,
+    "smooth": 2.0,
+    "weight_decay": 0.01,
+    "multisession_norm": false,
+    "max_trials": null,
+    "eval_mode": "holdout"
+  }
+}

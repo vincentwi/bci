@@ -1,0 +1,58 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.02 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 0.1 (paper: 0.1)
+  Noise: white=1.0, offset=0.2
+  Stack: kernel=1 (20ms), stride=1 (20ms)
+  Dropout: 0.4, L2: 1e-05
+  Direction: UNIDIRECTIONAL (paper)
+======================================================================
+  Loading trial 2000/8780 (29.0s)...
+  Loading trial 4000/8780 (49.8s)...
+  Loading trial 6000/8780 (70.2s)...
+  Loading trial 8000/8780 (90.6s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (98.2s)
+  Stacked: kernel=1, stride=1
+  Stacked features: 1280D per 20ms step
+  Avg stacked length: 315 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (unidirectional), 24.3M params
+  Input: 1280D stacked features
+  Hidden: 512 × 5 layers
+
+Training schedule:
+  Batches/epoch: 97
+  Target minibatches: 10000 → ~103 epochs
+  LR: 0.02 → ~0 linear decay
+Epoch   1/103 | loss=6.5907 | val_PER=1.000 | lr=1.98e-02 | 15.5s
+Epoch   2/103 | loss=3.5363 | val_PER=1.000 | lr=1.96e-02 | 13.4s
+Epoch   3/103 | loss=3.5329 | val_PER=1.000 | lr=1.94e-02 | 12.5s
+Epoch   4/103 | loss=3.5303 | val_PER=1.000 | lr=1.92e-02 | 12.1s
+Epoch   5/103 | loss=3.5259 | val_PER=1.000 | lr=1.90e-02 | 12.9s
+Epoch   6/103 | loss=3.5230 | val_PER=1.000 | lr=1.88e-02 | 12.5s
+Epoch   7/103 | loss=3.5199 | val_PER=1.000 | lr=1.86e-02 | 12.7s
+Epoch   8/103 | loss=3.5185 | val_PER=1.000 | lr=1.84e-02 | 12.4s
+Epoch   9/103 | loss=3.5162 | val_PER=1.000 | lr=1.83e-02 | 13.8s
+Epoch  10/103 | loss=3.5155 | val_PER=1.000 | lr=1.81e-02 | 12.7s
+Epoch  11/103 | loss=3.5140 | val_PER=1.000 | lr=1.79e-02 | 12.3s
+Epoch  12/103 | loss=3.5138 | val_PER=1.000 | lr=1.77e-02 | 12.8s
+Epoch  13/103 | loss=3.5114 | val_PER=1.000 | lr=1.75e-02 | 11.9s
+Epoch  14/103 | loss=3.5106 | val_PER=1.000 | lr=1.73e-02 | 12.8s
+Epoch  15/103 | loss=3.5094 | val_PER=1.000 | lr=1.71e-02 | 11.8s
+Epoch  16/103 | loss=3.5089 | val_PER=1.000 | lr=1.69e-02 | 13.1s
+Early stop at epoch 16
+
+======================================================================
+TEST RESULTS — Paper Replica
+  Val PER:  100.0%
+  Test PER: 100.0%
+  Paper:    19.7% PER
+  Previous best: 55.2% PER (RNN-T)
+======================================================================
+Results: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_20260312_203747.json
+Model: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_best.pt

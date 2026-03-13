@@ -1,0 +1,71 @@
+======================================================================
+IMPROVED CTC DECODER — Conformer
+  Improvements: conformer, day_specific, rolling_zscore, specaugment
+  Device: cuda:0 (GPUs: [2, 3])
+  Epochs: 80, BS: 16, LR: 0.0003
+  Smooth: sigma=2.0
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Applying rolling z-score normalization...
+  Session t12.2022.04.28: rolling z-score on 280 trials (158447 frames)
+  Session t12.2022.05.05: rolling z-score on 360 trials (182625 frames)
+  Session t12.2022.05.17: rolling z-score on 420 trials (153243 frames)
+  Session t12.2022.05.19: rolling z-score on 160 trials (56852 frames)
+  Session t12.2022.05.24: rolling z-score on 360 trials (116064 frames)
+  Session t12.2022.05.26: rolling z-score on 360 trials (124101 frames)
+  Session t12.2022.06.02: rolling z-score on 400 trials (117818 frames)
+  Session t12.2022.06.07: rolling z-score on 360 trials (104997 frames)
+  Session t12.2022.06.14: rolling z-score on 320 trials (103273 frames)
+  Session t12.2022.06.16: rolling z-score on 320 trials (99895 frames)
+  Session t12.2022.06.21: rolling z-score on 280 trials (76953 frames)
+  Session t12.2022.06.23: rolling z-score on 480 trials (130089 frames)
+  Session t12.2022.06.28: rolling z-score on 400 trials (115424 frames)
+  Session t12.2022.07.05: rolling z-score on 360 trials (102780 frames)
+  Session t12.2022.07.14: rolling z-score on 400 trials (117574 frames)
+  Session t12.2022.07.21: rolling z-score on 400 trials (115898 frames)
+  Session t12.2022.07.27: rolling z-score on 400 trials (115687 frames)
+  Session t12.2022.07.29: rolling z-score on 200 trials (58447 frames)
+  Session t12.2022.08.02: rolling z-score on 400 trials (121053 frames)
+  Session t12.2022.08.11: rolling z-score on 320 trials (95432 frames)
+  Session t12.2022.08.13: rolling z-score on 320 trials (92165 frames)
+  Session t12.2022.08.18: rolling z-score on 440 trials (129275 frames)
+  Session t12.2022.08.23: rolling z-score on 520 trials (129250 frames)
+  Session t12.2022.08.25: rolling z-score on 520 trials (144599 frames)
+
+Sessions: 24
+Train: 6260 trials (18 sessions)
+Val:   720 trials (2 sessions)
+Test:  1800 trials (4 sessions)
+
+Model: Conformer++day_specific+rolling_zscore+specaugment, 9.7M params
+  Day-specific params: 64,000 (0.7%)
+
+Training Conformer++day_specific+rolling_zscore+specaugment...
+
+Epoch   1/80 | loss=4.0041 | val_PER=1.000 | lr=6.0e-05 | 30.9s
+Epoch   2/80 | loss=2.7510 | val_PER=1.000 | lr=1.2e-04 | 20.8s
+Epoch   3/80 | loss=2.3548 | val_PER=0.904 | lr=1.8e-04 | 20.5s
+Epoch   4/80 | loss=1.9849 | val_PER=0.576 | lr=2.4e-04 | 21.2s
+Epoch   5/80 | loss=1.7999 | val_PER=0.560 | lr=3.0e-04 | 20.9s
+Epoch   6/80 | loss=1.7094 | val_PER=0.579 | lr=3.0e-04 | 20.4s
+Epoch   7/80 | loss=1.6369 | val_PER=0.572 | lr=3.0e-04 | 20.1s
+Epoch   8/80 | loss=1.7437 | val_PER=0.590 | lr=3.0e-04 | 20.1s
+Epoch   9/80 | loss=1.7965 | val_PER=0.569 | lr=3.0e-04 | 20.7s
+Epoch  10/80 | loss=1.7966 | val_PER=0.600 | lr=3.0e-04 | 20.4s
+Epoch  11/80 | loss=1.6982 | val_PER=0.579 | lr=3.0e-04 | 20.1s
+Epoch  12/80 | loss=1.8252 | val_PER=0.681 | lr=3.0e-04 | 19.9s
+Epoch  13/80 | loss=2.0402 | val_PER=0.642 | lr=2.9e-04 | 20.2s
+Epoch  14/80 | loss=1.9700 | val_PER=0.607 | lr=2.9e-04 | 20.3s
+Epoch  15/80 | loss=1.8757 | val_PER=0.645 | lr=2.9e-04 | 20.3s
+Early stop at epoch 15
+
+======================================================================
+TEST RESULTS — Conformer++day_specific+rolling_zscore+specaugment
+  Val PER:  56.0%
+  Test PER: 63.5%
+  Paper:    19.7% PER (Willett et al. 2023)
+  Previous: 45.1% val PER (GRU v3 baseline)
+======================================================================
+Results: /mnt/home/vincent.wilmet/brain2speech/results/ctc_improved_Conformer++day_specific+rolling_zscore+specaugment_20260312_172114.json
+Model: /mnt/home/vincent.wilmet/brain2speech/results/ctc_improved_Conformer++day_specific+rolling_zscore+specaugment_best.pt

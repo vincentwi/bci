@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.h5
+*.pt
+*.pth
+*.safetensors
+*.npz
+*.npy
+*.mat
+*.tar.gz
+.DS_Store
+._*

@@ -1,0 +1,267 @@
+ Recap & Engineering Guide: Speech Intent Decoding from Brain Signals
+
+    What We've Done
+
+    1. Data Acquisition
+
+    - Downloaded Willett et al. (Nature 2023) speech neuroprosthesis dataset from
+    Zenodo (mirror of Dryad, which has bot protection)
+    - Source: https://zenodo.org/api/records/8047896/files/<filename>/content
+    - Downloaded 3 archives:
+      - diagnosticBlocks.tar.gz (799MB) — 20 sessions, 8-word classification
+    (DO_NOTHING, bah, choice, day, kite, though, veto, were)
+      - tuningTasks.tar.gz (898MB) — phonemes (40 classes), orofacial (34 classes),
+    50-word set (51 classes)
+      - competitionData.tar.gz (3.5GB) — sentence-level data
+
+    2. Data Format (Willett Dataset)
+
+    - NOT raw ECoG voltage — already preprocessed spike band power features
+    - spikePow: T×256 matrix at 20ms bins (50Hz), spike band power per channel
+    - tx1-tx4: threshold crossing counts at different thresholds (-3.5 to -6.5 ×
+    RMS)
+    - trialCues, cueList, goTrialEpochs, blockNum, trialState for trial structure
+    - 256 intracortical microelectrode channels (4 arrays: Area 44 sup/inf, Area 6v
+    sup/inf)
+
+    3. Preprocessing Pipeline (preprocess.py)
+
+    - Extract tar.gz → load .mat files via scipy.io.loadmat
+    - Z-score spikePow and tx features per block (critical for combating
+    nonstationarity)
+    - Concatenate spikePow + tx1-tx4 → 256×5 = 1280 features per time bin
+    - Segment trials: 10 bins pre-onset + 75 bins post-onset = 85 time steps per
+    trial
+    - For classical ML: time-bin into 100ms windows + temporal derivatives → flat
+    feature vector (42,240 dims)
+    - Save as .npz files in data/processed/
+
+    4. Training Pipeline (train.py)
+
+    - All computation on GPU (CUDA_VISIBLE_DEVICES=4,5,6,7)
+    - GPU classifiers via PyTorch: Linear, MLP-256, MLP-512, DeepMLP — with AMP
+    (mixed precision)
+    - GPU PCA via torch.linalg.svd
+    - DL models: EEGNet, TCN, GRU, Transformer — DataParallel across 4× H100 GPUs
+    with AMP
+    - Cross-validation: Leave-One-Session-Out (20 folds for diagnostic blocks)
+    - Data augmentation: Gaussian noise, time shift, channel dropout
+
+    5. Results So Far (8-word diagnostic blocks)
+
+    ┌──────────────┬───────────────────────────┐
+    │    Model     │         Accuracy          │
+    ├──────────────┼───────────────────────────┤
+    │ Linear (GPU) │ 92.4%                     │
+    ├──────────────┼───────────────────────────┤
+    │ MLP-256      │ 95.4%                     │
+    ├──────────────┼───────────────────────────┤
+    │ MLP-512      │ 95.3%                     │
+    ├──────────────┼───────────────────────────┤
+    │ DeepMLP      │ 95.3%                     │
+    ├──────────────┼───────────────────────────┤
+    │ EEGNet       │ 98.7%                     │
+    ├──────────────┼───────────────────────────┤
+    │ TCN          │ ~99.5%+ (still finishing) │
+    ├──────────────┼───────────────────────────┤
+    │ GRU          │ running                   │
+    ├──────────────┼───────────────────────────┤
+    │ Transformer  │ running                   │
+    └──────────────┴───────────────────────────┘
+
+    Chance level = 12.5% (8 classes). These are excellent results.
+
+    ---
+    Guide: 39-Phoneme Classification (Comparable to Paper)
+
+    Paper Baseline
+
+    - Willett et al. report ~61.4% single-trial phoneme classification across 39
+    phoneme classes
+    - Chance = 1/39 ≈ 2.6%
+    - Their method: GRU RNN decoder (trained on full sentence data with temporal
+    context)
+    - Their 9.1% WER on 50-word vocabulary used a 5-gram language model on top
+
+    Data to Use
+
+    We have two phoneme sessions already preprocessed:
+    - tuning_t12.2022.04.21_phonemes.npz — 640 trials, 40 classes (39 phonemes +
+    DO_NOTHING)
+    - tuning_t12.2022.04.26_phonemes.npz — 800 trials, 40 classes
+
+    Critical: combine both sessions for more training data (1440 trials total). The
+    40th class is "DO_NOTHING" — either include it or drop it to match the paper's
+    39 phonemes.
+
+    Also consider using:
+    - tuning_t12.2022.05.03_fiftyWordSet.npz — 1020 trials, 51 words (words are
+    composed of phonemes; could be used for pretraining or transfer learning)
+    - competitionData sentence data — much more data, but requires phoneme-level
+    alignment
+
+    Phoneme Classes (ARPABET)
+
+    Consonants: Bah, Chah, Dah, Fah, Gah, Hah, Jah, Kah, Lah, Mah, Nah, Ngah, Pah,
+    Rah, Sah, Shah, THe, Tah, Thah, Vah, Wah, Yah, Zah, Zhah, LettER
+    Vowels: chOIce, drEss, fAce, fOOt, flEEce, gOAt, gOOse, kIt, lOt, mOUth, prIce,
+    strUt, thOUGHt, trAp
+
+    Recommended Architecture & Hyperparameters
+
+    Based on our diagnostic block results, TCN and EEGNet vastly outperformed
+    linear/MLP models. For 39 classes, DL models are essential.
+
+    Best Model: TCN (recommended primary)
+
+    class TCN(nn.Module):
+        def __init__(self, nc=1280, nt=85, nk=39, dr=0.3, hidden=128):
+            # 4 layers of dilated conv1d (dilation 1,1,2,4)
+            # Kernel size 7, GELU activation, BatchNorm
+            # AdaptiveAvgPool1d → Linear
+    - ~1.4M params, converges fast (~30 epochs), very stable
+
+    Also Strong: GRU Decoder (most similar to paper's method)
+
+    class GRUDecoder(nn.Module):
+        def __init__(self, nc=1280, nt=85, nk=39, hidden=256, n_layers=2, dr=0.3):
+            # Bidirectional GRU → mean pooling → LayerNorm → Linear
+    - ~3.5M params, directly comparable to Willett's GRU approach
+
+    Transformer (worth trying)
+
+    class SpeechTransformer(nn.Module):
+        def __init__(self, nc=1280, nt=85, nk=39, d_model=128, nhead=8,
+    num_layers=4):
+            # Linear projection → positional encoding → CLS token
+            # TransformerEncoder → CLS output → LayerNorm → Linear
+
+    Key Training Settings
+
+    # GPU setup
+    os.environ["CUDA_VISIBLE_DEVICES"] = "4,5,6,7"
+    model = nn.DataParallel(model, device_ids=[0,1,2,3])  # 4× H100
+
+    # Training
+    EPOCHS = 200          # more epochs needed for 39 classes
+    LR = 3e-4             # AdamW
+    WD = 1e-2             # weight decay
+    BS = 32 * n_gpus      # scale batch with GPUs (128 total)
+    PATIENCE = 30         # early stopping
+
+    # Scheduler
+    CosineAnnealingWarmRestarts(optimizer, T_0=60, T_mult=2)
+
+    # Mixed precision (critical for speed on H100)
+    scaler = torch.amp.GradScaler('cuda')
+    with torch.amp.autocast('cuda'):
+        loss = criterion(model(xb), yb)
+
+    Data Augmentation (important for 39 classes with limited data)
+
+    # Gaussian noise (50% of batches)
+    xb = xb + torch.randn_like(xb) * 0.1
+
+    # Time shift (30% of batches, ±3 bins = ±60ms)
+    xb = torch.roll(xb, shift=random.randint(-3, 3), dims=2)
+
+    # Channel dropout (20% of batches, drop 5% of channels)
+    mask[:, drop_channels, :] = 0
+
+    # Consider adding:
+    # - Mixup (alpha=0.2) — blend trials of same/different classes
+    # - Cutout on time dimension (mask random 10-bin segments)
+
+    Cross-Validation Strategy
+
+    For phonemes, we have 2 sessions (not 20 like diagnostic blocks):
+    - Option A: Block-wise CV within each session (use blockNum from the .mat file)
+    - Option B: Train on one session, test on other (cross-session generalization,
+    harder but more meaningful)
+    - Option C: Merge both sessions, do 5-fold stratified CV with block grouping
+
+    Recommend Option B first (cross-session) as it tests generalization, then Option
+     A for best absolute numbers.
+
+    Preprocessing Tweaks for Phonemes
+
+    # Increase post-onset window — phonemes have different temporal profiles
+    PRE_BINS = 10    # 200ms pre
+    POST_BINS = 100  # 2000ms post (phonemes vary in duration)
+
+    # Feature stacking: spikePow + all 4 tx features
+    # This gave us 1280 features per time bin — keep this
+
+    # Z-score per block is CRITICAL (combats nonstationarity)
+    # Already implemented in preprocess.py
+
+    # Consider: temporal smoothing with causal moving average (3-5 bins)
+
+    What To Expect
+
+    ┌───────────────────────────┬─────────────────┬───────────────────────────────┐
+    │         Approach          │    Expected     │             Notes             │
+    │                           │    Accuracy     │                               │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ Linear/MLP on flat        │ 30-45%          │ Baseline, fast                │
+    │ features                  │                 │                               │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ EEGNet                    │ 50-65%          │ Good spatial-temporal         │
+    │                           │                 │ learning                      │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ TCN                       │ 55-70%          │ Best from our diagnostic      │
+    │                           │                 │ results                       │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ GRU (bidirectional)       │ 55-70%          │ Most comparable to paper      │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ Transformer               │ 50-65%          │ May need more data            │
+    ├───────────────────────────┼─────────────────┼───────────────────────────────┤
+    │ Ensemble (TCN+GRU+EEGNet) │ 60-75%          │ Majority vote                 │
+    └───────────────────────────┴─────────────────┴───────────────────────────────┘
+
+    Paper reports ~61.4% — we should be competitive since we're using the same
+    features (spikePow + tx), same channels, and same trial structure. The paper's
+    advantage is they train on sentence-level data with much more temporal context.
+
+    Commands to Run
+
+    cd /mnt/home/vincent.wilmet/docs/scripts
+
+    # 1. Preprocess (already done, outputs in data/processed/)
+    python3 -u preprocess.py --dataset tuning
+
+    # 2. Train phoneme models
+    # Modify train.py to load tuning data, or run:
+    python3 -u train.py --dataset tuning --epochs 200
+
+    # To train on a specific tuning file, the script picks the first
+    # tuning_*.npz by default. To train on merged phoneme data,
+    # write a small script that loads both phoneme npz files,
+    # concatenates X, y, and assigns session_ids, then saves as
+    # a combined npz.
+
+    File Locations
+
+    /mnt/home/vincent.wilmet/docs/
+    ├── scripts/
+    │   ├── config.py          # paths, hyperparameters, GPU config
+    │   ├── preprocess.py      # data loading + preprocessing
+    │   ├── train.py           # all-GPU training pipeline
+    │   └── download_data.py   # (original, Dryad API broken, use Zenodo)
+    ├── data/
+    │   ├── dryad/             # raw tar.gz + extracted folders
+    │   └── processed/         # .npz files ready for training
+    ├── models/                # saved weights + results.json
+    └── figures_v2/            # training curves, confusion matrices
+
+    Critical Lessons Learned
+
+    1. Dryad is bot-protected (Anubis) — use Zenodo mirror for programmatic
+    downloads
+    2. Data is pre-processed spike power, not raw ECoG — no need for
+    notch/bandpass/Hilbert
+    3. Z-score per block is essential — neural features drift across blocks
+    4. 1280 features (spikePow×256 + tx1-4×256) works well — don't reduce channels
+    5. AMP + DataParallel across 4 H100s gives great throughput
+    6. Early stopping at patience=25-30 prevents overfitting on small datasets
+    7. TCN converges fastest and gives best results; GRU is most comparable to paper

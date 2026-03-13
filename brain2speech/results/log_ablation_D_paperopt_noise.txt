@@ -1,0 +1,53 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.02 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 0.1 (paper: 0.1)
+  Noise: white=1.0, offset=0.2
+  Stack: kernel=1 (20ms), stride=1 (20ms)
+  Dropout: 0.4, L2: 1e-05
+  Direction: BIDIRECTIONAL
+======================================================================
+  Loading trial 2000/8780 (28.7s)...
+  Loading trial 4000/8780 (49.4s)...
+  Loading trial 6000/8780 (69.6s)...
+  Loading trial 8000/8780 (89.9s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (97.4s)
+  Stacked: kernel=1, stride=1
+  Stacked features: 1280D per 20ms step
+  Avg stacked length: 315 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (bidirectional), 38.5M params
+  Input: 1280D stacked features
+  Hidden: 512 × 5 layers
+
+Training schedule:
+  Batches/epoch: 97
+  Target minibatches: 10000 → ~103 epochs
+  LR: 0.02 → ~0 linear decay
+Epoch   1/103 | loss=6.0277 | val_PER=1.000 | lr=1.98e-02 | 52.9s
+Epoch   2/103 | loss=3.5340 | val_PER=1.000 | lr=1.96e-02 | 47.6s
+Epoch   3/103 | loss=3.5281 | val_PER=1.000 | lr=1.94e-02 | 47.6s
+Epoch   4/103 | loss=3.5188 | val_PER=1.000 | lr=1.92e-02 | 46.2s
+Epoch   5/103 | loss=3.5078 | val_PER=1.000 | lr=1.90e-02 | 46.6s
+Epoch   6/103 | loss=3.5001 | val_PER=1.000 | lr=1.88e-02 | 47.6s
+Epoch   7/103 | loss=3.4893 | val_PER=1.000 | lr=1.86e-02 | 47.6s
+Epoch   8/103 | loss=3.4718 | val_PER=1.000 | lr=1.84e-02 | 46.4s
+Epoch   9/103 | loss=3.4499 | val_PER=1.000 | lr=1.83e-02 | 46.9s
+Epoch  10/103 | loss=3.4231 | val_PER=1.000 | lr=1.81e-02 | 44.9s
+Epoch  11/103 | loss=3.3974 | val_PER=1.000 | lr=1.79e-02 | 46.5s
+Early stop at epoch 11
+
+======================================================================
+TEST RESULTS — Paper Replica
+  Val PER:  100.0%
+  Test PER: 100.0%
+  Paper:    19.7% PER
+  Previous best: 55.2% PER (RNN-T)
+======================================================================
+Results: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_20260312_210229.json
+Model: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_best.pt

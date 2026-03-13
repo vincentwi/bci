@@ -1,0 +1,32 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.02 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 0.1 (paper: 0.1)
+  Noise: white=0.1, offset=0.02
+  Stack: kernel=14 (280ms), stride=4 (80ms)
+  Dropout: 0.4, L2: 1e-05
+  Direction: UNIDIRECTIONAL (paper)
+======================================================================
+  Loading trial 2000/8780 (32.7s)...
+  Loading trial 4000/8780 (55.9s)...
+  Loading trial 6000/8780 (78.8s)...
+  Loading trial 8000/8780 (101.6s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (110.2s)
+  Stacked: kernel=14, stride=4
+  Stacked features: 17920D per 80ms step
+  Avg stacked length: 76 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (unidirectional), 237.3M params
+  Input: 17920D stacked features
+  Hidden: 512 × 5 layers
+
+Training schedule:
+  Batches/epoch: 97
+  Target minibatches: 10000 → ~103 epochs
+  LR: 0.02 → ~0 linear decay
+[slurm-h100-200-143:2865566:0:2868311] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x242bb2a902463)

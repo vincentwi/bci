@@ -1,0 +1,70 @@
+======================================================================
+SEQ2SEQ PHONEME DECODING — CausalGRU-CTC
+  Device: cuda:0 (GPUs: [4, 5])
+  Type: CTC
+  Epochs: 80, BS: 32, LR: 0.0003
+  Patience: 10 (fast iteration)
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Sessions: 24
+Train: 6260, Val: 720, Test: 1800
+Model: CausalGRU-CTC, 8.6M params
+Epoch   1/80 | loss=19.3983 | val_PER=1.000 | lr=3.0e-04 | 19.2s
+Epoch   2/80 | loss=3.5030 | val_PER=0.983 | lr=3.0e-04 | 15.9s
+Epoch   3/80 | loss=3.4594 | val_PER=0.979 | lr=3.0e-04 | 16.0s
+Epoch   4/80 | loss=3.3382 | val_PER=0.975 | lr=3.0e-04 | 15.6s
+Epoch   5/80 | loss=3.0408 | val_PER=0.973 | lr=3.0e-04 | 15.6s
+Epoch   6/80 | loss=2.7598 | val_PER=0.975 | lr=3.0e-04 | 16.0s
+Epoch   7/80 | loss=2.5206 | val_PER=0.975 | lr=3.0e-04 | 15.5s
+Epoch   8/80 | loss=2.3035 | val_PER=0.885 | lr=3.0e-04 | 16.1s
+Epoch   9/80 | loss=2.1335 | val_PER=0.803 | lr=3.0e-04 | 15.5s
+Epoch  10/80 | loss=2.0306 | val_PER=0.690 | lr=3.0e-04 | 15.6s
+Epoch  11/80 | loss=1.9361 | val_PER=0.672 | lr=3.0e-04 | 15.4s
+Epoch  12/80 | loss=1.9122 | val_PER=0.646 | lr=3.0e-04 | 15.7s
+Epoch  13/80 | loss=1.8675 | val_PER=0.667 | lr=3.0e-04 | 15.5s
+Epoch  14/80 | loss=1.8583 | val_PER=0.649 | lr=3.0e-04 | 16.3s
+Epoch  15/80 | loss=1.7821 | val_PER=0.639 | lr=3.0e-04 | 15.9s
+Epoch  16/80 | loss=1.7284 | val_PER=0.627 | lr=3.0e-04 | 15.6s
+Epoch  17/80 | loss=1.6607 | val_PER=0.616 | lr=3.0e-04 | 15.7s
+Epoch  18/80 | loss=1.6542 | val_PER=0.621 | lr=3.0e-04 | 15.5s
+Epoch  19/80 | loss=1.6561 | val_PER=0.610 | lr=3.0e-04 | 16.1s
+Epoch  20/80 | loss=1.5962 | val_PER=0.605 | lr=3.0e-04 | 15.4s
+Epoch  21/80 | loss=1.5673 | val_PER=0.577 | lr=3.0e-04 | 15.7s
+Epoch  22/80 | loss=1.5453 | val_PER=0.569 | lr=3.0e-04 | 15.8s
+Epoch  23/80 | loss=1.5163 | val_PER=0.570 | lr=3.0e-04 | 15.3s
+Epoch  24/80 | loss=1.5008 | val_PER=0.561 | lr=3.0e-04 | 15.8s
+Epoch  25/80 | loss=1.4815 | val_PER=0.558 | lr=3.0e-04 | 15.6s
+Epoch  26/80 | loss=1.5003 | val_PER=0.548 | lr=3.0e-04 | 16.0s
+Epoch  27/80 | loss=1.4473 | val_PER=0.537 | lr=3.0e-04 | 15.9s
+Epoch  28/80 | loss=1.4503 | val_PER=0.558 | lr=3.0e-04 | 15.6s
+Epoch  29/80 | loss=1.4399 | val_PER=0.535 | lr=3.0e-04 | 15.7s
+Epoch  30/80 | loss=1.4023 | val_PER=0.546 | lr=3.0e-04 | 15.3s
+Epoch  31/80 | loss=1.4146 | val_PER=0.559 | lr=3.0e-04 | 15.7s
+Epoch  32/80 | loss=1.6846 | val_PER=0.598 | lr=3.0e-04 | 15.6s
+Epoch  33/80 | loss=1.4719 | val_PER=0.535 | lr=3.0e-04 | 15.9s
+Epoch  34/80 | loss=1.4188 | val_PER=0.537 | lr=3.0e-04 | 15.7s
+Epoch  35/80 | loss=1.3090 | val_PER=0.519 | lr=1.5e-04 | 15.6s
+Epoch  36/80 | loss=1.2423 | val_PER=0.511 | lr=1.5e-04 | 15.7s
+Epoch  37/80 | loss=1.2118 | val_PER=0.515 | lr=1.5e-04 | 15.6s
+Epoch  38/80 | loss=1.2040 | val_PER=0.521 | lr=1.5e-04 | 15.6s
+Epoch  39/80 | loss=1.1778 | val_PER=0.516 | lr=1.5e-04 | 16.0s
+Epoch  40/80 | loss=1.1592 | val_PER=0.513 | lr=1.5e-04 | 15.7s
+Epoch  41/80 | loss=1.1355 | val_PER=0.503 | lr=1.5e-04 | 15.9s
+Epoch  42/80 | loss=1.1211 | val_PER=0.505 | lr=1.5e-04 | 15.7s
+Epoch  43/80 | loss=1.0791 | val_PER=0.502 | lr=1.5e-04 | 16.1s
+Epoch  44/80 | loss=1.0607 | val_PER=0.499 | lr=1.5e-04 | 15.7s
+Epoch  45/80 | loss=1.0443 | val_PER=0.503 | lr=1.5e-04 | 15.7s
+Epoch  46/80 | loss=1.0461 | val_PER=0.501 | lr=1.5e-04 | 16.2s
+Epoch  47/80 | loss=1.0394 | val_PER=0.506 | lr=1.5e-04 | 16.0s
+Epoch  48/80 | loss=1.0214 | val_PER=0.499 | lr=1.5e-04 | 16.2s
+Epoch  49/80 | loss=1.0059 | val_PER=0.502 | lr=1.5e-04 | 15.7s
+Epoch  50/80 | loss=0.9981 | val_PER=0.509 | lr=1.5e-04 | 16.0s
+Epoch  51/80 | loss=0.9884 | val_PER=0.504 | lr=1.5e-04 | 16.4s
+Epoch  52/80 | loss=0.9700 | val_PER=0.504 | lr=1.5e-04 | 15.7s
+Epoch  53/80 | loss=0.9632 | val_PER=0.499 | lr=1.5e-04 | 16.4s
+Epoch  54/80 | loss=0.9151 | val_PER=0.495 | lr=7.5e-05 | 15.8s
+Epoch  55/80 | loss=0.8768 | val_PER=0.494 | lr=7.5e-05 | 16.1s
+Epoch  56/80 | loss=0.8605 | val_PER=0.492 | lr=7.5e-05 | 16.0s
+Epoch  57/80 | loss=0.8574 | val_PER=0.487 | lr=7.5e-05 | 15.7s
+Epoch  58/80 | loss=0.8345 | val_PER=0.490 | lr=7.5e-05 | 15.7s

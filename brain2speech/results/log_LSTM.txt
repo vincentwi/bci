@@ -1,0 +1,47 @@
+======================================================================
+SEQ2SEQ PHONEME DECODING — LSTM-CTC
+  Device: cuda:0 (GPUs: [6, 7])
+  Type: CTC
+  Epochs: 80, BS: 32, LR: 0.0003
+  Patience: 10 (fast iteration)
+======================================================================
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5
+
+Sessions: 24
+Train: 6260, Val: 720, Test: 1800
+Model: LSTM-CTC, 30.1M params
+Epoch   1/80 | loss=22.2985 | val_PER=1.000 | lr=3.0e-04 | 30.6s
+Epoch   2/80 | loss=3.5333 | val_PER=1.000 | lr=3.0e-04 | 26.7s
+Epoch   3/80 | loss=3.4908 | val_PER=0.977 | lr=3.0e-04 | 26.4s
+Epoch   4/80 | loss=3.4785 | val_PER=0.971 | lr=3.0e-04 | 26.4s
+Epoch   5/80 | loss=3.4630 | val_PER=0.961 | lr=3.0e-04 | 26.0s
+Epoch   6/80 | loss=3.4431 | val_PER=0.957 | lr=3.0e-04 | 26.1s
+Epoch   7/80 | loss=3.4259 | val_PER=0.942 | lr=3.0e-04 | 25.8s
+Epoch   8/80 | loss=3.3639 | val_PER=0.943 | lr=3.0e-04 | 26.2s
+Epoch   9/80 | loss=3.2178 | val_PER=0.922 | lr=3.0e-04 | 25.8s
+Epoch  10/80 | loss=2.9530 | val_PER=0.921 | lr=3.0e-04 | 26.3s
+Epoch  11/80 | loss=2.7431 | val_PER=0.879 | lr=3.0e-04 | 26.6s
+Epoch  12/80 | loss=2.6371 | val_PER=0.804 | lr=3.0e-04 | 25.6s
+Epoch  13/80 | loss=2.5091 | val_PER=0.738 | lr=3.0e-04 | 26.0s
+Epoch  14/80 | loss=2.4265 | val_PER=0.722 | lr=3.0e-04 | 26.5s
+Epoch  15/80 | loss=2.4126 | val_PER=0.740 | lr=3.0e-04 | 25.9s
+Epoch  16/80 | loss=2.5448 | val_PER=0.724 | lr=3.0e-04 | 26.1s
+Epoch  17/80 | loss=2.4118 | val_PER=0.718 | lr=3.0e-04 | 26.1s
+Epoch  18/80 | loss=2.3991 | val_PER=0.697 | lr=3.0e-04 | 25.9s
+Epoch  19/80 | loss=2.2711 | val_PER=0.679 | lr=3.0e-04 | 26.2s
+Epoch  20/80 | loss=2.2074 | val_PER=0.683 | lr=3.0e-04 | 26.1s
+Epoch  21/80 | loss=2.1635 | val_PER=0.669 | lr=3.0e-04 | 25.7s
+Epoch  22/80 | loss=2.1288 | val_PER=0.658 | lr=3.0e-04 | 26.3s
+Epoch  23/80 | loss=2.0724 | val_PER=0.642 | lr=3.0e-04 | 26.6s
+Epoch  24/80 | loss=2.0332 | val_PER=0.630 | lr=3.0e-04 | 26.4s
+Epoch  25/80 | loss=1.9897 | val_PER=0.619 | lr=3.0e-04 | 26.6s
+Epoch  26/80 | loss=1.9499 | val_PER=0.610 | lr=3.0e-04 | 26.3s
+Epoch  27/80 | loss=1.9273 | val_PER=0.612 | lr=3.0e-04 | 26.3s
+Epoch  28/80 | loss=1.9320 | val_PER=0.621 | lr=3.0e-04 | 26.2s
+Epoch  29/80 | loss=1.9050 | val_PER=0.606 | lr=3.0e-04 | 26.3s
+Epoch  30/80 | loss=1.8486 | val_PER=0.598 | lr=3.0e-04 | 26.6s
+Epoch  31/80 | loss=1.8272 | val_PER=0.596 | lr=3.0e-04 | 26.2s
+Epoch  32/80 | loss=1.7943 | val_PER=0.583 | lr=3.0e-04 | 25.8s
+Epoch  33/80 | loss=1.7877 | val_PER=0.597 | lr=3.0e-04 | 26.7s
+Epoch  34/80 | loss=1.8289 | val_PER=0.595 | lr=3.0e-04 | 26.1s
+Epoch  35/80 | loss=1.8376 | val_PER=0.617 | lr=3.0e-04 | 26.1s

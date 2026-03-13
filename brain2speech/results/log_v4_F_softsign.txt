@@ -1,0 +1,147 @@
+======================================================================
+PAPER REPLICA: Willett et al. 2023 Decoder
+  GPUs: [0, 1]
+  Batch size: 64 (paper: 64)
+  LR: 0.0003 → 0 linear decay (paper: 0.02)
+  Adam epsilon: 1e-08 (paper: 0.1)
+  Noise: white=0.05, offset=0.0
+  Stack: kernel=1 (20ms), stride=1 (20ms)
+  Dropout: 0.3, L2: 1e-05
+  Direction: BIDIRECTIONAL
+======================================================================
+  Loading trial 2000/8780 (28.7s)...
+  Loading trial 4000/8780 (49.3s)...
+  Loading trial 6000/8780 (69.5s)...
+  Loading trial 8000/8780 (89.9s)...
+Loaded 8780 trials from /mnt/home/vincent.wilmet/brain2speech/data/sentences_train.h5 (97.4s)
+  Stacked: kernel=1, stride=1
+  Stacked features: 1280D per 20ms step
+  Avg stacked length: 315 steps
+
+Sessions: 24 (18 train, 2 val, 4 test)
+Train session indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+Trials: 6260 train, 720 val, 1800 test
+
+Model: PaperGRUSimple (bidirectional), 38.5M params
+  Input: 1280D stacked features
+  Hidden: 512 × 5 layers
+  Day-specific layers: 18 trained, 6 shared
+
+Training schedule:
+  Batches/epoch: 97
+  Max epochs: 103
+  Scheduler: ReduceLROnPlateau
+  LR: 0.0003
+Epoch   1/103 | loss=6.2640 | val_PER=1.000 | lr=3.00e-04 | 53.1s
+Epoch   2/103 | loss=3.4619 | val_PER=1.000 | lr=3.00e-04 | 48.4s
+Epoch   3/103 | loss=3.2009 | val_PER=0.987 | lr=3.00e-04 | 48.2s
+Epoch   4/103 | loss=2.8580 | val_PER=0.973 | lr=3.00e-04 | 48.4s
+Epoch   5/103 | loss=2.5971 | val_PER=0.970 | lr=3.00e-04 | 49.3s
+Epoch   6/103 | loss=2.3863 | val_PER=0.956 | lr=3.00e-04 | 47.5s
+Epoch   7/103 | loss=2.1887 | val_PER=0.900 | lr=3.00e-04 | 48.0s
+Epoch   8/103 | loss=1.9918 | val_PER=0.789 | lr=3.00e-04 | 47.8s
+Epoch   9/103 | loss=1.8166 | val_PER=0.696 | lr=3.00e-04 | 48.4s
+Epoch  10/103 | loss=1.6592 | val_PER=0.634 | lr=3.00e-04 | 48.5s
+Epoch  11/103 | loss=1.5368 | val_PER=0.607 | lr=3.00e-04 | 48.2s
+Epoch  12/103 | loss=1.3924 | val_PER=0.585 | lr=3.00e-04 | 48.3s
+Epoch  13/103 | loss=1.3208 | val_PER=0.561 | lr=3.00e-04 | 47.2s
+Epoch  14/103 | loss=1.2146 | val_PER=0.560 | lr=3.00e-04 | 47.6s
+Epoch  15/103 | loss=1.1347 | val_PER=0.545 | lr=3.00e-04 | 47.3s
+Epoch  16/103 | loss=1.0844 | val_PER=0.543 | lr=3.00e-04 | 47.0s
+Epoch  17/103 | loss=1.0321 | val_PER=0.523 | lr=3.00e-04 | 47.4s
+Epoch  18/103 | loss=0.9785 | val_PER=0.527 | lr=3.00e-04 | 47.7s
+Epoch  19/103 | loss=0.9250 | val_PER=0.519 | lr=3.00e-04 | 47.6s
+Epoch  20/103 | loss=0.9042 | val_PER=0.525 | lr=3.00e-04 | 48.1s
+Epoch  21/103 | loss=0.9004 | val_PER=0.522 | lr=3.00e-04 | 47.9s
+Epoch  22/103 | loss=0.8435 | val_PER=0.519 | lr=3.00e-04 | 48.2s
+Epoch  23/103 | loss=0.9417 | val_PER=0.544 | lr=3.00e-04 | 48.9s
+Epoch  24/103 | loss=0.9595 | val_PER=0.519 | lr=1.50e-04 | 48.1s
+Epoch  25/103 | loss=0.7678 | val_PER=0.484 | lr=1.50e-04 | 48.7s
+Epoch  26/103 | loss=0.6766 | val_PER=0.484 | lr=1.50e-04 | 47.3s
+Epoch  27/103 | loss=0.6340 | val_PER=0.481 | lr=1.50e-04 | 48.2s
+Epoch  28/103 | loss=0.5951 | val_PER=0.474 | lr=1.50e-04 | 48.1s
+Epoch  29/103 | loss=0.5774 | val_PER=0.476 | lr=1.50e-04 | 47.7s
+Epoch  30/103 | loss=0.5689 | val_PER=0.477 | lr=1.50e-04 | 48.1s
+Epoch  31/103 | loss=0.5322 | val_PER=0.471 | lr=1.50e-04 | 48.2s
+Epoch  32/103 | loss=0.5200 | val_PER=0.466 | lr=1.50e-04 | 48.7s
+Epoch  33/103 | loss=0.4989 | val_PER=0.464 | lr=1.50e-04 | 48.6s
+Epoch  34/103 | loss=0.4920 | val_PER=0.465 | lr=1.50e-04 | 48.3s
+Epoch  35/103 | loss=0.4848 | val_PER=0.463 | lr=1.50e-04 | 48.0s
+Epoch  36/103 | loss=0.4627 | val_PER=0.458 | lr=1.50e-04 | 48.5s
+Epoch  37/103 | loss=0.4685 | val_PER=0.453 | lr=1.50e-04 | 48.0s
+Epoch  38/103 | loss=0.4543 | val_PER=0.455 | lr=1.50e-04 | 47.8s
+Epoch  39/103 | loss=0.4393 | val_PER=0.461 | lr=1.50e-04 | 47.3s
+Epoch  40/103 | loss=0.4450 | val_PER=0.463 | lr=1.50e-04 | 48.0s
+Epoch  41/103 | loss=0.4205 | val_PER=0.458 | lr=1.50e-04 | 47.5s
+Epoch  42/103 | loss=0.4119 | val_PER=0.452 | lr=1.50e-04 | 47.2s
+Epoch  43/103 | loss=0.3973 | val_PER=0.447 | lr=1.50e-04 | 46.9s
+Epoch  44/103 | loss=0.3936 | val_PER=0.458 | lr=1.50e-04 | 48.3s
+Epoch  45/103 | loss=0.3881 | val_PER=0.460 | lr=1.50e-04 | 47.5s
+Epoch  46/103 | loss=0.3803 | val_PER=0.458 | lr=1.50e-04 | 48.5s
+Epoch  47/103 | loss=0.3619 | val_PER=0.452 | lr=1.50e-04 | 47.3s
+Epoch  48/103 | loss=0.3756 | val_PER=0.449 | lr=7.50e-05 | 48.3s
+Epoch  49/103 | loss=0.3358 | val_PER=0.441 | lr=7.50e-05 | 48.3s
+Epoch  50/103 | loss=0.3101 | val_PER=0.436 | lr=7.50e-05 | 48.1s
+Epoch  51/103 | loss=0.2991 | val_PER=0.445 | lr=7.50e-05 | 48.0s
+Epoch  52/103 | loss=0.2984 | val_PER=0.436 | lr=7.50e-05 | 47.5s
+Epoch  53/103 | loss=0.2928 | val_PER=0.434 | lr=7.50e-05 | 47.7s
+Epoch  54/103 | loss=0.2853 | val_PER=0.432 | lr=7.50e-05 | 46.8s
+Epoch  55/103 | loss=0.2706 | val_PER=0.436 | lr=7.50e-05 | 47.1s
+Epoch  56/103 | loss=0.2650 | val_PER=0.432 | lr=7.50e-05 | 47.6s
+Epoch  57/103 | loss=0.2633 | val_PER=0.431 | lr=7.50e-05 | 48.0s
+Epoch  58/103 | loss=0.2615 | val_PER=0.435 | lr=7.50e-05 | 48.0s
+Epoch  59/103 | loss=0.2478 | val_PER=0.430 | lr=7.50e-05 | 48.7s
+Epoch  60/103 | loss=0.2533 | val_PER=0.430 | lr=7.50e-05 | 48.6s
+Epoch  61/103 | loss=0.2483 | val_PER=0.433 | lr=7.50e-05 | 48.7s
+Epoch  62/103 | loss=0.2563 | val_PER=0.433 | lr=7.50e-05 | 48.1s
+Epoch  63/103 | loss=0.2368 | val_PER=0.431 | lr=7.50e-05 | 47.7s
+Epoch  64/103 | loss=0.2434 | val_PER=0.433 | lr=7.50e-05 | 47.7s
+Epoch  65/103 | loss=0.2387 | val_PER=0.429 | lr=7.50e-05 | 47.7s
+Epoch  66/103 | loss=0.2304 | val_PER=0.427 | lr=7.50e-05 | 47.5s
+Epoch  67/103 | loss=0.2225 | val_PER=0.432 | lr=7.50e-05 | 48.5s
+Epoch  68/103 | loss=0.2389 | val_PER=0.423 | lr=7.50e-05 | 47.8s
+Epoch  69/103 | loss=0.2246 | val_PER=0.427 | lr=7.50e-05 | 48.2s
+Epoch  70/103 | loss=0.2269 | val_PER=0.423 | lr=7.50e-05 | 47.9s
+Epoch  71/103 | loss=0.2145 | val_PER=0.430 | lr=7.50e-05 | 48.6s
+Epoch  72/103 | loss=0.2190 | val_PER=0.422 | lr=7.50e-05 | 47.9s
+Epoch  73/103 | loss=0.2161 | val_PER=0.421 | lr=7.50e-05 | 48.0s
+Epoch  74/103 | loss=0.2236 | val_PER=0.424 | lr=7.50e-05 | 47.3s
+Epoch  75/103 | loss=0.2214 | val_PER=0.435 | lr=7.50e-05 | 47.5s
+Epoch  76/103 | loss=0.2354 | val_PER=0.431 | lr=7.50e-05 | 47.6s
+Epoch  77/103 | loss=0.2310 | val_PER=0.422 | lr=7.50e-05 | 47.6s
+Epoch  78/103 | loss=0.2087 | val_PER=0.421 | lr=3.75e-05 | 47.7s
+Epoch  79/103 | loss=0.1959 | val_PER=0.419 | lr=3.75e-05 | 48.0s
+Epoch  80/103 | loss=0.1840 | val_PER=0.417 | lr=3.75e-05 | 48.2s
+Epoch  81/103 | loss=0.1959 | val_PER=0.416 | lr=3.75e-05 | 48.2s
+Epoch  82/103 | loss=0.1865 | val_PER=0.418 | lr=3.75e-05 | 48.6s
+Epoch  83/103 | loss=0.1829 | val_PER=0.419 | lr=3.75e-05 | 47.8s
+Epoch  84/103 | loss=0.1817 | val_PER=0.419 | lr=3.75e-05 | 47.9s
+Epoch  85/103 | loss=0.1770 | val_PER=0.419 | lr=3.75e-05 | 47.4s
+Epoch  86/103 | loss=0.1730 | val_PER=0.419 | lr=1.87e-05 | 47.7s
+Epoch  87/103 | loss=0.1659 | val_PER=0.411 | lr=1.87e-05 | 48.2s
+Epoch  88/103 | loss=0.1691 | val_PER=0.410 | lr=1.87e-05 | 47.9s
+Epoch  89/103 | loss=0.1676 | val_PER=0.414 | lr=1.87e-05 | 47.9s
+Epoch  90/103 | loss=0.1623 | val_PER=0.409 | lr=1.87e-05 | 47.6s
+Epoch  91/103 | loss=0.1589 | val_PER=0.410 | lr=1.87e-05 | 47.9s
+Epoch  92/103 | loss=0.1594 | val_PER=0.412 | lr=1.87e-05 | 47.6s
+Epoch  93/103 | loss=0.1565 | val_PER=0.411 | lr=1.87e-05 | 47.6s
+Epoch  94/103 | loss=0.1589 | val_PER=0.411 | lr=1.87e-05 | 47.5s
+Epoch  95/103 | loss=0.1531 | val_PER=0.412 | lr=9.37e-06 | 47.4s
+Epoch  96/103 | loss=0.1527 | val_PER=0.412 | lr=9.37e-06 | 48.1s
+Epoch  97/103 | loss=0.1574 | val_PER=0.411 | lr=9.37e-06 | 47.9s
+Epoch  98/103 | loss=0.1569 | val_PER=0.410 | lr=9.37e-06 | 48.1s
+Epoch  99/103 | loss=0.1498 | val_PER=0.411 | lr=9.37e-06 | 47.0s
+Epoch 100/103 | loss=0.1540 | val_PER=0.411 | lr=4.69e-06 | 47.3s
+Epoch 101/103 | loss=0.1511 | val_PER=0.408 | lr=4.69e-06 | 47.4s
+Epoch 102/103 | loss=0.1515 | val_PER=0.408 | lr=4.69e-06 | 37.6s
+Epoch 103/103 | loss=0.1504 | val_PER=0.409 | lr=4.69e-06 | 25.1s
+
+======================================================================
+TEST RESULTS — Paper Replica
+  Val PER:  40.8%
+  Test PER: 53.2%
+  Paper:    19.7% PER
+  Previous best: 55.2% PER (RNN-T)
+======================================================================
+Results: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_20260312_234611.json
+Model: /mnt/home/vincent.wilmet/brain2speech/results/paper_replica_best.pt
