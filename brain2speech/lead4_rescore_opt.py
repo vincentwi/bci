@@ -51,7 +51,13 @@ class OPTRescorer:
             'cache_dir': cache_dir,
         }
         if load_in_8bit:
-            load_kwargs['load_in_8bit'] = True
+            try:
+                from transformers import BitsAndBytesConfig
+                load_kwargs['quantization_config'] = BitsAndBytesConfig(
+                    load_in_8bit=True)
+            except ImportError:
+                # Older transformers: pass directly
+                load_kwargs['load_in_8bit'] = True
         else:
             load_kwargs['torch_dtype'] = torch.float16
 

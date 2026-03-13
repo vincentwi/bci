@@ -1,0 +1,159 @@
+{
+    "_comment": "Cross-lead ensemble config. Best checkpoints from all leads.",
+    "_note": "Lead 4 models included. Add Lead 1-3 checkpoints as they become available.",
+    "_expected": "~20-24 models: 4-6 L1 (GRU variants), 4 L2 (DCoND diphone), 3-4 L3 (BiMamba/S4), 10 L4 (Adam+SGD)",
+    "models": [
+        {
+            "name": "L4_cffan_baseline_s42",
+            "path": "brain2speech/results/lead4/L4_cffan_baseline.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s42",
+            "path": "brain2speech/results/lead4/L4_cffan_s42_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s43",
+            "path": "brain2speech/results/lead4/L4_cffan_s43_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s44",
+            "path": "brain2speech/results/lead4/L4_cffan_s44_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s45",
+            "path": "brain2speech/results/lead4/L4_cffan_s45_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s42",
+            "path": "brain2speech/results/lead4/L4_cibr_s42_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s43",
+            "path": "brain2speech/results/lead4/L4_cibr_s43_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s44",
+            "path": "brain2speech/results/lead4/L4_cibr_s44_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s45",
+            "path": "brain2speech/results/lead4/L4_cibr_s45_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "lead": "L4",
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s46",
+            "path": "brain2speech/results/lead4/L4_cibr_s46_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "lead": "L4",
+            "weight": 1.0
+        }
+    ],
+    "_lead1_placeholder": [
+        {"_comment": "Add Lead 1 GRU variants here when available"},
+        {"_example": {"name": "L1_enhanced_s42", "path": "brain2speech/results/lead1/...", "model_class": "EnhancedGRU", "lead": "L1"}}
+    ],
+    "_lead2_placeholder": [
+        {"_comment": "Add Lead 2 DCoND diphone decoders here when available"},
+        {"_example": {"name": "L2_dcond_s42", "path": "brain2speech/results/lead2/...", "model_class": "DCoNDDecoder", "lead": "L2"}}
+    ],
+    "_lead3_placeholder": [
+        {"_comment": "Add Lead 3 BiMamba/S4/ResBlock models here when available"},
+        {"_example": {"name": "L3_bimamba_s42", "path": "brain2speech/results/lead3/...", "model_class": "BiMambaDecoder", "lead": "L3"}}
+    ]
+}

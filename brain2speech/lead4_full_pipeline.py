@@ -330,6 +330,7 @@ def evaluate_pipeline(
     nbest=100,
     opt_model_name=None,
     opt_weight=0.5,
+    opt_load_in_8bit=True,
     qwen_adapter=None,
     qwen_prompt='B_dcond',
     use_diverse_candidates=False,
@@ -420,7 +421,8 @@ def evaluate_pipeline(
     if 'opt' in stage or stage == 'full':
         if opt_model_name:
             from lead4_rescore_opt import OPTRescorer
-            opt_rescorer = OPTRescorer(model_name=opt_model_name)
+            opt_rescorer = OPTRescorer(model_name=opt_model_name,
+                                          load_in_8bit=opt_load_in_8bit)
         else:
             print("WARNING: OPT stage requested but no --opt model provided")
 
@@ -640,8 +642,8 @@ def main():
     parser.add_argument('--kenlm', type=str, default=None,
                         help='KenLM model path (.arpa or .bin)')
     parser.add_argument('--beam-width', type=int, default=500)
-    parser.add_argument('--alpha', type=float, default=2.0,
-                        help='KenLM weight')
+    parser.add_argument('--alpha', type=float, default=0.005,
+                        help='KenLM weight (0.005 optimal for mixture ensemble, 2.0 for single model)')
     parser.add_argument('--beta', type=float, default=0.0)
     parser.add_argument('--nbest', type=int, default=100)
 
@@ -649,6 +651,8 @@ def main():
     parser.add_argument('--opt', type=str, default=None,
                         help='OPT model name (e.g., facebook/opt-6.7b)')
     parser.add_argument('--opt-weight', type=float, default=0.5)
+    parser.add_argument('--no-8bit', action='store_true',
+                        help='Disable 8-bit quantization for OPT (use fp16 instead)')
 
     # Qwen correction
     parser.add_argument('--qwen', type=str, default=None,
@@ -700,6 +704,7 @@ def main():
         nbest=args.nbest,
         opt_model_name=args.opt,
         opt_weight=args.opt_weight,
+        opt_load_in_8bit=not args.no_8bit,
         qwen_adapter=args.qwen,
         qwen_prompt=args.qwen_prompt,
         use_diverse_candidates=args.dcond_lift,

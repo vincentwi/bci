@@ -90,6 +90,12 @@ class CTCEnsemble:
         elif model_class_name == 'EnhancedGRU':
             from lead1_train_gru_v2 import EnhancedGRU
             model = EnhancedGRU(**model_kwargs)
+        elif model_class_name == 'PaperExactDCoND':
+            from lead2_train_dcond import PaperExactDCoND
+            model = PaperExactDCoND(**model_kwargs)
+        elif model_class_name == 'DCoNDDecoder':
+            from lead2_train_dcond import DCoNDDecoder
+            model = DCoNDDecoder(**model_kwargs)
         else:
             raise ValueError(f"Unknown model class: {model_class_name}")
 
@@ -106,6 +112,16 @@ class CTCEnsemble:
 
         return model
 
+    def _get_mono_logits(self, model, features, session_ids):
+        """Get monophone logits from any model type.
+
+        DCoND models have forward_mono() for 41-class output.
+        Other models return 41-class directly from forward().
+        """
+        if hasattr(model, 'forward_mono'):
+            return model.forward_mono(features, session_ids)
+        return model(features, session_ids)
+
     def get_ensemble_log_probs(self, features, session_ids):
         """Weighted average of log probs across all models.
 
@@ -120,7 +136,7 @@ class CTCEnsemble:
 
         with torch.no_grad():
             for model, weight in zip(self.models, self.weights):
-                logits = model(features, session_ids)
+                logits = self._get_mono_logits(model, features, session_ids)
                 log_probs = F.log_softmax(logits, dim=-1)
                 all_log_probs.append(log_probs * weight)
 
@@ -139,7 +155,7 @@ class CTCEnsemble:
 
         with torch.no_grad():
             for model, weight in zip(self.models, self.weights):
-                logits = model(features, session_ids)
+                logits = self._get_mono_logits(model, features, session_ids)
                 probs = F.softmax(logits, dim=-1) * weight
                 all_probs.append(probs)
 
@@ -171,7 +187,7 @@ class CTCEnsemble:
 
         with torch.no_grad():
             for i, model in enumerate(self.models):
-                logits = model(features, session_ids)
+                logits = self._get_mono_logits(model, features, session_ids)
                 log_probs = F.log_softmax(logits, dim=-1)
                 log_probs_np = log_probs[0].cpu().numpy()
 

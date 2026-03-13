@@ -1,0 +1,1502 @@
+[
+  {
+    "trial_idx": 0,
+    "target_phonemes": "DH IH S SIL B IH G SIL F L EH K S AH B AH L SIL V OY S SIL W IH DH SIL AH N K AA M AH N SIL R EY N JH SIL HH AE Z SIL B IH N SIL S UW P ER B L IY SIL D IH S AH P L AH N D SIL",
+    "greedy_per": 0.36923076923076925,
+    "top1_per": 0.38461538461538464,
+    "oracle_per": 0.38461538461538464,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH S B IH G F EH K S AH B AH L V OY S W IH DH AO K M AH N AE N JH Z HH AE Z B IH N AH P T L IY D IH S AH L AH L",
+        "score": -144.30622816668404,
+        "per": 0.38461538461538464
+      }
+    ]
+  },
+  {
+    "trial_idx": 1,
+    "target_phonemes": "DH AH SIL K IH D SIL HH AE Z SIL N OW SIL M AE N ER Z SIL B OY Z SIL",
+    "greedy_per": 0.16666666666666666,
+    "top1_per": 0.25,
+    "oracle_per": 0.25,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH K IH D HH AE Z N OW M AE N ER Z B OY Z",
+        "score": -77.32162379601493,
+        "per": 0.25
+      }
+    ]
+  },
+  {
+    "trial_idx": 2,
+    "target_phonemes": "S T UW D AH N T S SIL CH OY S AH Z SIL AH V SIL AY D IY L SIL EH JH AH K EY SH AH N AH L SIL G OW L Z SIL AA R SIL N AA T SIL AA R B AH T R EH R IY SIL AO R SIL W IH M Z IH K AH L SIL",
+    "greedy_per": 0.5147058823529411,
+    "top1_per": 0.6029411764705882,
+    "oracle_per": 0.6029411764705882,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "S T IH NG S CH R S AH V AY D ER N AH L IY S K OW L Z AA R N AA T S AH M P N IY Z AO R R EH N IH K AH L",
+        "score": -160.3589840766282,
+        "per": 0.6029411764705882
+      }
+    ]
+  },
+  {
+    "trial_idx": 3,
+    "target_phonemes": "T R AY SIL T UW SIL R IY K AO L SIL DH AH SIL IH V EH N T S SIL IH N SIL K R AA N AH L AA JH IH K AH L SIL AO R D ER SIL",
+    "greedy_per": 0.13636363636363635,
+    "top1_per": 0.25,
+    "oracle_per": 0.25,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AY D T UW R IY K AO L SIL DH AH EH V EH N S IH N K AA N AA L AA JH IH K AH L AO R D ER SIL",
+        "score": -129.54718366997687,
+        "per": 0.25
+      }
+    ]
+  },
+  {
+    "trial_idx": 4,
+    "target_phonemes": "DH EH R SIL M EY SIL B IY SIL S AH M SIL P R AA B L AH M Z SIL W IH DH SIL N UW Z SIL D IH S P L EY SIL IH N SIL S P AH S IH F IH K SIL B R AW Z ER SIL V ER ZH AH N Z SIL",
+    "greedy_per": 0.1746031746031746,
+    "top1_per": 0.2222222222222222,
+    "oracle_per": 0.2222222222222222,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "EH R M EY B IY S AH M P R AA B L AH M Z W IH DH SIL N UW Z D IH S P L IH N S P AH S IH F IH K B AW ER Z V ER ZH AH N Z SIL",
+        "score": -133.6106131568174,
+        "per": 0.2222222222222222
+      }
+    ]
+  },
+  {
+    "trial_idx": 5,
+    "target_phonemes": "Y UH R SIL S OW SIL P R IY AA K Y AH P AY D SIL DH AE T SIL Y UW V SIL L EH T SIL Y AO R SIL F EY TH SIL G R OW SIL D IH M SIL",
+    "greedy_per": 0.21739130434782608,
+    "top1_per": 0.30434782608695654,
+    "oracle_per": 0.30434782608695654,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "Y R S OW P R AA Y P ER D Z DH AE T Y UW V L EH T Y AO R F EY TH G R OW D IH M SIL",
+        "score": -116.21755040396611,
+        "per": 0.30434782608695654
+      }
+    ]
+  },
+  {
+    "trial_idx": 6,
+    "target_phonemes": "S T AO R IY Z SIL L AY K SIL DH AE T SIL AH V SIL HH ER SIL AH N D SIL HH ER SIL S AH N SIL AA R SIL N AA T SIL AH N Y UW ZH AH W AH L SIL",
+    "greedy_per": 0.12244897959183673,
+    "top1_per": 0.20408163265306123,
+    "oracle_per": 0.20408163265306123,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AO R Z L AY K L DH AE T AH V SIL HH ER AH N D HH ER SIL S AH N D AA R N AA T AH N Y UW ZH AH W AH L SIL",
+        "score": -146.30895601232905,
+        "per": 0.20408163265306123
+      }
+    ]
+  },
+  {
+    "trial_idx": 7,
+    "target_phonemes": "DH AH SIL M IH S K W OW T SIL W AA Z SIL R IY T R AE K T AH D SIL W IH DH SIL AE N SIL AH P AA L AH JH IY SIL",
+    "greedy_per": 0.325,
+    "top1_per": 0.4,
+    "oracle_per": 0.4,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH M OW S K OW T W AA Z R K T AH D W IH DH AE N P L JH IY SIL",
+        "score": -99.62827510978039,
+        "per": 0.4
+      }
+    ]
+  },
+  {
+    "trial_idx": 8,
+    "target_phonemes": "W IY SIL G AA T SIL D R EH N CH T SIL F R AH M SIL DH AH SIL AH N IH N T ER AH P T IH D SIL R EY N SIL",
+    "greedy_per": 0.2631578947368421,
+    "top1_per": 0.3684210526315789,
+    "oracle_per": 0.3684210526315789,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY G AA T D R N CH F R AH M SIL DH AH N T AH T IH D S R N SIL",
+        "score": -84.40703600042933,
+        "per": 0.3684210526315789
+      }
+    ]
+  },
+  {
+    "trial_idx": 9,
+    "target_phonemes": "HH IH Z SIL SH OW L D ER SIL F EH L T SIL AE Z SIL IH F SIL IH T SIL W ER SIL B R OW K AH N SIL",
+    "greedy_per": 0.20588235294117646,
+    "top1_per": 0.4117647058823529,
+    "oracle_per": 0.4117647058823529,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "Z S K OW L D ER F AH L T AE Z T IH F IH T W ER B OW K AH N D Z SIL",
+        "score": -123.32374164254036,
+        "per": 0.4117647058823529
+      }
+    ]
+  },
+  {
+    "trial_idx": 10,
+    "target_phonemes": "DH AH SIL T AA D L ER SIL F AW N D SIL AH SIL K L AE M SH EH L SIL N IH R SIL DH AH SIL K AE M P SIL S AY T SIL",
+    "greedy_per": 0.275,
+    "top1_per": 0.375,
+    "oracle_per": 0.375,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH D AA L ER Z F AW N D AH K AA M P L SIL N UW R DH AH S K AE M P S AY T",
+        "score": -129.43817570074407,
+        "per": 0.375
+      }
+    ]
+  },
+  {
+    "trial_idx": 11,
+    "target_phonemes": "AE N SIL AA K T IH L Y AH N SIL AE T AH M Z SIL SIL N AW SIL L EH T SIL AH S SIL S IY SIL W EH R SIL DH IH S SIL P AW ER SIL K AH M Z SIL F R AH M SIL",
+    "greedy_per": 0.3148148148148148,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AE N IH K L EY ZH AH N AE T AH M Z AW T L S T AH S S IY W ER R SIL DH IH S P AW ER SIL K AH M Z F R AH M SIL",
+        "score": -135.05862871669777,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 12,
+    "target_phonemes": "EH V ER IY SIL K AE B SIL N IY D Z SIL R IY P EY N T IH NG SIL AO F AH N SIL",
+    "greedy_per": 0.25,
+    "top1_per": 0.2857142857142857,
+    "oracle_per": 0.2857142857142857,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "V ER IY K AE B AH N IY Z R IY P N T IH NG AO F AH N",
+        "score": -81.53897590970429,
+        "per": 0.2857142857142857
+      }
+    ]
+  },
+  {
+    "trial_idx": 13,
+    "target_phonemes": "L AA T S SIL AH V SIL F AO R AH N SIL M UW V IY Z SIL HH AE V SIL S AH B T AY T AH L Z SIL",
+    "greedy_per": 0.17647058823529413,
+    "top1_per": 0.14705882352941177,
+    "oracle_per": 0.14705882352941177,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "L T S AH V SIL F AO R AH N M UW V IY Z HH AE V SIL S AH M T AY T AH L Z SIL",
+        "score": -85.07873351524296,
+        "per": 0.14705882352941177
+      }
+    ]
+  },
+  {
+    "trial_idx": 14,
+    "target_phonemes": "AH SIL K AA N AH S ER SIL W IH L SIL EH N JH OY SIL DH IH S SIL SH EH L F IH SH SIL D IH SH SIL",
+    "greedy_per": 0.24242424242424243,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH K AA N S ER ER W EH L EH N JH OY DH IH S L EH L F IH SH IH SH JH",
+        "score": -94.0735233263985,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 15,
+    "target_phonemes": "S AH L EH K T IH NG SIL B AH NG K S SIL B AY SIL EH K AH N AA M IH K SIL K AH M P EH R AH S AH N SIL IH Z SIL Y UW ZH AH W AH L IY SIL AE N SIL IH N D AH V IH JH AH W AH L SIL P R AA B L AH M SIL",
+    "greedy_per": 0.3150684931506849,
+    "top1_per": 0.3424657534246575,
+    "oracle_per": 0.3424657534246575,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "L K IH NG T B AH K S B R IH AH K K AH M P UW ZH AH N Z IH Z Y UW ZH AH W AH L IY AE N IH N D AH V IH JH AH W AH L P R AA B L AH M SIL",
+        "score": -138.6871121179108,
+        "per": 0.3424657534246575
+      }
+    ]
+  },
+  {
+    "trial_idx": 16,
+    "target_phonemes": "HH AW SIL EY N CH AH N T SIL IH Z SIL DH IH S SIL S AH B W EY SIL EH S K AH L EY T ER SIL",
+    "greedy_per": 0.3125,
+    "top1_per": 0.1875,
+    "oracle_per": 0.1875,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "ER EY N CH AH N T IH Z SIL DH IH S S AH B W EY EH S K AH L EY T ER SIL",
+        "score": -71.01815006507142,
+        "per": 0.1875
+      }
+    ]
+  },
+  {
+    "trial_idx": 17,
+    "target_phonemes": "D R AA P SIL F AY V SIL F AO R M Z SIL IH N SIL DH AH SIL B AA K S SIL B IH F AO R SIL Y UW SIL G OW SIL AW T SIL",
+    "greedy_per": 0.1951219512195122,
+    "top1_per": 0.24390243902439024,
+    "oracle_per": 0.24390243902439024,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AA P F AY V F AO R M Z IH N SIL DH AH B AA K S B IH F AO R SIL Y UW G OW AW T",
+        "score": -125.23931875044674,
+        "per": 0.24390243902439024
+      }
+    ]
+  },
+  {
+    "trial_idx": 18,
+    "target_phonemes": "JH OW K S SIL K AA R T UW N Z SIL AH N D SIL S IH N IH K S SIL T UW SIL DH AH SIL K AA N T R EH R IY SIL M AH DH ER Z IH N L AO SIL M EY K SIL G UH D SIL F R EH N D Z SIL",
+    "greedy_per": 0.3125,
+    "top1_per": 0.34375,
+    "oracle_per": 0.34375,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AH K S K AA R N Z AH N D S IH N K T T UW DH AH K AA N T R IY M UW DH IH N L AO M EY K G UH D F R EH N D Z",
+        "score": -123.5585839809631,
+        "per": 0.34375
+      }
+    ]
+  },
+  {
+    "trial_idx": 19,
+    "target_phonemes": "SH IY SIL Y UW S IH Z SIL B OW TH SIL N EY M Z SIL IH N T ER CH EY N JH AH B L IY SIL",
+    "greedy_per": 0.25806451612903225,
+    "top1_per": 0.16129032258064516,
+    "oracle_per": 0.16129032258064516,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY Y UW S IH Z B OW TH N EY M Z IH N T ER CH EY N JH AH B L IY SIL",
+        "score": -62.723405798640776,
+        "per": 0.16129032258064516
+      }
+    ]
+  },
+  {
+    "trial_idx": 20,
+    "target_phonemes": "DH AH SIL TH IH K SIL EH L M SIL F AO R AH S T SIL W AA Z SIL N IH R L IY SIL OW V ER W EH L M D SIL B AY SIL D AH CH SIL EH L M SIL D IH Z IY Z SIL",
+    "greedy_per": 0.35185185185185186,
+    "top1_per": 0.48148148148148145,
+    "oracle_per": 0.48148148148148145,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH S TH IH NG K M P R AH S W AA Z N IH T L IY OW V ER L AH M Z B AY S K CH M D IH Z IY Z SIL",
+        "score": -160.06873307171958,
+        "per": 0.48148148148148145
+      }
+    ]
+  },
+  {
+    "trial_idx": 21,
+    "target_phonemes": "DH AH SIL P AH B L IH K SIL IH Z SIL N AW SIL AA R M D SIL W IH DH SIL S AH F IH S T AH K EY SH AH N SIL AH N D SIL N UW M ER AH S SIL K AH M P IY T IH NG SIL M IY D IY AH SIL",
+    "greedy_per": 0.328125,
+    "top1_per": 0.40625,
+    "oracle_per": 0.40625,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH S P L IH K T IH Z N AW AA R M W IH DH AH G EH S SH AH N AH N D N UW M V Z S SIL AH M P R T IH NG M IY SIL",
+        "score": -169.25247382777982,
+        "per": 0.40625
+      }
+    ]
+  },
+  {
+    "trial_idx": 22,
+    "target_phonemes": "R EH G Y AH L ER SIL AH T EH N D AH N S SIL IH Z SIL S EH L D AH M SIL R IY K W AY ER D SIL",
+    "greedy_per": 0.37142857142857144,
+    "top1_per": 0.37142857142857144,
+    "oracle_per": 0.37142857142857144,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "R EH K Y AH L ER N S EH N T N S IH Z EH L AH M R IY K AY ER D",
+        "score": -74.81076942178505,
+        "per": 0.37142857142857144
+      }
+    ]
+  },
+  {
+    "trial_idx": 23,
+    "target_phonemes": "DH EY SIL R IH M EY N D SIL L AY F L AO NG SIL F R EH N D Z SIL AH N D SIL K AH M P AE N Y AH N Z SIL",
+    "greedy_per": 0.23076923076923078,
+    "top1_per": 0.28205128205128205,
+    "oracle_per": 0.28205128205128205,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "EY R M Z AH N Z L AY F L AO NG F R EH N D Z AH N D K AH M P AE N Y AH N Z",
+        "score": -76.58089694954292,
+        "per": 0.28205128205128205
+      }
+    ]
+  },
+  {
+    "trial_idx": 24,
+    "target_phonemes": "SH IY SIL AO L W EY Z SIL JH OW K S SIL AH B AW T SIL T UW SIL M AH CH SIL G AA R L IH K SIL IH N SIL HH IH Z SIL F UW D SIL",
+    "greedy_per": 0.3409090909090909,
+    "top1_per": 0.4318181818181818,
+    "oracle_per": 0.4318181818181818,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY AO L Z K AO K T S AH B AW T UW M AH CH K AA L IH K IH N HH IH Z F UW D",
+        "score": -91.95080000335273,
+        "per": 0.4318181818181818
+      }
+    ]
+  },
+  {
+    "trial_idx": 25,
+    "target_phonemes": "DH AH SIL IY S T ER N SIL K OW S T SIL IH Z SIL AH SIL P L EY S SIL F AO R SIL P Y UH R SIL P L EH ZH ER SIL AH N D SIL IH K S AY T M AH N T SIL",
+    "greedy_per": 0.39622641509433965,
+    "top1_per": 0.4339622641509434,
+    "oracle_per": 0.4339622641509434,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "R IY T IH NG K R S IH Z AH P L EY S F AO R P Y P L ZH ER AH N D IH K S M AH N T",
+        "score": -126.41445525722914,
+        "per": 0.4339622641509434
+      }
+    ]
+  },
+  {
+    "trial_idx": 26,
+    "target_phonemes": "HH IY SIL EH N L IH S T IH D SIL AH SIL S T AE F SIL AH V SIL L OY AH L SIL EH K S P ER T S SIL AH N D SIL AH V SIL M EH N IY SIL Z EH L AH S SIL V AA L AH N T IH R Z SIL",
+    "greedy_per": 0.38095238095238093,
+    "top1_per": 0.4603174603174603,
+    "oracle_per": 0.4603174603174603,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "HH SIL IH N L EY S T AH D AH S T F AH V L L S K S P ER T S AH N D AH V M N IY T L S T V L IY Z",
+        "score": -184.5916097533858,
+        "per": 0.4603174603174603
+      }
+    ]
+  },
+  {
+    "trial_idx": 27,
+    "target_phonemes": "AY SIL D UW SIL S T R AH G AH L SIL W IH DH SIL V IH ZH W AH L Z SIL B AH T SIL W IH L SIL D UW SIL AH SIL HH AY ER SIL D OW S SIL S AH M T AY M SIL S UW N SIL",
+    "greedy_per": 0.2807017543859649,
+    "top1_per": 0.3684210526315789,
+    "oracle_per": 0.3684210526315789,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "Z T UW S T AY G AH L Z W IH DH V V ZH W AH L Z B AE T W EH L D UW AH HH AW ER D AO S S AH M T AY M Z S UW N SIL",
+        "score": -172.84850534171179,
+        "per": 0.3684210526315789
+      }
+    ]
+  },
+  {
+    "trial_idx": 28,
+    "target_phonemes": "HH IY SIL EY T SIL F AO R SIL EH K S T R AH SIL EH G Z SIL F AO R SIL B R EH K F AH S T SIL",
+    "greedy_per": 0.17647058823529413,
+    "top1_per": 0.2647058823529412,
+    "oracle_per": 0.2647058823529412,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY EY T F AO R EH K S T R AH G Z F AO R B R EH K F AH S T S",
+        "score": -84.11942867754261,
+        "per": 0.2647058823529412
+      }
+    ]
+  },
+  {
+    "trial_idx": 29,
+    "target_phonemes": "W IH DH D R AO SIL OW N L IY SIL AE Z SIL M AH CH SIL M AH N IY SIL AE Z SIL Y UW SIL N IY D SIL",
+    "greedy_per": 0.17647058823529413,
+    "top1_per": 0.29411764705882354,
+    "oracle_per": 0.29411764705882354,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "W IH DH AO L OW N L IY AE Z M AH CH M AH N IY AE Z Y UW N IY D",
+        "score": -111.052091679263,
+        "per": 0.29411764705882354
+      }
+    ]
+  },
+  {
+    "trial_idx": 30,
+    "target_phonemes": "IH N SIL S IH M P AH L ER SIL T ER M Z SIL IH T SIL AH M AW N T S SIL T UW SIL P OY N T IH NG SIL DH AH SIL P L AE T F AO R M SIL IH N SIL DH AH SIL P R AA P ER SIL D ER EH K SH AH N SIL",
+    "greedy_per": 0.35294117647058826,
+    "top1_per": 0.39705882352941174,
+    "oracle_per": 0.39705882352941174,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH N IH S IH S AH B AH L S T R T S IH T AH M AH N T S T UW P OY N IH NG DH AH P F ER M Z IH N DH AH P R AA P ER D EH K SH AH N SIL",
+        "score": -160.0321479720254,
+        "per": 0.39705882352941174
+      }
+    ]
+  },
+  {
+    "trial_idx": 31,
+    "target_phonemes": "D UW SIL AH V OY D SIL P AH NG K CH ER IH NG SIL AO R SIL K AH T IH NG SIL IH N T UW SIL M IY T S SIL T UW SIL T EH S T SIL DH EH M SIL",
+    "greedy_per": 0.3125,
+    "top1_per": 0.375,
+    "oracle_per": 0.375,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AH V OY D K AH N NG CH IH NG Z AA R SIL K AO T IH NG IH N T UW M IY S T UW T EY S T DH EH M SIL",
+        "score": -122.96374998025624,
+        "per": 0.375
+      }
+    ]
+  },
+  {
+    "trial_idx": 32,
+    "target_phonemes": "B AA B SIL F AW N D SIL M AO R SIL K L AE M Z SIL AE T SIL DH AH SIL OW SH AH N Z SIL EH JH SIL",
+    "greedy_per": 0.23529411764705882,
+    "top1_per": 0.35294117647058826,
+    "oracle_per": 0.35294117647058826,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AA B D AW N D M AO R K L AE M Z AE T DH AH R SH AH N Z JH",
+        "score": -80.97831597163706,
+        "per": 0.35294117647058826
+      }
+    ]
+  },
+  {
+    "trial_idx": 33,
+    "target_phonemes": "DH AH SIL L AE K SIL AH V SIL HH IY T SIL K AH M P AW N D AH D SIL DH AH SIL T EH N AH N T S SIL G R IY V AH N S AH Z SIL",
+    "greedy_per": 0.3111111111111111,
+    "top1_per": 0.4444444444444444,
+    "oracle_per": 0.4444444444444444,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH L AE K AH V HH IY T AH M P AY N D Z DH AH S AE N AH S T D R IH V AH N AH Z",
+        "score": -116.3860528419362,
+        "per": 0.4444444444444444
+      }
+    ]
+  },
+  {
+    "trial_idx": 34,
+    "target_phonemes": "AH L UW M AH N AH M SIL S IH L V ER W EH R SIL K AE N SIL AO F AH N SIL B IY SIL F L IH M Z IY SIL",
+    "greedy_per": 0.2702702702702703,
+    "top1_per": 0.32432432432432434,
+    "oracle_per": 0.32432432432432434,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH L AH M UW M AH M S EH L V ER W EH R K AE N AO F AH N D B IY F L EY M IY",
+        "score": -68.63181324639864,
+        "per": 0.32432432432432434
+      }
+    ]
+  },
+  {
+    "trial_idx": 35,
+    "target_phonemes": "DH AH SIL R OW Z SIL K AO R S AA ZH SIL S M EH L D SIL S W IY T SIL",
+    "greedy_per": 0.24,
+    "top1_per": 0.24,
+    "oracle_per": 0.24,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH R OW Z K AO R AA ZH S M EH L D S W IY T",
+        "score": -58.729229076900076,
+        "per": 0.24
+      }
+    ]
+  },
+  {
+    "trial_idx": 36,
+    "target_phonemes": "W IY SIL TH IH NG K SIL D IH F R AH N T L IY SIL",
+    "greedy_per": 0.1111111111111111,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY L NG K D IH F ER AH N T L IY SIL",
+        "score": -36.47706934988679,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 37,
+    "target_phonemes": "DH AH SIL K AW SIL W AA N D ER D SIL F R AH M SIL DH AH SIL F AA R M L AE N D SIL AH N D SIL B IH K EY M SIL L AO S T SIL",
+    "greedy_per": 0.17777777777777778,
+    "top1_per": 0.28888888888888886,
+    "oracle_per": 0.28888888888888886,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH K W AH N D ER D F R AH M SIL DH AH F AA R M L AH N AH N D B IH K EY M L AO S T",
+        "score": -112.36209455856877,
+        "per": 0.28888888888888886
+      }
+    ]
+  },
+  {
+    "trial_idx": 38,
+    "target_phonemes": "SH IY SIL S L IH P T SIL AH N D SIL S P R EY N D SIL HH ER SIL AE NG K AH L SIL AA N SIL DH AH SIL S T IY P SIL S L OW P SIL",
+    "greedy_per": 0.17777777777777778,
+    "top1_per": 0.24444444444444444,
+    "oracle_per": 0.24444444444444444,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY S L IH P T S AH N D S P EY N D Z HH ER AE NG K AH L SIL AA N SIL DH AH S T IY P S L AA P",
+        "score": -125.07689957463654,
+        "per": 0.24444444444444444
+      }
+    ]
+  },
+  {
+    "trial_idx": 39,
+    "target_phonemes": "HH IY SIL HH AE D SIL AH K AO R D IH NG L IY SIL K AH L T AH V EY T AH D SIL EH K S AH N T R IH S AH T IY SIL T UW SIL DH AH SIL P OY N T SIL AH V SIL S EH K AH N D SIL N EY CH ER SIL",
+    "greedy_per": 0.26865671641791045,
+    "top1_per": 0.43283582089552236,
+    "oracle_per": 0.43283582089552236,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY HH AE D AO R K AH N L IY S L AH V AH V EY T IH NG IH K S AH N AH AH S AH T IY Z T UW DH AH P AA T AH V SIL EH K AH N D CH EY CH ER",
+        "score": -151.3404369152444,
+        "per": 0.43283582089552236
+      }
+    ]
+  },
+  {
+    "trial_idx": 40,
+    "target_phonemes": "W EH N SIL P IY L IH NG SIL AE N SIL AO R AH N JH SIL IH T SIL IH Z SIL HH AA R D SIL N AA T SIL T UW SIL S P R EY SIL JH UW S SIL",
+    "greedy_per": 0.32608695652173914,
+    "top1_per": 0.391304347826087,
+    "oracle_per": 0.391304347826087,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "W N P IY L IH NG AE N AO R N S IH T IH Z HH AA R D N AA T T UW S P CH S",
+        "score": -148.11198735313494,
+        "per": 0.391304347826087
+      }
+    ]
+  },
+  {
+    "trial_idx": 41,
+    "target_phonemes": "IY V IH N SIL AY SIL AH K EY ZH AH N AH L IY SIL G EH T SIL DH AH SIL M AH N D IY SIL B L UW Z SIL",
+    "greedy_per": 0.14285714285714285,
+    "top1_per": 0.2571428571428571,
+    "oracle_per": 0.2571428571428571,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY IY V IH N AY AH K EY ZH AH N AH L IY G EH T DH AH M AH N IY Z B L UW Z",
+        "score": -85.17999747665664,
+        "per": 0.2571428571428571
+      }
+    ]
+  },
+  {
+    "trial_idx": 42,
+    "target_phonemes": "HH IY SIL SH R AH G D SIL K AE ZH AH W AH L IY SIL",
+    "greedy_per": 0.1111111111111111,
+    "top1_per": 0.2222222222222222,
+    "oracle_per": 0.2222222222222222,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY SH R AH G D K AE ZH AH W AH L IY",
+        "score": -41.10416528640771,
+        "per": 0.2222222222222222
+      }
+    ]
+  },
+  {
+    "trial_idx": 43,
+    "target_phonemes": "S ER V SIL DH AH SIL K OW L S L AA SIL AE F T ER SIL AY SIL AE D SIL DH AH SIL OY L SIL",
+    "greedy_per": 0.3,
+    "top1_per": 0.36666666666666664,
+    "oracle_per": 0.36666666666666664,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "V ER DH AH K OW L S OW AE F T ER AY HH AE D DH AH OY L SIL",
+        "score": -78.12348424519061,
+        "per": 0.36666666666666664
+      }
+    ]
+  },
+  {
+    "trial_idx": 44,
+    "target_phonemes": "K AO R IY SIL AH T AE K T SIL DH AH SIL P R AA JH EH K T SIL W IH DH SIL EH K S T R AH SIL D IH T ER M AH N EY SH AH N SIL",
+    "greedy_per": 0.35555555555555557,
+    "top1_per": 0.37777777777777777,
+    "oracle_per": 0.37777777777777777,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "K AO R IY IH G K T DH AH P R AA JH AH T W DH EH K S T ER T ER M AH N EY SH AH N Z SIL",
+        "score": -104.56231485481761,
+        "per": 0.37777777777777777
+      }
+    ]
+  },
+  {
+    "trial_idx": 45,
+    "target_phonemes": "AH N D ER SIL DH IH S SIL L AO SIL AE N Y UW AH L SIL G R AE N T S SIL AA R SIL G IH V AH N SIL T UW SIL S IH S T AH M Z SIL IH N SIL S AH B S T AE N CH AH L SIL AH M AW N T S SIL",
+    "greedy_per": 0.34328358208955223,
+    "top1_per": 0.44776119402985076,
+    "oracle_per": 0.44776119402985076,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "N DH IH S AO L AE N Y UW AH L S K AE T S AA R G IH V IH N T UW S S T P M Z IH N D AH P AE N SH AH L IH M N S",
+        "score": -153.7206178081336,
+        "per": 0.44776119402985076
+      }
+    ]
+  },
+  {
+    "trial_idx": 46,
+    "target_phonemes": "HH IY SIL M OY S AH N D SIL HH IH Z SIL L IH P S SIL AH N IY Z AH L IY SIL",
+    "greedy_per": 0.18518518518518517,
+    "top1_per": 0.2962962962962963,
+    "oracle_per": 0.2962962962962963,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "HH IY SIL M S AH N D HH IH Z L P S AH N ZH AH L IY",
+        "score": -65.67614915879786,
+        "per": 0.2962962962962963
+      }
+    ]
+  },
+  {
+    "trial_idx": 47,
+    "target_phonemes": "DH AH SIL P R IY S K UW L ER SIL K UH D AH N T SIL V ER B AH L AY Z SIL HH ER SIL F IY L IH NG Z SIL AH B AW T SIL DH AH SIL IH M ER JH AH N S IY SIL K AH N D IH SH AH N Z SIL",
+    "greedy_per": 0.375,
+    "top1_per": 0.46875,
+    "oracle_per": 0.46875,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH S K OW L S G AA T AH N V ER V L Z HH ER F IH L AH N Z AH B AW T DH AH M R AH N S K AH N D SH AH N Z",
+        "score": -124.52589476580883,
+        "per": 0.46875
+      }
+    ]
+  },
+  {
+    "trial_idx": 48,
+    "target_phonemes": "AA R SIL HH AA L AH D EY SIL EY P R AH N Z SIL AH V EY L AH B AH L SIL T UW SIL AH S SIL",
+    "greedy_per": 0.40625,
+    "top1_per": 0.46875,
+    "oracle_per": 0.46875,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "ER HH AO L D IY AE P AH N Z AH V IY AH B AH L T UW AH S",
+        "score": -83.85152040221787,
+        "per": 0.46875
+      }
+    ]
+  },
+  {
+    "trial_idx": 49,
+    "target_phonemes": "F Y UW SIL S N EY K S SIL AA R SIL IY DH ER SIL DH IH S SIL K UW L SIL AO R SIL AH N Y UW ZH AH W AH L SIL",
+    "greedy_per": 0.21052631578947367,
+    "top1_per": 0.2894736842105263,
+    "oracle_per": 0.2894736842105263,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "F Y UW S N S AA R AH DH ER DH IH S K UW L AA R ER AH N Y UW ZH AH W AH L SIL",
+        "score": -103.00397504154519,
+        "per": 0.2894736842105263
+      }
+    ]
+  },
+  {
+    "trial_idx": 50,
+    "target_phonemes": "DH AH SIL B AA S T AH N SIL B AE L EY SIL OW V ER K EY M SIL DH EH R SIL F AH N D IH NG SIL SH AO R T AH JH SIL",
+    "greedy_per": 0.2,
+    "top1_per": 0.35,
+    "oracle_per": 0.35,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH B AA S AH N M B L IY OW V ER K EY M Z DH R F AH N D IH NG S SH AO R JH S",
+        "score": -111.33367744235852,
+        "per": 0.35
+      }
+    ]
+  },
+  {
+    "trial_idx": 51,
+    "target_phonemes": "DH IH S SIL IH Z SIL T AE K S EY SH AH N SIL W IH TH AW T SIL R EH P R AH Z EH N T EY SH AH N SIL",
+    "greedy_per": 0.3055555555555556,
+    "top1_per": 0.3611111111111111,
+    "oracle_per": 0.3611111111111111,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH S IH Z T K EY SH AH N T W IH TH AW T R IH K P AH N T EY SH AH N Z SIL",
+        "score": -64.86476452049993,
+        "per": 0.3611111111111111
+      }
+    ]
+  },
+  {
+    "trial_idx": 52,
+    "target_phonemes": "V IH ZH W AH L IY SIL DH IY Z SIL AH P R AA K S AH M EY T AH D SIL W AH T SIL HH IY SIL W AA Z SIL F IY L IH NG SIL W IH DH IH N SIL HH IH M S EH L F SIL",
+    "greedy_per": 0.17857142857142858,
+    "top1_per": 0.23214285714285715,
+    "oracle_per": 0.23214285714285715,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "V ZH W AH L IY DH IY Z AH P K AH M EY T AH D W AH T HH IY W AA Z F IY L IH NG W IH DH IH N HH IH M S EH L F",
+        "score": -117.14446459094542,
+        "per": 0.23214285714285715
+      }
+    ]
+  },
+  {
+    "trial_idx": 53,
+    "target_phonemes": "DH EH R SIL W AA Z SIL AH SIL JH AY G AE N T IH K SIL W AA S P SIL N EH K S T SIL T UW SIL ER V IH NG Z SIL B IH G SIL T AA P SIL HH AE T SIL",
+    "greedy_per": 0.3137254901960784,
+    "top1_per": 0.49019607843137253,
+    "oracle_per": 0.49019607843137253,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "EH R W AA Z SIL AH D AH N N T W AA M Z N EH K S T UW V ER AH N T B IH G S T AA P AE T",
+        "score": -135.45559779618233,
+        "per": 0.49019607843137253
+      }
+    ]
+  },
+  {
+    "trial_idx": 54,
+    "target_phonemes": "K AE T AH S T R AA F IH K SIL EH K AH N AA M IH K SIL K AH T B AE K S SIL N AH G L EH K T SIL DH AH SIL P UH R SIL",
+    "greedy_per": 0.3181818181818182,
+    "top1_per": 0.36363636363636365,
+    "oracle_per": 0.36363636363636365,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "K AE L AH T R F IH K S EH K AH N AA M IH K K AA T P AE K T S L AH L K T DH AH P R",
+        "score": -82.0516688743524,
+        "per": 0.36363636363636365
+      }
+    ]
+  },
+  {
+    "trial_idx": 55,
+    "target_phonemes": "DH AH SIL P EY SH AH N T SIL AH N D SIL DH AH SIL S ER JH AH N SIL AA R SIL B OW TH SIL R IH K UW P ER EY T IH NG SIL F R AH M SIL DH AH SIL L EH NG TH IY SIL AA P ER EY SH AH N SIL",
+    "greedy_per": 0.2698412698412698,
+    "top1_per": 0.4444444444444444,
+    "oracle_per": 0.4444444444444444,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH B IH T S AH N D DH AH S K ER CH AH N Z AA R B OW TH D P EY AH NG F R AH M DH AH L EH K T IY AA P ER EY SH AH N Z",
+        "score": -163.38309846070078,
+        "per": 0.4444444444444444
+      }
+    ]
+  },
+  {
+    "trial_idx": 56,
+    "target_phonemes": "L AE S T SIL Y IH R Z SIL G AE S SIL SH AO R T AH JH SIL K AA Z D SIL S T IY P SIL P R AY S SIL IH N K R IY S IH Z SIL",
+    "greedy_per": 0.28888888888888886,
+    "top1_per": 0.28888888888888886,
+    "oracle_per": 0.28888888888888886,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "L AE S T Y IH R Z G AE S T K AO R AH JH Z K AA D S T IY P P L S IH N K R IY S AH Z SIL",
+        "score": -94.78924654222979,
+        "per": 0.28888888888888886
+      }
+    ]
+  },
+  {
+    "trial_idx": 57,
+    "target_phonemes": "B AA B SIL B AE N D AH JH D SIL B OW TH SIL W UW N D Z SIL W IH DH SIL DH AH SIL S K IH L SIL AH V SIL AH SIL D AA K T ER SIL",
+    "greedy_per": 0.37777777777777777,
+    "top1_per": 0.4888888888888889,
+    "oracle_per": 0.4888888888888889,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AA B AE N D AH JH S B OW TH W N Z W IH DH DH IH AH L AH V ER AH K ER",
+        "score": -95.52572576334474,
+        "per": 0.4888888888888889
+      }
+    ]
+  },
+  {
+    "trial_idx": 58,
+    "target_phonemes": "D AA K T ER Z SIL P R AH S K R AY B SIL D R AH G Z SIL T UW SIL F R IY L IY SIL",
+    "greedy_per": 0.3548387096774194,
+    "top1_per": 0.3870967741935484,
+    "oracle_per": 0.3870967741935484,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "S K ER Z P R AH K B D R AH G Z T UW F IY L IY",
+        "score": -75.0862258065669,
+        "per": 0.3870967741935484
+      }
+    ]
+  },
+  {
+    "trial_idx": 59,
+    "target_phonemes": "HH IY SIL W IH L SIL AH L AW SIL AH SIL R EH R SIL L AY SIL",
+    "greedy_per": 0.2,
+    "top1_per": 0.35,
+    "oracle_per": 0.35,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY W IH L AH L AW AH R EH R L AY",
+        "score": -84.1540772067005,
+        "per": 0.35
+      }
+    ]
+  },
+  {
+    "trial_idx": 60,
+    "target_phonemes": "AE D SIL R IH M EY N IH NG SIL IH N G R IY D IY AH N T S SIL AH N D SIL B R IH NG SIL T UW SIL AH SIL B OY L SIL",
+    "greedy_per": 0.21951219512195122,
+    "top1_per": 0.2926829268292683,
+    "oracle_per": 0.2926829268292683,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AE D R M EY N IH NG Z IH N G R IY AH N S AH N D B IH NG T UW AH B OY L SIL",
+        "score": -97.21423485264988,
+        "per": 0.2926829268292683
+      }
+    ]
+  },
+  {
+    "trial_idx": 61,
+    "target_phonemes": "S AH M EH N T SIL IH Z SIL M EH ZH ER D SIL IH N SIL K Y UW B IH K SIL Y AA R D Z SIL",
+    "greedy_per": 0.3125,
+    "top1_per": 0.3125,
+    "oracle_per": 0.3125,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T AH M AH N T IH Z M EH ZH ER D IH N D K UW B IH K T K AA R D Z",
+        "score": -97.39975111360643,
+        "per": 0.3125
+      }
+    ]
+  },
+  {
+    "trial_idx": 62,
+    "target_phonemes": "HH AW SIL M EH N IY SIL HH AO R S AH Z SIL AH N D SIL AA N SIL W AH T SIL AH K EY ZH AH N SIL",
+    "greedy_per": 0.12121212121212122,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AW D M EH N IY K R S AH Z AH N D AA N W T K AH K EY ZH AH N Z",
+        "score": -82.81615214786456,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 63,
+    "target_phonemes": "K ER EH K T SIL EH K S AH K Y UW SH AH N SIL AH V SIL M AY SIL IH N S T R AH K SH AH N Z SIL IH Z SIL K R UW SH AH L SIL",
+    "greedy_per": 0.24444444444444444,
+    "top1_per": 0.3111111111111111,
+    "oracle_per": 0.3111111111111111,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "S K ER K EH K AH K Y UW SH AH N Z AH V SIL M AY IH N T R AH K SH AH N Z IH Z K UW ZH AH W AH L SIL",
+        "score": -89.57073165090584,
+        "per": 0.3111111111111111
+      }
+    ]
+  },
+  {
+    "trial_idx": 64,
+    "target_phonemes": "HH IH Z SIL W ER K SIL B IH G AE N SIL JH AH S T SIL S IH K S SIL D EY Z SIL AE F T ER SIL DH AH SIL F L AH D SIL",
+    "greedy_per": 0.24390243902439024,
+    "top1_per": 0.2682926829268293,
+    "oracle_per": 0.2682926829268293,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "HH IH Z SIL W ER K SIL B IH G IH NG JH AH S T S IH K S EY Z AE F T ER DH AH F L D",
+        "score": -101.62320219320519,
+        "per": 0.2682926829268293
+      }
+    ]
+  },
+  {
+    "trial_idx": 65,
+    "target_phonemes": "F IH L SIL S M AO L SIL HH OW L SIL IH N SIL B OW L SIL W IH DH SIL K L EY SIL",
+    "greedy_per": 0.07142857142857142,
+    "top1_per": 0.2857142857142857,
+    "oracle_per": 0.2857142857142857,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "F IY L S M AO L HH OW L D IH N D B OW L Z W IH DH K L EY",
+        "score": -78.64162906567515,
+        "per": 0.2857142857142857
+      }
+    ]
+  },
+  {
+    "trial_idx": 66,
+    "target_phonemes": "DH IH S SIL M IY N Z SIL IY DH ER SIL K AA R Z SIL AO R SIL T R AH K S SIL",
+    "greedy_per": 0.14814814814814814,
+    "top1_per": 0.2962962962962963,
+    "oracle_per": 0.2962962962962963,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH S M IY N Z AH DH ER K AA R Z AO R T R AH K S",
+        "score": -69.54237882424582,
+        "per": 0.2962962962962963
+      }
+    ]
+  },
+  {
+    "trial_idx": 67,
+    "target_phonemes": "HH IY SIL HH AE D SIL K AA L ER D SIL W AH N SIL AH V SIL HH IH Z SIL JH EH N ER AH L Z SIL IH N SIL P AH B L IH K SIL",
+    "greedy_per": 0.14285714285714285,
+    "top1_per": 0.21428571428571427,
+    "oracle_per": 0.21428571428571427,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY HH AE D S K AA L ER D W AH N AH V SIL HH IH Z JH EH N ER AH L Z IH N D P AH B L IH K T",
+        "score": -116.09924698696557,
+        "per": 0.21428571428571427
+      }
+    ]
+  },
+  {
+    "trial_idx": 68,
+    "target_phonemes": "W AH T SIL IH Z SIL DH AH SIL B IH G AH S T SIL K AH N S ER N SIL AE T SIL DH IH S SIL P OY N T SIL",
+    "greedy_per": 0.05555555555555555,
+    "top1_per": 0.19444444444444445,
+    "oracle_per": 0.19444444444444445,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH T IH Z DH AH B IH G AH S T K AH N S ER N SIL AE T SIL DH IH S P OY N T",
+        "score": -98.27623576669599,
+        "per": 0.19444444444444445
+      }
+    ]
+  },
+  {
+    "trial_idx": 69,
+    "target_phonemes": "IH T SIL HH AE D SIL AH SIL T AY N IY SIL EH N V AH L OW P SIL T AY D SIL T UW SIL IH T S SIL R IH S T SIL",
+    "greedy_per": 0.2631578947368421,
+    "top1_per": 0.39473684210526316,
+    "oracle_per": 0.39473684210526316,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T IH T HH AE D AH S T AY N IY AA N V AA L AH P D T D T UW IH T S R S T",
+        "score": -101.59242781525826,
+        "per": 0.39473684210526316
+      }
+    ]
+  },
+  {
+    "trial_idx": 70,
+    "target_phonemes": "DH IH S SIL HH AE Z SIL B IH N SIL AH SIL T ER N IH NG SIL P OY N T SIL IH N SIL DH AH SIL K AA N F L IH K T SIL",
+    "greedy_per": 0.15,
+    "top1_per": 0.2,
+    "oracle_per": 0.2,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH S HH AE Z B IH N SIL AH SIL T ER N IH NG P OY N T IH N DH AH K AA N F L IH K T S",
+        "score": -97.50920121661333,
+        "per": 0.2
+      }
+    ]
+  },
+  {
+    "trial_idx": 71,
+    "target_phonemes": "L AY V S T AA K SIL M AH S T SIL B IY SIL T EH N D AH D SIL EH V ER IY SIL D EY SIL R UW T IY N L IY SIL",
+    "greedy_per": 0.3076923076923077,
+    "top1_per": 0.4358974358974359,
+    "oracle_per": 0.4358974358974359,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "L AH V L AO T M AH S T B IY S HH EH N D AH D T EH V ER IY D EY W ER AH N L IY",
+        "score": -76.69459439103817,
+        "per": 0.4358974358974359
+      }
+    ]
+  },
+  {
+    "trial_idx": 72,
+    "target_phonemes": "G AA T SIL AH SIL HH EH K SIL AH V SIL AH SIL B AY SIL AA N SIL DH IH S SIL D ER T SIL CH IY P SIL",
+    "greedy_per": 0.2727272727272727,
+    "top1_per": 0.45454545454545453,
+    "oracle_per": 0.45454545454545453,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "G AA T AH K K S AH V SIL AH B AY AA N DH IH S T SH P",
+        "score": -123.47487378735447,
+        "per": 0.45454545454545453
+      }
+    ]
+  },
+  {
+    "trial_idx": 73,
+    "target_phonemes": "Y UH R SIL AH SIL T AE K S P EY ER SIL HH AW S HH OW L D ER SIL L AE N D L AO R D SIL",
+    "greedy_per": 0.15625,
+    "top1_per": 0.21875,
+    "oracle_per": 0.21875,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "Y UH R SIL AH SIL T AE K S P ER HH AW S HH OW L D ER Z L AE N D D",
+        "score": -79.7901292756069,
+        "per": 0.21875
+      }
+    ]
+  },
+  {
+    "trial_idx": 74,
+    "target_phonemes": "HH IY SIL ER N AH S T L IY SIL ER JH D SIL AH SIL S IY S F AY ER SIL",
+    "greedy_per": 0.20833333333333334,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY OW N AH S AH L IY W ER JH D S AH S IY S F AY ER",
+        "score": -64.48615131252424,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 75,
+    "target_phonemes": "DH EY SIL AA R SIL AO L S OW SIL AA N AH S T SIL S IY K ER Z SIL AE F T ER SIL T R UW TH SIL",
+    "greedy_per": 0.21212121212121213,
+    "top1_per": 0.36363636363636365,
+    "oracle_per": 0.36363636363636365,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "EY AA R AO L S OW AA N L IY S T S IH K ER Z AE F T ER T R TH",
+        "score": -82.30437962945757,
+        "per": 0.36363636363636365
+      }
+    ]
+  },
+  {
+    "trial_idx": 76,
+    "target_phonemes": "N OW SIL R IH T ER N SIL AE D R EH S SIL W AH T S OW EH V ER SIL",
+    "greedy_per": 0.08333333333333333,
+    "top1_per": 0.20833333333333334,
+    "oracle_per": 0.20833333333333334,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "N OW T R IY T ER N Z AE D R EH S W AH T S OW EH V ER",
+        "score": -53.81044033312242,
+        "per": 0.20833333333333334
+      }
+    ]
+  },
+  {
+    "trial_idx": 77,
+    "target_phonemes": "AH SIL K W IH K SIL T AH CH D AW N SIL R IH Z AH L T IH D SIL",
+    "greedy_per": 0.2608695652173913,
+    "top1_per": 0.21739130434782608,
+    "oracle_per": 0.21739130434782608,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH K W IH K T AH CH D AW N R IH Z AH L T AH D",
+        "score": -62.92796023542052,
+        "per": 0.21739130434782608
+      }
+    ]
+  },
+  {
+    "trial_idx": 78,
+    "target_phonemes": "N OW SIL T EH M T EY SH AH N SIL N OW SIL V ER CH UW SIL",
+    "greedy_per": 0.15,
+    "top1_per": 0.3,
+    "oracle_per": 0.3,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "N T EH M P T EY SH AH N Z N OW V ER CH ER SIL",
+        "score": -61.166331147912544,
+        "per": 0.3
+      }
+    ]
+  },
+  {
+    "trial_idx": 79,
+    "target_phonemes": "IH Z SIL HH IH Z SIL AE P AH T AY T SIL IH M P R UW V D SIL",
+    "greedy_per": 0.09090909090909091,
+    "top1_per": 0.22727272727272727,
+    "oracle_per": 0.22727272727272727,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "Z HH IH Z AE P AH T AY T IH M P R UW V D",
+        "score": -52.95601390127817,
+        "per": 0.22727272727272727
+      }
+    ]
+  },
+  {
+    "trial_idx": 80,
+    "target_phonemes": "W AY SIL EY N T SIL Y UW SIL P L EY IH N SIL B AO L SIL",
+    "greedy_per": 0.1,
+    "top1_per": 0.35,
+    "oracle_per": 0.35,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "W EY N T Y UW P L EY IH NG B AO L",
+        "score": -59.48073521840751,
+        "per": 0.35
+      }
+    ]
+  },
+  {
+    "trial_idx": 81,
+    "target_phonemes": "OW SIL Y UW L SIL W AA B AH L SIL AH N D SIL W IY V SIL K W AY T SIL AH SIL B IH T SIL AE T SIL F ER S T SIL",
+    "greedy_per": 0.23076923076923078,
+    "top1_per": 0.3333333333333333,
+    "oracle_per": 0.3333333333333333,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "R Y UW L W AA B AH L Z AH N D W V K W AY T AH B IH T AW T F ER S T",
+        "score": -121.5576121253265,
+        "per": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "trial_idx": 82,
+    "target_phonemes": "D UW SIL DH IH S SIL EH K S ER S AY Z SIL S IH K S SIL T AY M Z SIL IY CH SIL K L AE S SIL P IH R IY AH D SIL",
+    "greedy_per": 0.375,
+    "top1_per": 0.35,
+    "oracle_per": 0.35,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "D SIL DH IH S EH K S ER S AY Z S K AH M Z IY CH S K L AE S P IH R AH N D",
+        "score": -86.3344955253379,
+        "per": 0.35
+      }
+    ]
+  },
+  {
+    "trial_idx": 83,
+    "target_phonemes": "D OW N T SIL F ER G EH T SIL W IH S K IY SIL IH T S SIL S AH CH SIL AH SIL B IH G SIL S EH L ER SIL",
+    "greedy_per": 0.19444444444444445,
+    "top1_per": 0.3055555555555556,
+    "oracle_per": 0.3055555555555556,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AA N T F ER G EH T W ER S K IY IH T S AA CH S AH B IH G SIL S EH L ER SIL",
+        "score": -96.12619053470864,
+        "per": 0.3055555555555556
+      }
+    ]
+  },
+  {
+    "trial_idx": 84,
+    "target_phonemes": "HH IY SIL M EH T SIL N OW B AA D IY SIL HH IY SIL N UW SIL AA N SIL DH IH S SIL W AO K SIL",
+    "greedy_per": 0.06451612903225806,
+    "top1_per": 0.25806451612903225,
+    "oracle_per": 0.25806451612903225,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY M EH T N OW B AA D IY HH IY SIL N UW AA N SIL DH IH S W K S",
+        "score": -117.14109020398881,
+        "per": 0.25806451612903225
+      }
+    ]
+  },
+  {
+    "trial_idx": 85,
+    "target_phonemes": "DH AH SIL R UW M SIL L UH K T SIL N AO R M AH L SIL AH N D SIL IY V IH N SIL K AA M AH N P L EY S SIL",
+    "greedy_per": 0.05263157894736842,
+    "top1_per": 0.18421052631578946,
+    "oracle_per": 0.18421052631578946,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH SIL R UW M L UH K T N AO R M AH L AH N D IY V IH N K AA M AH N P L EY S",
+        "score": -77.44758892154846,
+        "per": 0.18421052631578946
+      }
+    ]
+  },
+  {
+    "trial_idx": 86,
+    "target_phonemes": "AO R SIL D AH Z SIL HH IY SIL G EH T SIL EH K S ER S AY Z SIL",
+    "greedy_per": 0.13636363636363635,
+    "top1_per": 0.22727272727272727,
+    "oracle_per": 0.22727272727272727,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AO R D Z HH IY G EH T SIL EH K S ER S AY Z",
+        "score": -68.79603127243861,
+        "per": 0.22727272727272727
+      }
+    ]
+  },
+  {
+    "trial_idx": 87,
+    "target_phonemes": "HH ER SIL S T AH D IY SIL AH V SIL HH IH S T ER IY SIL W AA Z SIL P ER S IH S T AH N T L IY SIL P ER S UW D SIL",
+    "greedy_per": 0.17073170731707318,
+    "top1_per": 0.21951219512195122,
+    "oracle_per": 0.21951219512195122,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "ER S T D IY AH V HH IH S T ER IY SIL W AA Z S P ER S IH T AH N T L IY P ER S UW D",
+        "score": -85.5588822429884,
+        "per": 0.21951219512195122
+      }
+    ]
+  },
+  {
+    "trial_idx": 88,
+    "target_phonemes": "W AH N SIL V AE L AH D EY T AH D SIL AE K T S SIL AH V SIL S K UW L SIL D IH S T R IH K T S SIL",
+    "greedy_per": 0.35135135135135137,
+    "top1_per": 0.35135135135135137,
+    "oracle_per": 0.35135135135135137,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "W AH N V AE L AH T D AE K S AH V SIL Y UW L D IH S F R IH K S",
+        "score": -79.03862326659137,
+        "per": 0.35135135135135137
+      }
+    ]
+  },
+  {
+    "trial_idx": 89,
+    "target_phonemes": "Y UW V SIL G AA T SIL N OW SIL B IH Z N AH S SIL AH P SIL HH IY R SIL",
+    "greedy_per": 0.24,
+    "top1_per": 0.32,
+    "oracle_per": 0.32,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "V G AA T N OW B IH Z N AH S Z SIL AH P HH IY R",
+        "score": -72.87288211110085,
+        "per": 0.32
+      }
+    ]
+  },
+  {
+    "trial_idx": 90,
+    "target_phonemes": "DH AH SIL B UW S T SIL IH Z SIL HH EH L P F AH L SIL B AH T SIL IH N AE D AH K W AH T SIL",
+    "greedy_per": 0.24242424242424243,
+    "top1_per": 0.30303030303030304,
+    "oracle_per": 0.30303030303030304,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH B UW S T IH Z HH EH L P AH L B AH T AE N AE D AH K W T",
+        "score": -70.3274196825565,
+        "per": 0.30303030303030304
+      }
+    ]
+  },
+  {
+    "trial_idx": 91,
+    "target_phonemes": "P IY P AH L SIL N IY D SIL M AO R SIL CH OY S AH Z SIL",
+    "greedy_per": 0.05,
+    "top1_per": 0.15,
+    "oracle_per": 0.15,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "P IY P AH L N IY D M AO R CH OY S AH Z SIL",
+        "score": -52.64571567106745,
+        "per": 0.15
+      }
+    ]
+  },
+  {
+    "trial_idx": 92,
+    "target_phonemes": "AH T AA M IH K SIL EH N ER JH IY SIL L EH V AH L Z SIL",
+    "greedy_per": 0.15,
+    "top1_per": 0.15,
+    "oracle_per": 0.15,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "AH T AA M IH K EH N ER JH IY L EH V AH L Z",
+        "score": -35.44135053217278,
+        "per": 0.15
+      }
+    ]
+  },
+  {
+    "trial_idx": 93,
+    "target_phonemes": "T UW SIL K EY OW SIL HH IH M SIL AH N D SIL M EY B IY SIL AO R SIL M EY B IY SIL N AA T SIL K IH L SIL",
+    "greedy_per": 0.1111111111111111,
+    "top1_per": 0.25,
+    "oracle_per": 0.25,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "T K EY OW HH IH M SIL AH N D M EY B IY Z AO R M EY B IY N AA T K L SIL",
+        "score": -111.5806376407053,
+        "per": 0.25
+      }
+    ]
+  },
+  {
+    "trial_idx": 94,
+    "target_phonemes": "DH EY SIL W ER SIL SH AE T ER D SIL",
+    "greedy_per": 0.08333333333333333,
+    "top1_per": 0.25,
+    "oracle_per": 0.25,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "EY W ER SIL SH AE T ER D",
+        "score": -44.771117062773286,
+        "per": 0.25
+      }
+    ]
+  },
+  {
+    "trial_idx": 95,
+    "target_phonemes": "Y AE SIL B AH T SIL W AH T ER SIL W IY SIL G AA N AH SIL IY T SIL",
+    "greedy_per": 0.21739130434782608,
+    "top1_per": 0.43478260869565216,
+    "oracle_per": 0.43478260869565216,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IY B AH T W T ER SIL W IY Z G AA N ER T",
+        "score": -88.18927495805892,
+        "per": 0.43478260869565216
+      }
+    ]
+  },
+  {
+    "trial_idx": 96,
+    "target_phonemes": "B IH F AO R SIL M AH CH SIL L AO NG G ER SIL DH AH SIL M ER IY N SIL K W AY AH T AH D SIL D AW N SIL",
+    "greedy_per": 0.1388888888888889,
+    "top1_per": 0.2777777777777778,
+    "oracle_per": 0.2777777777777778,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "P IH F AO R M AH CH L AO NG G ER IY DH AH M M IY N Z K W AY T AH D AW N SIL",
+        "score": -99.03373013800541,
+        "per": 0.2777777777777778
+      }
+    ]
+  },
+  {
+    "trial_idx": 97,
+    "target_phonemes": "DH EH N SIL DH AH SIL K AO R IY AA G R AH F ER SIL M AH S T SIL AA R B AH T R EY T SIL",
+    "greedy_per": 0.28125,
+    "top1_per": 0.34375,
+    "oracle_per": 0.34375,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "IH N SIL DH AH SIL K R AA K AH F ER IY M AH S T AA R B AH R T",
+        "score": -80.00231597351416,
+        "per": 0.34375
+      }
+    ]
+  },
+  {
+    "trial_idx": 98,
+    "target_phonemes": "DH AH SIL S ER JH AH N SIL K AE R IY D SIL AH SIL K EY JH SIL AH V SIL L AY V SIL P IH JH AH N Z SIL",
+    "greedy_per": 0.22857142857142856,
+    "top1_per": 0.37142857142857144,
+    "oracle_per": 0.37142857142857144,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "DH AH S ER R AH N S K EY D Z AH K EY JH AH V L AY V SIL IH AH N Z",
+        "score": -118.74362555367205,
+        "per": 0.37142857142857144
+      }
+    ]
+  },
+  {
+    "trial_idx": 99,
+    "target_phonemes": "AH SIL N UW SIL AO R D ER SIL IH Z SIL TH R AH S T IH NG SIL IH T S EH L F SIL IH N T UW SIL B IY IH NG SIL",
+    "greedy_per": 0.15789473684210525,
+    "top1_per": 0.3684210526315789,
+    "oracle_per": 0.3684210526315789,
+    "n_candidates": 1,
+    "candidates": [
+      {
+        "phonemes": "N UW AO R ER IH Z S TH IH NG T IH T S EH L F T IH N T UW B IY IH NG",
+        "score": -100.80488139411909,
+        "per": 0.3684210526315789
+      }
+    ]
+  }
+]

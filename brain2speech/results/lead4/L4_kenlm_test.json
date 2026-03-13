@@ -1,0 +1,154 @@
+{
+  "stage": "kenlm",
+  "split": "within-day",
+  "model_type": "enhanced",
+  "n_trials": 20,
+  "mean_greedy_per": 0.23652987093118227,
+  "mean_per": 0.22995907697668966,
+  "mean_wer": null,
+  "per_improvement_abs": 0.006570793954492615,
+  "per_improvement_rel": 0.027779975225219525,
+  "elapsed_seconds": 11.250477313995361,
+  "results": [
+    {
+      "trial": 0,
+      "greedy_per": 0.47692307692307695,
+      "final_per": 0.46153846153846156,
+      "pred_phonemes": "DH AH SIL B IH G SIL S IH K S T R AH B ER AY SIL T UW SIL IH SIL L AA T AH M SIL G AE N JH SIL HH AE Z SIL B IH N SIL AH B EH T L IY SIL D IH S AH B AH L SIL",
+      "target_phonemes": "DH IH S SIL B IH G SIL F L EH K S AH B AH L SIL V OY S SIL W IH DH SIL AH N K AA M AH N SIL R EY N JH SIL HH AE Z SIL B IH N SIL S UW P ER B L IY SIL D IH S AH P L AH N D SIL"
+    },
+    {
+      "trial": 1,
+      "greedy_per": 0.0,
+      "final_per": 0.0,
+      "pred_phonemes": "SH IY SIL IH Z SIL TH IH N ER SIL DH AE N SIL AY SIL AE M SIL",
+      "target_phonemes": "SH IY SIL IH Z SIL TH IH N ER SIL DH AE N SIL AY SIL AE M SIL"
+    },
+    {
+      "trial": 2,
+      "greedy_per": 0.07894736842105263,
+      "final_per": 0.07894736842105263,
+      "pred_phonemes": "K AO L SIL AE N SIL AE M B AH L AH N S SIL F AO R SIL M EH D AH K AH L SIL IH S IH S AH N S SIL",
+      "target_phonemes": "K AO L SIL AE N SIL AE M B Y AH L AH N S SIL F AO R SIL M EH D AH K AH L SIL AH S IH S T AH N S SIL"
+    },
+    {
+      "trial": 3,
+      "greedy_per": 0.4576271186440678,
+      "final_per": 0.4576271186440678,
+      "pred_phonemes": "AO R AH K AH L IY SIL AH N AH V SIL IH N SIL IH S IH AH N T SIL T AH CH S P ER ER V SIL V IH ZH ER Z SIL W ER SIL AH SIL L EH K T IY SIL",
+      "target_phonemes": "AY R AA N IH K L IY SIL IH N AH F SIL IH N SIL DH IH S SIL IH N S T AH N S SIL S AH CH SIL P ER S IH N IH L SIL V ER CH UW Z SIL W ER SIL AH SIL L AH G ZH ER IY SIL"
+    },
+    {
+      "trial": 4,
+      "greedy_per": 0.15151515151515152,
+      "final_per": 0.15151515151515152,
+      "pred_phonemes": "W AH T SIL HH AE P AH N Z SIL AE F T ER SIL UW T ER Z SIL F AH N SIL L EH ZH ER SIL",
+      "target_phonemes": "W AH T SIL HH AE P AH N Z SIL AE F T ER SIL L UW T ER Z SIL F AY N D SIL T R EH ZH ER SIL"
+    },
+    {
+      "trial": 5,
+      "greedy_per": 0.029411764705882353,
+      "final_per": 0.029411764705882353,
+      "pred_phonemes": "B IH G SIL DH AE T SIL G AA R D SIL F AO R SIL W AH N SIL G AE L AH N SIL AH V SIL G AE S SIL",
+      "target_phonemes": "B EH G SIL DH AE T SIL G AA R D SIL F AO R SIL W AH N SIL G AE L AH N SIL AH V SIL G AE S SIL"
+    },
+    {
+      "trial": 6,
+      "greedy_per": 0.16666666666666666,
+      "final_per": 0.16666666666666666,
+      "pred_phonemes": "DH AH SIL IH R AH S T SIL S IH NG D AO G AO G SIL M EY SIL IY T SIL B IY SIL W IH DH IH N SIL W AO K IH NG SIL D EH S AH N S SIL",
+      "target_phonemes": "DH AH SIL N IH R AH S T SIL S IH N AH G AO G SIL M EY SIL N AA T SIL B IY SIL W IH DH IH N SIL W AO K IH NG SIL D IH S T AH N S SIL"
+    },
+    {
+      "trial": 7,
+      "greedy_per": 0.4794520547945205,
+      "final_per": 0.4931506849315068,
+      "pred_phonemes": "L EH K AH N T SIL M AH CH SIL B AO R SIL IH AH G SIL K AH M P UW ZH AH N SIL Y IH R Z SIL IH L IY SIL AE N SIL IH N AH V IH V AH T AH L SIL P AA AH M SIL",
+      "target_phonemes": "S AH L EH K T IH NG SIL B AH NG K S SIL B AY SIL EH K AH N AA M IH K SIL K AH M P EH R AH S AH N SIL IH Z SIL Y UW ZH AH W AH L IY SIL AE N SIL IH N D AH V IH JH AH W AH L SIL P R AA B L AH M SIL"
+    },
+    {
+      "trial": 8,
+      "greedy_per": 0.3448275862068966,
+      "final_per": 0.27586206896551724,
+      "pred_phonemes": "W IY K SIL HH ER CH SIL T UW SIL DH AH SIL M EH TH SIL W ER SH IH P SIL IH N SIL",
+      "target_phonemes": "W IH CH SIL CH ER CH SIL D UW SIL DH AH SIL S M IH TH S SIL W ER SH AH P SIL IH N SIL"
+    },
+    {
+      "trial": 9,
+      "greedy_per": 0.4375,
+      "final_per": 0.4375,
+      "pred_phonemes": "AW ER AE K CH AH S SIL IH Z SIL DH IH S SIL S AH B OY SIL AE K S AH L IY SIL",
+      "target_phonemes": "HH AW SIL EY N CH AH N T SIL IH Z SIL DH IH S SIL S AH B W EY SIL EH S K AH L EY T ER SIL"
+    },
+    {
+      "trial": 10,
+      "greedy_per": 0.125,
+      "final_per": 0.075,
+      "pred_phonemes": "IH T S SIL F AH N SIL T UW SIL R AA S SIL M AA R SH M EH L Z SIL AA N SIL AH SIL G AE S SIL B ER N ER SIL",
+      "target_phonemes": "IH T S SIL F AH N SIL T UW SIL R OW S T SIL M AA R SH M EH L OW Z SIL AA N SIL AH SIL G AE S SIL B ER N ER SIL"
+    },
+    {
+      "trial": 11,
+      "greedy_per": 0.1794871794871795,
+      "final_per": 0.15384615384615385,
+      "pred_phonemes": "P IY CH IY ER Z SIL AA R SIL K AH N V IY N Y AH N T SIL F AO R SIL AH SIL K UH K SIL L AH N CH SIL",
+      "target_phonemes": "P IY T S ER IY AH Z SIL AA R SIL K AH N V IY N Y AH N T SIL F AO R SIL AH SIL K W IH K SIL L AH N CH SIL"
+    },
+    {
+      "trial": 12,
+      "greedy_per": 0.41935483870967744,
+      "final_per": 0.41935483870967744,
+      "pred_phonemes": "SH IY SIL Y UW UW Z SIL M AO R SIL DH EH M SIL IH N T AH N AH L IY SIL",
+      "target_phonemes": "SH IY SIL Y UW S IH Z SIL B OW TH SIL N EY M Z SIL IH N T ER CH EY N JH AH B L IY SIL"
+    },
+    {
+      "trial": 13,
+      "greedy_per": 0.07894736842105263,
+      "final_per": 0.05263157894736842,
+      "pred_phonemes": "L IH F SIL D IH S P L EY SIL W AA Z SIL M IH S P L EY S T SIL AA N SIL DH AH SIL S K R IY N SIL",
+      "target_phonemes": "K L IH F S SIL D IH S P L EY SIL W AA Z SIL M IH S P L EY S T SIL AA N SIL DH AH SIL S K R IY N SIL"
+    },
+    {
+      "trial": 14,
+      "greedy_per": 0.32,
+      "final_per": 0.32,
+      "pred_phonemes": "S AH M P ER Z SIL AH CH IY P ER Z SIL W IH DH SIL AH SIL TH IH P AH L SIL N IY T AH L SIL AH N D SIL TH R IY D SIL",
+      "target_phonemes": "S IY M S T R AH S AH Z SIL AH T AE CH SIL Z IH P ER Z SIL W IH DH SIL AH SIL TH IH M B AH L SIL N IY D AH L SIL AH N D SIL TH R EH D SIL"
+    },
+    {
+      "trial": 15,
+      "greedy_per": 0.29411764705882354,
+      "final_per": 0.29411764705882354,
+      "pred_phonemes": "HH IY SIL CH OW L D SIL AH B AW T SIL AE T SIL IH F SIL IH T SIL W ER SIL B UH K AH N SIL",
+      "target_phonemes": "HH IH Z SIL SH OW L D ER SIL F EH L T SIL AE Z SIL IH F SIL IH T SIL W ER SIL B R OW K AH N SIL"
+    },
+    {
+      "trial": 16,
+      "greedy_per": 0.09375,
+      "final_per": 0.125,
+      "pred_phonemes": "R EH D IH NG SIL IH N SIL P UH SIL L AY T SIL G IH V SIL Y UW SIL AY S T IY N SIL",
+      "target_phonemes": "R EH D IH NG SIL IH N SIL P UH R SIL L AY T SIL G IH V Z SIL Y UW SIL AY S T R EY N SIL"
+    },
+    {
+      "trial": 17,
+      "greedy_per": 0.14285714285714285,
+      "final_per": 0.20408163265306123,
+      "pred_phonemes": "S AH M W EY SIL EH K S K L EY SIL R IH N F AO R S SIL S IY M SIL W IH DH SIL AH SIL K OY L SIL AH V SIL L EY SIL",
+      "target_phonemes": "T R IH M SIL AH W EY SIL EH K S EH S SIL K L EY SIL R IY IH N F AO R S SIL S IY M SIL W IH DH SIL AH SIL K OY L SIL AH V SIL K L EY SIL"
+    },
+    {
+      "trial": 18,
+      "greedy_per": 0.358974358974359,
+      "final_per": 0.3076923076923077,
+      "pred_phonemes": "DH EY SIL M IH Z AH N SIL R AY F AH L AO NG SIL F EY N Z SIL AH N D SIL K AH M P IY N AH N S SIL",
+      "target_phonemes": "DH EY SIL R IH M EY N D SIL L AY F L AO NG SIL F R EH N D Z SIL AH N D SIL K AH M P AE N Y AH N Z SIL"
+    },
+    {
+      "trial": 19,
+      "greedy_per": 0.09523809523809523,
+      "final_per": 0.09523809523809523,
+      "pred_phonemes": "DH AE T SIL D AY G AE M SIL M EY K S EH N S SIL OW N L IY SIL AE F T ER SIL M AH CH SIL S T AH D IY SIL",
+      "target_phonemes": "DH AE T SIL D AY AH G R AE M SIL M EY K S SIL S EH N S SIL OW N L IY SIL AE F T ER SIL M AH CH SIL S T AH D IY SIL"
+    }
+  ]
+}
