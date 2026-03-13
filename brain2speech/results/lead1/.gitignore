@@ -1,0 +1,3 @@
+# Model checkpoints are too large for git (~400MB each)
+# Store on shared filesystem at: /mnt/home/vincent.wilmet/bci/brain2speech/results/lead1/
+*.pt

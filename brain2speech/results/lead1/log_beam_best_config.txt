@@ -1,0 +1,43 @@
+Device: cuda:0
+
+[1] Loading data...
+  Loading 2000/8780 (8.0s)...
+  Loading 4000/8780 (14.0s)...
+  Loading 6000/8780 (19.9s)...
+  Loading 8000/8780 (25.8s)...
+Loaded 8780 trials (28.1s) — raw 256D, avg 315 frames
+  Trials: 6942 train, 878 val, 960 test
+
+[2] Training 3-gram phoneme LM...
+  LM trained: order=3, 6942 sequences, 583326 n-grams, vocab=40
+
+[3] Loading 1 model(s)...
+  Loaded brain2speech/results/lead1/L1.3_cibr_withinday_best.pt: BiGRU h=1024 k=32 (98.3M), val=20.4%, test=20.9%
+
+[4] Running inference...
+  val: 878 trials
+  test: 960 trials
+
+===========================================================================
+BEAM SEARCH DECODING — L1.3_cibr_withinday_best
+===========================================================================
+    200/878, PER=0.2478, 21.0s
+    400/878, PER=0.2146, 35.6s
+    600/878, PER=0.2042, 49.2s
+    800/878, PER=0.1971, 62.8s
+
+  VAL:
+    Greedy:                    0.2038 (20.4%) [0.0s]
+    Beam(w=10, α=0.3): 0.1972 (19.7%) [68.0s]
+    Improvement: +3.2% relative
+    200/960, PER=0.2795, 22.1s
+    400/960, PER=0.2291, 36.8s
+    600/960, PER=0.2174, 50.4s
+    800/960, PER=0.2034, 64.2s
+
+  TEST:
+    Greedy:                    0.2097 (21.0%) [0.0s]
+    Beam(w=10, α=0.3): 0.2014 (20.1%) [74.4s]
+    Improvement: +4.0% relative
+
+Done.

@@ -1,0 +1,54 @@
+Device: cuda:0
+
+[1] Loading data...
+  Loading 2000/8780 (7.9s)...
+  Loading 4000/8780 (13.9s)...
+  Loading 6000/8780 (19.7s)...
+  Loading 8000/8780 (25.5s)...
+Loaded 8780 trials (27.8s) — raw 256D, avg 315 frames
+  Trials: 6942 train, 878 val, 960 test
+
+[2] Training 3-gram phoneme LM...
+  LM trained: order=3, 6942 sequences, 583326 n-grams, vocab=40
+
+[3] Loading 4 model(s)...
+  Loaded brain2speech/results/lead1/L1.3_cibr_withinday_best.pt: BiGRU h=1024 k=32 (98.3M), val=20.4%, test=20.9%
+  Loaded brain2speech/results/lead1/L1.7b_seed123_best.pt: BiGRU h=1024 k=32 (98.3M), val=20.7%, test=21.3%
+  Loaded brain2speech/results/lead1/L1.7b_seed456_best.pt: BiGRU h=1024 k=32 (98.3M), val=20.6%, test=20.7%
+  Loaded brain2speech/results/lead1/L1.7b_seed789_best.pt: BiGRU h=1024 k=32 (98.3M), val=20.6%, test=21.4%
+
+[4] Running inference...
+  val: 878 trials
+    Model 1/4...
+    Model 2/4...
+    Model 3/4...
+    Model 4/4...
+  test: 960 trials
+    Model 1/4...
+    Model 2/4...
+    Model 3/4...
+    Model 4/4...
+
+===========================================================================
+BEAM SEARCH DECODING — 4-MODEL ENSEMBLE
+===========================================================================
+    200/878, PER=0.2628, 20.5s
+    400/878, PER=0.2282, 34.8s
+    600/878, PER=0.2162, 48.5s
+    800/878, PER=0.2065, 62.2s
+
+  VAL:
+    Greedy:                    0.2139 (21.4%) [0.0s]
+    Beam(w=10, α=0.3): 0.2064 (20.6%) [67.4s]
+    Improvement: +3.5% relative
+    200/960, PER=0.2976, 22.0s
+    400/960, PER=0.2395, 36.7s
+    600/960, PER=0.2244, 50.2s
+    800/960, PER=0.2082, 63.9s
+
+  TEST:
+    Greedy:                    0.2161 (21.6%) [0.0s]
+    Beam(w=10, α=0.3): 0.2057 (20.6%) [74.1s]
+    Improvement: +4.8% relative
+
+Done.
