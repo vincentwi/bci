@@ -1035,7 +1035,169 @@ python3 -u brain2speech/eval_beam_search.py \
 
 ---
 
-## 22. Limitations & Future Work
+## 22. Model Weights & Storage
+
+### Checkpoint Inventory
+
+All 31 checkpoints are stored locally. The `.gitignore` excludes `*.pt` files since they're too large for Git (~375MB each, ~11GB total).
+
+#### Essential Ensemble Checkpoints (5 models, 1.72GB)
+
+These are the only checkpoints needed to reproduce the best 17.8% test PER result:
+
+| File | Size | Config | Val PER | Test PER |
+|------|------|--------|---------|----------|
+| `L1.5h_cibr_cosine_20k_best.pt` | 375MB | CIBR cos20K h=1024 s=42 | 19.3% | 20.2% |
+| `L1.7c_cos20k_seed42_best.pt` | 375MB | CIBR cos20K h=1024 s=42 | 19.5% | 20.2% |
+| `L1.7c_cos20k_seed123_best.pt` | 375MB | CIBR cos20K h=1024 s=123 | 19.5% | 20.2% |
+| `L1.7c_cos20k_seed789_best.pt` | 375MB | CIBR cos20K h=1024 s=789 | 19.3% | 20.3% |
+| `L1.8a_h768_cos20k_best.pt` | 220MB | CIBR cos20K h=768 s=42 | 19.1% | 19.7% |
+
+#### All Checkpoints (31 models, ~11GB)
+
+| File | Size | Description |
+|------|------|-------------|
+| `L1.0_sanity_best.pt` | 40MB | Sanity check (50 trials, 2 epochs) |
+| `L1.1_paper_exact_best.pt` | 44MB | Paper UniGRU (cross-session split) |
+| `L1.1c_paper_withinday_best.pt` | 44MB | Paper UniGRU (within-day split) |
+| `L1.2_cffan_best.pt` | 375MB | cffan BiGRU (cross-session) |
+| `L1.2b_cffan_withinday_best.pt` | 375MB | cffan BiGRU (within-day) |
+| `L1.3_cibr_withinday_best.pt` | 375MB | CIBR SGD step decay |
+| `L1.4_linderman_withinday_best.pt` | 99MB | Linderman h=512 post-RNN |
+| `L1.5_enhanced_withinday_best.pt` | 377MB | Enhanced (all techniques) |
+| `L1.5a_cibr_k14_best.pt` | 357MB | CIBR k=14 ablation |
+| `L1.5b_cibr_h768_best.pt` | 220MB | h=768 step decay |
+| `L1.5c_cibr_h1280_best.pt` | 572MB | h=1280 step decay |
+| `L1.5d_cibr_noise1.0_best.pt` | 375MB | noise=1.0 ablation |
+| `L1.5e_cibr_layers7_best.pt` | 519MB | 7-layer (catastrophic) |
+| `L1.5f_cibr_cosine_best.pt` | 375MB | Cosine 100K |
+| `L1.5g_cibr_cosine_long_best.pt` | 375MB | Cosine 200K |
+| `L1.5h_cibr_cosine_20k_best.pt` | 375MB | **Best single model** |
+| `L1.5i_cibr_layers3_best.pt` | 231MB | 3-layer ablation |
+| `L1.6_cibr_suptcon_best.pt` | 375MB | supTCon auxiliary loss |
+| `L1.7_seed{123,456,789}_best.pt` | 375MB ea | Step decay seeds |
+| `L1.7b_seed{123,456,789}_best.pt` | 375MB ea | Step decay seeds v2 |
+| `L1.7c_cos20k_seed{42,123,456,789}_best.pt` | 375MB ea | **Cosine 20K seeds** |
+| `L1.8a_h768_cos20k_best.pt` | 220MB | **h=768 diverse model** |
+| `L1.8b_adam_cos20k_best.pt` | 375MB | Adam cosine (failed) |
+| `L1.8c_h1280_cos20k_best.pt` | 573MB | h=1280 cosine |
+
+### Data Files Required
+
+| File | Size | Location | Description |
+|------|------|----------|-------------|
+| `sentences_paper_256d.h5` | 1.6GB | `/mnt/home/vincent.wilmet/brain2speech/data/` | Primary training data (256D, 8,780 trials) |
+| `sentences_paper_1280d.h5` | 4.6GB | `/mnt/home/vincent.wilmet/brain2speech/data/` | Full 1280D features (not used in best config) |
+| `sentences.tar.gz` | 14.8GB | `/mnt/home/vincent.wilmet/data/` | Raw sentences data archive |
+| `competitionData.tar.gz` | 3.7GB | `/mnt/home/vincent.wilmet/data/` | Competition evaluation data |
+| `languageModel.tar.gz` | 14.1GB | `/mnt/home/vincent.wilmet/data/` | Language model resources (KenLM, vocab) |
+
+### Uploading Checkpoints to Shared Storage
+
+The checkpoints should be stored at `/mnt/home/vincent.wilmet/data/lead1_checkpoints/` for persistence and cross-lead access.
+
+#### Upload All Checkpoints
+
+```bash
+# Create storage directory
+mkdir -p /mnt/home/vincent.wilmet/data/lead1_checkpoints
+
+# Copy all checkpoints (~11GB)
+cp /mnt/home/vincent.wilmet/bci/.claude/worktrees/rbl1/brain2speech/results/lead1/*.pt \
+   /mnt/home/vincent.wilmet/data/lead1_checkpoints/
+
+# Verify
+ls -lh /mnt/home/vincent.wilmet/data/lead1_checkpoints/
+echo "Total size:"
+du -sh /mnt/home/vincent.wilmet/data/lead1_checkpoints/
+```
+
+#### Upload Essential Ensemble Only (~1.7GB)
+
+```bash
+# Create storage directory
+mkdir -p /mnt/home/vincent.wilmet/data/lead1_checkpoints/ensemble
+
+# Copy only the 5 ensemble models
+for f in L1.5h_cibr_cosine_20k_best.pt \
+         L1.7c_cos20k_seed42_best.pt \
+         L1.7c_cos20k_seed123_best.pt \
+         L1.7c_cos20k_seed789_best.pt \
+         L1.8a_h768_cos20k_best.pt; do
+    cp /mnt/home/vincent.wilmet/bci/.claude/worktrees/rbl1/brain2speech/results/lead1/$f \
+       /mnt/home/vincent.wilmet/data/lead1_checkpoints/ensemble/
+done
+
+# Verify
+ls -lh /mnt/home/vincent.wilmet/data/lead1_checkpoints/ensemble/
+```
+
+#### Copy JSON Results (for reproducibility)
+
+```bash
+# Copy all experiment JSONs and logs
+mkdir -p /mnt/home/vincent.wilmet/data/lead1_checkpoints/results
+cp /mnt/home/vincent.wilmet/bci/.claude/worktrees/rbl1/brain2speech/results/lead1/*.json \
+   /mnt/home/vincent.wilmet/data/lead1_checkpoints/results/
+cp /mnt/home/vincent.wilmet/bci/.claude/worktrees/rbl1/brain2speech/results/lead1/*.txt \
+   /mnt/home/vincent.wilmet/data/lead1_checkpoints/results/
+```
+
+#### Loading Checkpoints for Inference
+
+```python
+import torch
+from brain2speech.lead1_train_gru_v2 import EnhancedGRU
+
+# Load a single model
+checkpoint = torch.load('L1.5h_cibr_cosine_20k_best.pt', map_location='cuda:0')
+hp = checkpoint['hyperparams']
+
+model = EnhancedGRU(
+    input_dim=hp['input_dim'],
+    n_classes=hp['n_classes'],
+    hidden=hp['hidden'],
+    n_layers=hp['n_layers'],
+    dropout=hp['dropout'],
+    n_sessions=hp['n_sessions'],
+    kernel_size=hp['kernel_size'],
+    stride=hp['stride'],
+    day_hidden=hp['day_hidden'],
+    bidirectional=hp['bidirectional'] == 'true',
+    ortho_init=hp.get('ortho_init', False),
+)
+model.load_state_dict(checkpoint['model_state_dict'])
+model.eval()
+
+# Load ensemble (5 models)
+checkpoint_paths = [
+    'L1.5h_cibr_cosine_20k_best.pt',
+    'L1.7c_cos20k_seed42_best.pt',
+    'L1.7c_cos20k_seed123_best.pt',
+    'L1.7c_cos20k_seed789_best.pt',
+    'L1.8a_h768_cos20k_best.pt',
+]
+models = []
+for path in checkpoint_paths:
+    ckpt = torch.load(path, map_location='cuda:0')
+    hp = ckpt['hyperparams']
+    m = EnhancedGRU(
+        input_dim=hp['input_dim'], n_classes=hp['n_classes'],
+        hidden=hp['hidden'], n_layers=hp['n_layers'],
+        dropout=hp['dropout'], n_sessions=hp['n_sessions'],
+        kernel_size=hp['kernel_size'], stride=hp['stride'],
+        day_hidden=hp['day_hidden'],
+        bidirectional=hp['bidirectional'] == 'true',
+        ortho_init=hp.get('ortho_init', False),
+    )
+    m.load_state_dict(ckpt['model_state_dict'])
+    m.eval()
+    models.append(m)
+```
+
+---
+
+## 23. Limitations & Future Work
 
 ### Current Limitations
 
