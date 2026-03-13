@@ -1,0 +1,135 @@
+{
+    "_comment": "Lead 4 CTC ensemble: 10 diverse models (5 cffan Adam + 5 cibr SGD), all kernel=32",
+    "models": [
+        {
+            "name": "L4_cffan_baseline_s42",
+            "path": "brain2speech/results/lead4/L4_cffan_baseline.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s42",
+            "path": "brain2speech/results/lead4/L4_cffan_s42_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s43",
+            "path": "brain2speech/results/lead4/L4_cffan_s43_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s44",
+            "path": "brain2speech/results/lead4/L4_cffan_s44_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cffan_s45",
+            "path": "brain2speech/results/lead4/L4_cffan_s45_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": false
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s42",
+            "path": "brain2speech/results/lead4/L4_cibr_s42_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s43",
+            "path": "brain2speech/results/lead4/L4_cibr_s43_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s44",
+            "path": "brain2speech/results/lead4/L4_cibr_s44_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s45",
+            "path": "brain2speech/results/lead4/L4_cibr_s45_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "weight": 1.0
+        },
+        {
+            "name": "L4_cibr_s46",
+            "path": "brain2speech/results/lead4/L4_cibr_s46_best.pt",
+            "model_class": "EnhancedGRU",
+            "model_kwargs": {
+                "input_dim": 256, "n_classes": 41, "hidden": 1024,
+                "n_layers": 5, "dropout": 0.4, "n_sessions": 24,
+                "kernel_size": 32, "stride": 4, "bidirectional": true,
+                "day_hidden": 256, "use_post_rnn_head": false,
+                "use_speckled_mask": false, "ortho_init": true
+            },
+            "weight": 1.0
+        }
+    ]
+}
