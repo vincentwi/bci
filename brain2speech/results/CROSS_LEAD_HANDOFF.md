@@ -109,33 +109,35 @@ CUDA_VISIBLE_DEVICES=0 python brain2speech/lead4_full_pipeline.py \
 
 **Why:** The OPT-6.7B rescoring failed because phoneme→word conversion via CMUdict reverse lookup produces garbage. The Willett paper uses WFST (T-L-G) decoding to produce valid word sequences directly.
 
-**Data now available:**
+**Data now available (EXTRACTED by Lead 1):**
 ```
-/mnt/home/vincent.wilmet/data/languageModel/   ← being extracted now
+/mnt/home/vincent.wilmet/data/languageModel/
+├── TLG.fst          (8.8GB) — READY TO USE: pre-composed T∘L∘G WFST decoder
+├── LG.fst           (8.8GB) — L∘G without CTC topology
+├── lexicon_numbers.txt (3.2MB) — 127K word→phoneme-index mappings
+├── tokens.txt        — Token index mapping (Kaldi-style: <blk>=1, SIL=2, ...)
+└── units.txt         — Phoneme index mapping
 ```
 
-This should contain:
-- Word-level KenLM models (.arpa or .bin)
-- Lexicon (L.fst or phoneme→word mapping)
-- Vocabulary file
+**The pre-composed TLG.fst is the Willett paper's actual decoder.** No need to build from scratch.
 
 **Steps:**
 
-1. **Check extracted languageModel contents:**
-```bash
-ls -la /mnt/home/vincent.wilmet/data/languageModel/
-find /mnt/home/vincent.wilmet/data/languageModel/ -name "*.arpa" -o -name "*.bin" -o -name "*.fst" -o -name "*.txt" | head -20
-```
+1. **Map CTC logits to TLG token indices:**
+   - Our models output 41 classes (index 0-39 = phonemes, 40 = blank)
+   - TLG.fst expects Kaldi tokens: `<blk>=1, SIL=2, AA=3, ...`
+   - Build a permutation matrix to remap columns of log_probs before WFST decode
+   - Check `tokens.txt` vs `config.py` ordering carefully
 
-2. **Build WFST decoder:**
-   - Code exists: `brain2speech/lead4_build_wfst.py` (23KB)
-   - Needs: T.fst (CTC topology), L.fst (lexicon), G.fst (word LM)
-   - Compose: T ∘ L ∘ G → TLG.fst
-   - Decode: shortest path through TLG given acoustic scores
+2. **Decode with TLG.fst:**
+   - Use `lead4_build_wfst.py`'s decoder (already has OpenFST code)
+   - Or use `kaldi`/`k2`/`torchaudio` WFST decoder if available
+   - Input: remapped log_probs (T×41 → T×41 with columns reordered)
+   - Output: word sequences (valid English!)
 
 3. **Generate word-level N-best lists:**
-   - Instead of phoneme beam → CMUdict lookup, use WFST to directly produce word sequences
-   - This gives valid English word sequences for OPT rescoring
+   - Instead of phoneme beam → CMUdict lookup, WFST directly produces word sequences
+   - This gives valid English for OPT rescoring (fixing the root cause of OPT failure)
 
 4. **Re-run OPT-6.7B rescoring on valid word N-best:**
 ```bash
@@ -356,11 +358,36 @@ No lead blocks any other. Lead 2 and Lead 4 can run in parallel starting now.
 ### Data Files
 | Path | Size | Status | Used By |
 |------|------|--------|---------|
-| `/mnt/home/vincent.wilmet/brain2speech/data/sentences_paper_256d.h5` | 1.6GB | EXISTS | All leads |
-| `/mnt/home/vincent.wilmet/data/languageModel/` | ~14GB | EXTRACTING NOW | Lead 4 (WFST, word KenLM) |
-| `/mnt/home/vincent.wilmet/data/sentences/` | ~14GB | EXTRACTING NOW | Lead 2 (raw .mat files if needed) |
+| `/mnt/home/vincent.wilmet/brain2speech/data/sentences_paper_256d.h5` | 1.6GB | EXISTS | All leads (training data) |
+| `/mnt/home/vincent.wilmet/data/languageModel/` | 18GB | **EXTRACTED** | Lead 4 (WFST word-level decoding) |
+| `/mnt/home/vincent.wilmet/data/sentences/` | 14GB | **EXTRACTED** | Lead 2 (24 raw .mat files) |
 | `/mnt/home/vincent.wilmet/data/competitionData.tar.gz` | 3.7GB | Partially extracted to `docs/data/dryad/` | Lead 4 (eval data) |
 | `brain2speech/data/phoneme_5gram.arpa` | In repo | EXISTS (lead4 branch) | Leads 2, 4 |
+
+### Language Model Directory (CRITICAL for Lead 4)
+```
+/mnt/home/vincent.wilmet/data/languageModel/
+├── TLG.fst          (8.8GB) — Pre-composed T∘L∘G WFST decoder (CTC topology × Lexicon × Word LM)
+├── LG.fst           (8.8GB) — L∘G (Lexicon × Word LM, without CTC topology)
+├── lexicon_numbers.txt (3.2MB) — Word→phoneme-index mapping (127K words)
+├── tokens.txt        (335B) — CTC token list (<eps>=0, <blk>=1, SIL=2, AA=3, ..., ZH=40)
+└── units.txt         (209B) — Phoneme→index mapping (AA=1, ..., ZH=39)
+```
+
+**IMPORTANT for Lead 4:** The `tokens.txt` mapping is DIFFERENT from Lead 1/4's `config.py` mapping!
+- `tokens.txt`: `<blk>=1, SIL=2, AA=3, ...` (Kaldi-style, 1-indexed)
+- `config.py`: `B=0, CH=1, SIL=2, D=3, ...` (0-indexed, different order)
+- Lead 4 must build an index remapping when interfacing with TLG.fst
+
+### Raw Sentences Data
+```
+/mnt/home/vincent.wilmet/data/sentences/
+├── t12.2022.04.28_sentences.mat  (744MB)
+├── t12.2022.05.05_sentences.mat  (867MB)
+├── ... (24 sessions total)
+└── t12.2022.11.10_sentences.mat
+```
+These are the raw MATLAB files with neural features, phoneme labels, and sentence text.
 
 ### Checkpoints
 | Path | Models | Size | Quality |
